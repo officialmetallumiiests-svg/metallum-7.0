@@ -23,11 +23,17 @@ app.use(cors({
 }));
 app.use(express.json());
 
+// Trust proxy (Required for Render/Vercel/Heroku to pass secure cookies)
+app.set('trust proxy', 1);
+
 // Cookie Session
 app.use(
     cookieSession({
         maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-        keys: [process.env.COOKIE_KEY || 'default_secret_key']
+        keys: [process.env.COOKIE_KEY || 'default_secret_key'],
+        secure: process.env.NODE_ENV === 'production', // True in production
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // None for cross-site
+        httpOnly: true
     })
 );
 
