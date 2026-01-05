@@ -14,8 +14,10 @@ const registrationRoutes = require('./routes/registrationRoutes');
 const app = express();
 
 // Middleware
+const clientUrl = (process.env.CLIENT_URL || 'http://localhost:5173').trim().replace(/^['"]|['"]$/g, ""); // Sanitize env var
+
 app.use(cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173', // Allow frontend
+    origin: clientUrl, // Allow frontend
     methods: 'GET,POST,PUT,DELETE',
     credentials: true // Allow cookies
 }));
@@ -62,14 +64,14 @@ app.get(
     '/auth/google/callback',
     passport.authenticate('google'),
     (req, res) => {
-        res.redirect(`${process.env.CLIENT_URL || 'http://localhost:5173'}/`);
+        res.redirect(`${clientUrl}/`);
     }
 );
 
 app.get('/auth/logout', (req, res, next) => {
     req.logout((err) => {
         if (err) { return next(err); }
-        res.redirect(process.env.CLIENT_URL || 'http://localhost:5173');
+        res.redirect(clientUrl);
     });
 });
 
