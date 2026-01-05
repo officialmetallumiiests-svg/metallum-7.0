@@ -71,6 +71,7 @@ function EventsAll() {
           email: user.email,
           event: registerEvent.title
         }),
+        credentials: "include" // Send cookies
       });
 
       const data = await response.json();
