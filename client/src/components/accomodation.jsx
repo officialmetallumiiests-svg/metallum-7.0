@@ -133,7 +133,7 @@ function Accomodation() {
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white via-red-500 to-red-700 font-['Orbitron'] mb-2 tracking-tight drop-shadow-lg leading-tight">LOGIN REQUIRED</h2>
             <p className="text-gray-400 text-lg font-mono tracking-widest uppercase mb-8 max-w-md">Access Restricted. Please sign in to book accommodation.</p>
-            <a href="/auth/google" className="px-8 py-3 bg-red-600 text-white font-bold tracking-widest hover:scale-105 active:scale-95 transition-all duration-200 shadow-[0_0_30px_rgba(220,38,38,0.4)] hover:shadow-[0_0_50px_rgba(220,38,38,0.6)] skew-x-[-10deg] hover:skew-x-[-10deg] no-underline inline-block"><span className="block skew-x-[10deg]">LOGIN NOW</span></a>
+            <a href={`${import.meta.env.VITE_SERVER_URL}/auth/google`} className="px-8 py-3 bg-red-600 text-white font-bold tracking-widest hover:scale-105 active:scale-95 transition-all duration-200 shadow-[0_0_30px_rgba(220,38,38,0.4)] hover:shadow-[0_0_50px_rgba(220,38,38,0.6)] skew-x-[-10deg] hover:skew-x-[-10deg] no-underline inline-block"><span className="block skew-x-[10deg]">LOGIN NOW</span></a>
           </div>
         </div>
       )}

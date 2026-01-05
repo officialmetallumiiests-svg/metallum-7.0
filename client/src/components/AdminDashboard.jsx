@@ -21,7 +21,7 @@ const AdminDashboard = () => {
 
     const fetchRegistrations = async () => {
         try {
-            const response = await fetch('/api/register');
+            const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/register`);
             const data = await response.json();
 
             if (response.ok) {
@@ -66,7 +66,7 @@ const AdminDashboard = () => {
         if (!window.confirm("Are you sure you want to delete this registration?")) return;
 
         try {
-            const response = await fetch(`/api/register/${id}`, { method: 'DELETE' });
+            const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/register/${id}`, { method: 'DELETE' });
             if (response.ok) {
                 setRegistrations(registrations.filter(r => r._id !== id));
             } else {
@@ -90,7 +90,7 @@ const AdminDashboard = () => {
     const handleUpdate = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`/api/register/${editingReg._id}`, {
+            const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/register/${editingReg._id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(editFormData)
@@ -110,7 +110,7 @@ const AdminDashboard = () => {
 
     const handleStatusUpdate = async (id, newStatus) => {
         try {
-            const response = await fetch(`/api/register/${id}`, {
+            const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/register/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status: newStatus })

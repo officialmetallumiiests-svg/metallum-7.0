@@ -9,7 +9,7 @@ export const UserProvider = ({ children }) => {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await fetch("/auth/current_user");
+                const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/auth/current_user`);
                 if (response.ok) {
                     const text = await response.text();
                     const data = text ? JSON.parse(text) : null;

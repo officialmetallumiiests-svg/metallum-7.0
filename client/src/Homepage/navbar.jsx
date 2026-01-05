@@ -101,11 +101,11 @@ export default function Navbar() {
               </div>
               <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                 <li><a className="font-bold">{user.displayName}</a></li>
-                <li><a href="/auth/logout">Logout</a></li>
+                <li><a href={`${import.meta.env.VITE_SERVER_URL}/auth/logout`}>Logout</a></li>
               </ul>
             </div>
           ) : (
-            <a href="/auth/google" className="btn btn-primary btn-sm">
+            <a href={`${import.meta.env.VITE_SERVER_URL}/auth/google`} className="btn btn-primary btn-sm">
               Login
             </a>
           )}

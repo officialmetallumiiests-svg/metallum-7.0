@@ -60,7 +60,7 @@ function EventsAll() {
     }
 
     try {
-      const response = await fetch("/api/register", {
+      const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

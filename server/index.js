@@ -15,7 +15,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: 'http://localhost:5173', // Allow frontend
+    origin: process.env.CLIENT_URL || 'http://localhost:5173', // Allow frontend
     methods: 'GET,POST,PUT,DELETE',
     credentials: true // Allow cookies
 }));
@@ -62,14 +62,14 @@ app.get(
     '/auth/google/callback',
     passport.authenticate('google'),
     (req, res) => {
-        res.redirect('http://localhost:5173/');
+        res.redirect(`${process.env.CLIENT_URL || 'http://localhost:5173'}/`);
     }
 );
 
 app.get('/auth/logout', (req, res, next) => {
     req.logout((err) => {
         if (err) { return next(err); }
-        res.redirect('http://localhost:5173');
+        res.redirect(process.env.CLIENT_URL || 'http://localhost:5173');
     });
 });
 

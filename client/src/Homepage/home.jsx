@@ -145,7 +145,7 @@ export default function Home() {
             </Link>
 
             {!user && (
-              <a href="/auth/google" className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-200 transition">
+              <a href={`${import.meta.env.VITE_SERVER_URL}/auth/google`} className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-200 transition">
                 Login with Google
               </a>
             )}
@@ -416,7 +416,7 @@ export default function Home() {
             </p>
 
             <a
-              href="/auth/google"
+              href={`${import.meta.env.VITE_SERVER_URL}/auth/google`}
               className="px-8 py-3 bg-red-600 text-white font-bold tracking-widest hover:scale-105 active:scale-95 transition-all duration-200 shadow-[0_0_30px_rgba(220,38,38,0.4)] hover:shadow-[0_0_50px_rgba(220,38,38,0.6)] skew-x-[-10deg] hover:skew-x-[-10deg] no-underline inline-block"
             >
               <span className="block skew-x-[10deg]">LOGIN NOW</span>
