@@ -8,6 +8,18 @@ const TShirtBooking = () => {
     const [size, setSize] = useState('');
     const [nameOnShirt, setNameOnShirt] = useState('');
     const [transactionId, setTransactionId] = useState('');
+    // New state for user details
+    const [userName, setUserName] = useState(user?.name || '');
+    const [userEmail, setUserEmail] = useState(user?.email || '');
+
+    // Update state when user context loads
+    React.useEffect(() => {
+        if (user) {
+            setUserName(user.name || '');
+            setUserEmail(user.email || '');
+        }
+    }, [user]);
+
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState(false);
@@ -18,8 +30,9 @@ const TShirtBooking = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
-        if (!size || !nameOnShirt || !transactionId) {
-            setError('Please fill in all fields.');
+        // Validate all required fields
+        if (!size || !nameOnShirt || !transactionId || !userName || !userEmail) {
+            setError('Please fill in all fields (Name, Email, Size, Shirt Name, Transaction ID).');
             return;
         }
 
@@ -29,20 +42,16 @@ const TShirtBooking = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${user?.token || ''}` // Assuming token is needed/available, though controller relies on req.user which usually implies cookie or token.
-                    // If auth is cookie-based, ensure credentials: 'include'. 
-                    // Let's assume standard fetch with credentials if needed, or just relying on context. 
-                    // Checking Home.jsx login link, it goes to /auth/google, implying cookie session likely.
+                    'Authorization': `Bearer ${user?.token || ''}`
                 },
-                // If using cookies for auth, add this:
                 credentials: 'include',
                 body: JSON.stringify({
-                    name: user.name,
-                    email: user.email,
-                    phone: "0000000000", // Placeholder or get from user context if available
-                    college: "IIEST", // Placeholder
-                    branch: "Meta", // Placeholder
-                    year: "2nd", // Placeholder
+                    name: userName, // Use the form field value
+                    email: userEmail, // Use the form field value
+                    phone: "0000000000",
+                    college: "IIEST",
+                    branch: "Meta",
+                    year: "2nd",
                     event: "Merchandise: T-Shirt",
                     tshirtSize: size,
                     tshirtName: nameOnShirt,
@@ -110,6 +119,32 @@ const TShirtBooking = () => {
                     <div className="bg-white/5 p-8 rounded-3xl border border-white/10">
                         <form onSubmit={handleSubmit} className="space-y-6">
 
+                            {/* USER NAME */}
+                            <div>
+                                <label className="block text-sm font-mono text-gray-400 mb-2">YOUR NAME</label>
+                                <input
+                                    type="text"
+                                    value={userName}
+                                    onChange={(e) => setUserName(e.target.value)}
+                                    placeholder="Enter Your Name"
+                                    className="w-full bg-black/30 border border-white/10 rounded-xl p-4 text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
+                                    required
+                                />
+                            </div>
+
+                            {/* USER EMAIL */}
+                            <div>
+                                <label className="block text-sm font-mono text-gray-400 mb-2">YOUR EMAIL</label>
+                                <input
+                                    type="email"
+                                    value={userEmail}
+                                    onChange={(e) => setUserEmail(e.target.value)}
+                                    placeholder="Enter Your Email"
+                                    className="w-full bg-black/30 border border-white/10 rounded-xl p-4 text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
+                                    required
+                                />
+                            </div>
+
                             {/* SIZE SELECTION */}
                             <div>
                                 <label className="block text-sm font-mono text-gray-400 mb-3">SELECT SIZE</label>
@@ -132,12 +167,12 @@ const TShirtBooking = () => {
 
                             {/* NAME INPUT */}
                             <div>
-                                <label className="block text-sm font-mono text-gray-400 mb-2">NAME ON T-SHIRT</label>
+                                <label className="block text-sm font-mono text-gray-400 mb-2">text ON T-SHIRT</label>
                                 <input
                                     type="text"
                                     value={nameOnShirt}
                                     onChange={(e) => setNameOnShirt(e.target.value)}
-                                    placeholder="Enter Name"
+                                    placeholder="Enter Name to print"
                                     className="w-full bg-black/30 border border-white/10 rounded-xl p-4 text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
                                     required
                                 />
