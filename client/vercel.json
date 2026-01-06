@@ -1,15 +1,7 @@
 {
     "rewrites": [
         {
-            "source": "/api/(.*)",
-            "destination": "YOUR_BACKEND_URL/api/$1"
-        },
-        {
-            "source": "/auth/(.*)",
-            "destination": "YOUR_BACKEND_URL/auth/$1"
-        },
-        {
-            "source": "/(.*)",
+            "source": "/:path*",
             "destination": "/index.html"
         }
     ]
