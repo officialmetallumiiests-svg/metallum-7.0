@@ -176,34 +176,36 @@ const AdminDashboard = () => {
                     </div>
                     <div className="flex gap-3 items-center">
                         {/* Filter Dropdown */}
-                        <select
-                            className="select select-sm select-bordered bg-black/50 border-white/20 text-white"
-                            value={selectedEvent}
-                            onChange={(e) => setSelectedEvent(e.target.value)}
-                        >
-                            {uniqueEvents.map(event => (
-                                <option key={event} value={event}>{event}</option>
-                            ))}
-                        </select>
+                        <div className="flex flex-wrap gap-3 items-center">
+                            <select
+                                className="select select-sm bg-white/10 border-white/10 text-white focus:outline-none focus:ring-1 focus:ring-primary h-10 min-h-0 rounded-lg"
+                                value={selectedEvent}
+                                onChange={(e) => setSelectedEvent(e.target.value)}
+                            >
+                                {uniqueEvents.map(event => (
+                                    <option key={event} value={event} className="bg-black text-white">{event}</option>
+                                ))}
+                            </select>
 
-                        <button
-                            onClick={downloadCSV}
-                            className="btn btn-success text-white btn-sm"
-                        >
-                            Export CSV
-                        </button>
-                        <button
-                            onClick={() => navigate('/admin/tshirts')}
-                            className="btn btn-sm btn-primary text-black font-bold hover:bg-primary/80 transition-all"
-                        >
-                            T-Shirt Dashboard
-                        </button>
-                        <button
-                            onClick={() => navigate('/')}
-                            className="btn btn-sm btn-outline text-white hover:bg-white hover:text-black transition-all"
-                        >
-                            Back to Home
-                        </button>
+                            <button
+                                onClick={downloadCSV}
+                                className="h-10 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition-all flex items-center gap-2"
+                            >
+                                <span>Export CSV</span>
+                            </button>
+                            <button
+                                onClick={() => navigate('/admin/tshirts')}
+                                className="h-10 px-4 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition-all flex items-center gap-2"
+                            >
+                                <span>T-Shirt Dashboard</span>
+                            </button>
+                            <button
+                                onClick={() => navigate('/')}
+                                className="h-10 px-4 rounded-lg border border-white/20 hover:bg-white/10 text-white font-bold text-sm transition-all"
+                            >
+                                Back to Home
+                            </button>
+                        </div>
                     </div>
                 </div>
 

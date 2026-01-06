@@ -73,8 +73,18 @@ const TShirtAdmin = () => {
                         </p>
                     </div>
                     <div className="flex gap-3">
-                        <button onClick={downloadCSV} className="btn btn-success text-white btn-sm">Export CSV</button>
-                        <button onClick={() => navigate('/admin')} className="btn btn-outline text-white btn-sm">Back to Dashboard</button>
+                        <button
+                            onClick={downloadCSV}
+                            className="h-10 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition-all"
+                        >
+                            Export CSV
+                        </button>
+                        <button
+                            onClick={() => navigate('/admin')}
+                            className="h-10 px-4 rounded-lg border border-white/20 hover:bg-white/10 text-white font-bold text-sm transition-all"
+                        >
+                            Back to Dashboard
+                        </button>
                     </div>
                 </div>
 
