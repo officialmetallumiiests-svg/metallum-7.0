@@ -13,6 +13,7 @@ import Sponsors from "./components/sponsors.jsx";
 import Team from "./components/team.jsx";
 import Accommodation from "./components/accomodation.jsx";
 import AdminDashboard from "./components/AdminDashboard.jsx";
+import TShirtBooking from "./components/TShirtBooking.jsx";
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/sponsors" element={<Sponsors />} />
           <Route path="/team" element={<Team />} />
           <Route path="/accommodation" element={<Accommodation />} />
+          <Route path="/tshirt" element={<TShirtBooking />} />
           <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </div>

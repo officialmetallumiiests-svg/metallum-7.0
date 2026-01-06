@@ -258,10 +258,11 @@ export default function Home() {
 
             {/* CTA BUTTON (OUTSIDE POSTER) */}
             <Link
-              to=""
+              to="/tshirt"
               onClick={(e) => {
                 if (!user) {
-                  handleBuyClick(e);
+                  e.preventDefault();
+                  setShowLoginAlert(true);
                 } else {
                   scrollToTop();
                 }

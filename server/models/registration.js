@@ -10,6 +10,12 @@ const registrationSchema = new mongoose.Schema({
   year: String,
   event: { type: String, default: "Steel Quest" },
   teamName: String,
+  tshirtSize: { type: String, enum: ['S', 'M', 'L', 'XL', 'XXL'] },
+  tshirtName: String,
+  paymentStatus: { type: String, enum: ['Pending', 'Verified', 'Failed'], default: 'Pending' },
+  transactionId: String,
+  amount: Number,
+  paymentDate: { type: Date },
   status: { type: String, enum: ['Pending', 'Approved', 'Rejected'], default: 'Pending' },
   createdAt: { type: Date, default: Date.now }
 });
