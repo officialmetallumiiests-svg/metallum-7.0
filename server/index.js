@@ -4,6 +4,7 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const cors = require('cors');
 require('dotenv').config();
+const path = require('path');
 require('./models/user');
 require('./models/registration');
 require('./services/passport');
@@ -85,8 +86,19 @@ app.get('/auth/current_user', (req, res) => {
     res.send(req.user || null);
 });
 
+
+
 // API Routes
 app.use('/api/register', registrationRoutes);
+
+// Serve static assets in production (or if build exists)
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/dist')));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'));
+    });
+}
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
