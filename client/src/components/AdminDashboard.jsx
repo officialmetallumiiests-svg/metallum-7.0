@@ -193,6 +193,12 @@ const AdminDashboard = () => {
                             Export CSV
                         </button>
                         <button
+                            onClick={() => navigate('/admin/tshirts')}
+                            className="btn btn-sm btn-primary text-black font-bold hover:bg-primary/80 transition-all"
+                        >
+                            T-Shirt Dashboard
+                        </button>
+                        <button
                             onClick={() => navigate('/')}
                             className="btn btn-sm btn-outline text-white hover:bg-white hover:text-black transition-all"
                         >

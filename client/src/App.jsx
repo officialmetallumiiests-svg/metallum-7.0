@@ -14,6 +14,7 @@ import Team from "./components/team.jsx";
 import Accommodation from "./components/accomodation.jsx";
 import AdminDashboard from "./components/AdminDashboard.jsx";
 import TShirtBooking from "./components/TShirtBooking.jsx";
+import TShirtAdmin from "./components/TShirtAdmin.jsx";
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
           <Route path="/accommodation" element={<Accommodation />} />
           <Route path="/tshirt" element={<TShirtBooking />} />
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/tshirts" element={<TShirtAdmin />} />
         </Routes>
       </div>
 
