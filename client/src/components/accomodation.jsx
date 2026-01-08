@@ -4,13 +4,39 @@ import { UserContext } from "../context/UserContext";
 function Accomodation() {
   const { user } = useContext(UserContext);
   const [showLoginAlert, setShowLoginAlert] = useState(false);
+  const [showBookingForm, setShowBookingForm] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    college: ""
+  });
 
   const handleBookClick = () => {
     if (!user) {
       setShowLoginAlert(true);
     } else {
+      setShowBookingForm(true);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Basic validation
+    if (formData.name && formData.email && formData.phone && formData.college) {
+      setShowBookingForm(false);
       setShowSuccess(true);
+      // Reset form (optional, depending on UX preference)
+      setFormData({ name: "", email: "", phone: "", college: "" });
     }
   };
 
@@ -99,7 +125,7 @@ function Accomodation() {
               {/* Right Side / CTA */}
               <div className="text-center">
                 <div className="mb-4">
-                  <span className="text-5xl font-bold text-white tracking-tight">₹499</span>
+                  <span className="text-5xl font-bold text-white tracking-tight">₹1999</span>
                   <span className="text-gray-500 text-sm block mt-1">per person</span>
                 </div>
 
@@ -118,6 +144,71 @@ function Accomodation() {
       </section>
 
       {/* ================= MODALS ================= */}
+
+      {/* BOOKING FORM MODAL */}
+      {showBookingForm && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 perspective-1000">
+          <div className="absolute inset-0 bg-black/90 backdrop-blur-xl transition-opacity duration-300" onClick={() => setShowBookingForm(false)}></div>
+
+          <div className="relative z-10 w-full max-w-lg bg-[#0f0f0f]/80 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 shadow-[0_0_50px_rgba(0,0,0,0.8)] animate-[scale-in_0.4s_cubic-bezier(0.16,1,0.3,1)] overflow-hidden">
+            {/* Decorative Elements */}
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 rounded-full blur-[60px] pointer-events-none"></div>
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-500/10 rounded-full blur-[60px] pointer-events-none"></div>
+
+            <button
+              onClick={() => setShowBookingForm(false)}
+              className="absolute top-6 right-6 text-gray-500 hover:text-white transition-colors hover:rotate-90 duration-300"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-black mb-2 font-['Orbitron'] tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-gray-400 drop-shadow-sm">
+                SECURE YOUR SPOT
+              </h2>
+              <p className="text-gray-400 text-sm font-mono tracking-widest uppercase opacity-80">
+                Complete your details below
+              </p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {[
+                { label: "Full Name", name: "name", type: "text", placeholder: "e.g. John Doe" },
+                { label: "Email Address", name: "email", type: "email", placeholder: "e.g. john@example.com" },
+                { label: "Phone Number", name: "phone", type: "tel", placeholder: "e.g. +91 98765 43210" },
+                { label: "College Name", name: "college", type: "text", placeholder: "e.g. IIEST Shibpur" }
+              ].map((field, idx) => (
+                <div key={field.name} className="relative group" style={{ animationDelay: `${idx * 100}ms` }}>
+                  <label className="block text-xs text-primary/80 mb-1.5 font-bold font-mono tracking-wider ml-1 uppercase">{field.label}</label>
+                  <div className="relative">
+                    <input
+                      type={field.type}
+                      name={field.name}
+                      value={formData[field.name]}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-gray-600 focus:bg-white/10 focus:border-primary/50 focus:ring-4 focus:ring-primary/10 outline-none transition-all duration-300 shadow-inner"
+                      placeholder={field.placeholder}
+                    />
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/20 to-blue-500/20 opacity-0 group-focus-within:opacity-100 pointer-events-none transition-opacity duration-500 mb-0.5"></div>
+                  </div>
+                </div>
+              ))}
+
+              <button
+                type="submit"
+                className="w-full mt-8 btn relative overflow-hidden group bg-gradient-to-r from-primary to-blue-600 text-white font-black py-4 rounded-xl shadow-[0_4px_20px_rgba(59,130,246,0.3)] hover:shadow-[0_8px_30px_rgba(59,130,246,0.5)] transition-all duration-300 transform hover:-translate-y-1 active:scale-95"
+              >
+                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 skew-y-12"></div>
+                <span className="relative flex items-center justify-center gap-2 tracking-widest text-lg font-['Orbitron']">
+                  CONFIRM BOOKING <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </span>
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* LOGIN ALERT MODAL */}
       {showLoginAlert && (
