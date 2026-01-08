@@ -245,7 +245,7 @@ export default function Team() {
           baseColor="#172554" // deeply blue 
           activeColor="#3b82f6" // bright blue
           gap={40}
-          dotSize={2}
+          dotSize={20}
           proximity={200}
           style={{ opacity: 0.5 }}
         />
