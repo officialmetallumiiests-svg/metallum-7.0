@@ -1,5 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { UserContext } from "../context/UserContext";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Accomodation() {
   const { user } = useContext(UserContext);
@@ -12,6 +16,72 @@ function Accomodation() {
     phone: "",
     college: ""
   });
+
+  // Refs for animations
+  const heroRef = useRef(null);
+  const titleRef = useRef(null);
+  const textRef = useRef(null);
+  const amenitiesRef = useRef(null);
+  const pricingRef = useRef(null);
+
+  useEffect(() => {
+    // HERO ANIMATIONS
+    const ctx = gsap.context(() => {
+      // Title Parallax / Reveal
+      gsap.fromTo(titleRef.current,
+        { y: 100, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.5, ease: "power4.out" }
+      );
+
+      // Intro Text Reveal
+      gsap.fromTo(textRef.current,
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          scrollTrigger: {
+            trigger: textRef.current,
+            start: "top 80%",
+          }
+        }
+      );
+
+      // Amenities Stagger
+      gsap.fromTo(".amenity-card",
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: amenitiesRef.current,
+            start: "top 75%",
+          }
+        }
+      );
+
+      // Pricing Card 3D Effect
+      gsap.fromTo(pricingRef.current,
+        { scale: 0.8, rotationX: 15, opacity: 0 },
+        {
+          scale: 1,
+          rotationX: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "elastic.out(1, 0.6)",
+          scrollTrigger: {
+            trigger: pricingRef.current,
+            start: "top 70%",
+          }
+        }
+      );
+
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   const handleBookClick = () => {
     if (!user) {
@@ -79,8 +149,8 @@ function Accomodation() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-black/60"></div>
         </div>
 
-        <div className="relative z-10 text-center px-4 animate-[fade-in_1s_ease-out]">
-          <h1 className="text-5xl md:text-7xl font-bold font-['Orbitron'] tracking-wider mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 drop-shadow-2xl">
+        <div ref={heroRef} className="relative z-10 text-center px-4">
+          <h1 ref={titleRef} className="text-5xl md:text-7xl font-bold font-['Orbitron'] tracking-wider mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 drop-shadow-2xl">
             ACCOMMODATION
           </h1>
           <p className="text-lg md:text-xl text-gray-300 font-mono tracking-widest uppercase">
@@ -93,7 +163,7 @@ function Accomodation() {
       <section className="max-w-6xl mx-auto px-6 py-16">
 
         {/* INTRO TEXT */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
+        <div ref={textRef} className="text-center mb-16 max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold mb-6 font-['Orbitron'] text-primary">YOUR STAY AT METALLUM</h2>
           <p className="text-gray-400 leading-relaxed text-lg">
             We ensure a hassle-free stay for all participants coming from across the country.
@@ -102,9 +172,9 @@ function Accomodation() {
         </div>
 
         {/* AMENITIES GRID */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div ref={amenitiesRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {amenities.map((item, index) => (
-            <div key={index} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-300 group">
+            <div key={index} className="amenity-card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-300 group">
               <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
               <p className="text-sm text-gray-400">{item.desc}</p>
@@ -113,7 +183,7 @@ function Accomodation() {
         </div>
 
         {/* ================= PRICING CARD ================= */}
-        <div className="relative max-w-4xl mx-auto bg-gradient-to-br from-gray-900 to-black rounded-3xl p-1 border border-white/20 shadow-2xl overflow-hidden">
+        <div ref={pricingRef} className="relative max-w-4xl mx-auto bg-gradient-to-br from-gray-900 to-black rounded-3xl p-1 border border-white/20 shadow-2xl overflow-hidden">
           <div className="absolute top-0 right-0 bg-primary text-black font-bold text-xs px-4 py-2 rounded-bl-xl z-20 font-mono">
             LIMITED SLOTS
           </div>
