@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import DotGrid from "./DotGrid";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -239,8 +240,18 @@ export default function Team() {
   return (
     <section ref={containerRef} className="py-24 min-h-screen bg-[#0a0a0a] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#0f172a] via-[#0a0a0a] to-black text-white relative overflow-hidden">
       {/* Background Grid/Effects */}
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-blue-900/10 via-transparent to-transparent pointer-events-none"></div>
+      <div className="absolute inset-0 z-0">
+        <DotGrid
+          baseColor="#172554" // deeply blue 
+          activeColor="#3b82f6" // bright blue
+          gap={40}
+          dotSize={2}
+          proximity={200}
+          style={{ opacity: 0.5 }}
+        />
+      </div>
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none z-0"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-blue-900/10 via-transparent to-transparent pointer-events-none z-0"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* HEADER */}
