@@ -7,10 +7,12 @@ require('dotenv').config();
 const path = require('path');
 require('./models/user');
 require('./models/registration');
+require('./models/accommodation');
 require('./services/passport');
 
 const connectDB = require('./config/db');
 const registrationRoutes = require('./routes/registrationRoutes');
+const accommodationRoutes = require('./routes/accommodationRoutes');
 
 const app = express();
 
@@ -90,6 +92,7 @@ app.get('/auth/current_user', (req, res) => {
 
 // API Routes
 app.use('/api/register', registrationRoutes);
+app.use('/api/accommodation', accommodationRoutes);
 
 // Serve static assets in production (or if build exists)
 if (process.env.NODE_ENV === 'production') {

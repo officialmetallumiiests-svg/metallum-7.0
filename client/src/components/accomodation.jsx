@@ -29,14 +29,32 @@ function Accomodation() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Basic validation
-    if (formData.name && formData.email && formData.phone && formData.college) {
-      setShowBookingForm(false);
-      setShowSuccess(true);
-      // Reset form (optional, depending on UX preference)
-      setFormData({ name: "", email: "", phone: "", college: "" });
+    if (!formData.name || !formData.email || !formData.phone || !formData.college) return;
+
+    try {
+      const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/accommodation`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+        credentials: 'include', // Important for cookies
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setShowBookingForm(false);
+        setShowSuccess(true);
+        setFormData({ name: "", email: "", phone: "", college: "" });
+      } else {
+        alert(data.error || "Booking failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Booking Error:", error);
+      alert("Something went wrong. Please check your connection.");
     }
   };
 
