@@ -242,8 +242,8 @@ export default function Team() {
       {/* Background Grid/Effects */}
       <div className="absolute inset-0 z-0">
         <DotGrid
-          baseColor="#172554" // deeply blue 
-          activeColor="#3b82f6" // bright blue
+          baseColor="#848190ff" // 
+          activeColor="#5227FF" // bright blue
           gap={10}
           dotSize={10}
           proximity={120}
