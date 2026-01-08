@@ -244,10 +244,14 @@ export default function Team() {
         <DotGrid
           baseColor="#172554" // deeply blue 
           activeColor="#3b82f6" // bright blue
-          gap={40}
-          dotSize={20}
-          proximity={200}
+          gap={10}
+          dotSize={10}
+          proximity={120}
           style={{ opacity: 0.5 }}
+          returnDuration={1.5}
+          resistance={750}
+          shockRadius={250}
+          shockStrength={5}
         />
       </div>
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none z-0"></div>
