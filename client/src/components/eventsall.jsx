@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../context/UserContext";
+import GlitchText from "./GlitchText";
 
 function EventsAll() {
   const { user } = useContext(UserContext);
@@ -493,57 +494,72 @@ function EventsAll() {
 
       {/* LOGIN ALERT MODAL */}
       {showLoginAlert && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-black/90 backdrop-blur-xl" onClick={() => setShowLoginAlert(false)}></div>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 overflow-hidden">
+          {/* Backdrop with blur and deep overlay */}
+          <div
+            className="absolute inset-0 bg-black/95 backdrop-blur-md"
+            onClick={() => setShowLoginAlert(false)}
+          >
+            {/* Optional: Grid background effect */}
+            <div className="absolute inset-0 opacity-20 pointer-events-none"
+              style={{
+                backgroundImage: 'linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px)',
+                backgroundSize: '30px 30px'
+              }}
+            ></div>
+          </div>
 
-          <div className="relative z-10 flex flex-col items-center justify-center text-center animate-[scale-in_0.3s_ease-out]">
+          <div className="relative z-10 flex flex-col items-center justify-center text-center p-8 border border-red-500/30 bg-black/80 shadow-[0_0_50px_rgba(220,38,38,0.2)] rounded-sm max-w-md w-full animate-[scale-in_0.2s_ease-out]">
 
-            {/* Animated Lock Circle */}
-            <div className="relative mb-6 group cursor-pointer" onClick={() => setShowLoginAlert(false)}>
-              <div className="absolute inset-0 bg-red-500/20 rounded-full blur-xl animate-pulse"></div>
-              <div className="relative w-32 h-32 rounded-full border-4 border-red-500 flex items-center justify-center bg-black/50 shadow-[0_0_50px_rgba(239,68,68,0.4)]">
-                <svg
-                  className="w-14 h-14 text-red-500 drop-shadow-[0_0_10px_rgba(239,68,68,0.8)]"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                    className="animate-[draw_0.6s_ease-out_forwards]"
-                    strokeDasharray="100"
-                    strokeDashoffset="100"
-                  />
-                  <style>{`
-                    @keyframes draw {
-                      to { stroke-dashoffset: 0; }
-                    }
-                    @keyframes scale-in {
-                      0% { opacity: 0; transform: scale(0.5); }
-                      100% { opacity: 1; transform: scale(1); }
-                    }
-                  `}</style>
-                </svg>
-              </div>
+            {/* Corner Accents */}
+            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-red-500"></div>
+            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-red-500"></div>
+            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-red-500"></div>
+            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-red-500"></div>
+
+            {/* Icon */}
+            <div className="mb-6 relative">
+              <div className="absolute inset-0 bg-red-500 blur-2xl opacity-20 animate-pulse"></div>
+              <svg className="w-20 h-20 text-red-500 animate-[pulse_2s_infinite]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white via-red-500 to-red-700 font-['Orbitron'] mb-2 tracking-tight drop-shadow-lg leading-tight">
-              LOGIN REQUIRED
-            </h2>
+            {/* Glitch Title */}
+            <div className="mb-2">
+              <GlitchText speed={0.7} enableShadows={true} className="text-4xl md:text-5xl font-black text-white tracking-wider font-['Orbitron']">
+                ACCESS DENIED
+              </GlitchText>
+            </div>
 
-            <p className="text-gray-400 text-lg font-mono tracking-widest uppercase mb-8 max-w-md">
-              Access Restricted. Please sign in to register for events.
+            <p className="text-red-400/80 text-sm font-mono tracking-widest uppercase mb-8">
+              Authentication Protocol Initiated.<br />Login required to proceed.
             </p>
 
             <a
               href="/auth/google"
-              className="px-8 py-3 bg-red-600 text-white font-bold tracking-widest hover:scale-105 active:scale-95 transition-all duration-200 shadow-[0_0_30px_rgba(220,38,38,0.4)] hover:shadow-[0_0_50px_rgba(220,38,38,0.6)] skew-x-[-10deg] hover:skew-x-[-10deg] no-underline inline-block"
+              className="group relative px-8 py-3 bg-red-600/10 border border-red-500/50 text-red-500 font-bold tracking-widest hover:bg-red-600 hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(220,38,38,0.2)] hover:shadow-[0_0_40px_rgba(220,38,38,0.6)]"
             >
-              <span className="block skew-x-[10deg]">LOGIN NOW</span>
+              <div className="absolute inset-0 w-full h-full bg-red-600/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              <span className="relative z-10 flex items-center gap-2">
+                LOGIN SYSTEM
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              </span>
             </a>
+
+            <button
+              onClick={() => setShowLoginAlert(false)}
+              className="mt-6 text-xs text-gray-600 hover:text-gray-400 font-mono tracking-wider uppercase underline decoration-gray-700 underline-offset-4"
+            >
+              Terminate Session
+            </button>
+
+            <style>{`
+                @keyframes scale-in {
+                    0% { opacity: 0; transform: scale(0.95); }
+                    100% { opacity: 1; transform: scale(1); }
+                }
+            `}</style>
 
           </div>
         </div>
