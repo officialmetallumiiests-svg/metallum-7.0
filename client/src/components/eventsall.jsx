@@ -537,7 +537,7 @@ function EventsAll() {
             </p>
 
             <a
-              href="/auth/google"
+              href={`${import.meta.env.VITE_SERVER_URL}/auth/google`}
               className="group relative px-8 py-3 bg-red-600/10 border border-red-500/50 text-red-500 font-bold tracking-widest hover:bg-red-600 hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(220,38,38,0.2)] hover:shadow-[0_0_40px_rgba(220,38,38,0.6)]"
             >
               <div className="absolute inset-0 w-full h-full bg-red-600/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
