@@ -79,13 +79,24 @@ app.get(
     })
 );
 
+
+
 app.get(
     '/auth/google/callback',
-    passport.authenticate('google'),
+    (req, res, next) => {
+        console.log("Start: Google Callback Received");
+        next();
+    },
+    passport.authenticate('google', { failureRedirect: '/auth/failure' }), // Add failure redirect if possible, or just standard
     (req, res) => {
+        console.log("Success: Google Callback Authenticated. Redirecting to:", clientUrl);
         res.redirect(`${clientUrl}/`);
     }
 );
+
+app.get('/auth/failure', (req, res) => {
+    res.status(401).send("Authentication Failed. Check logs.");
+});
 
 app.get('/auth/logout', (req, res, next) => {
     req.logout((err) => {
@@ -123,6 +134,13 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const PORT = process.env.PORT || 5000;
+
+// Explicit Express Error Handler to prevent hanging requests
+app.use((err, req, res, next) => {
+    console.error("EXPRESS ERROR HANDLER CAUGHT:", err);
+    res.status(500).json({ error: "Internal Server Error", message: err.message, stack: process.env.NODE_ENV === 'production' ? null : err.stack });
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
