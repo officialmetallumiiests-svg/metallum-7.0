@@ -23,22 +23,27 @@ if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
                 proxy: true
             },
             async (accessToken, refreshToken, profile, done) => {
-                // Check if user already exists
-                const existingUser = await User.findOne({ googleId: profile.id });
+                try {
+                    // Check if user already exists
+                    const existingUser = await User.findOne({ googleId: profile.id });
 
-                if (existingUser) {
-                    return done(null, existingUser);
+                    if (existingUser) {
+                        return done(null, existingUser);
+                    }
+
+                    // Create new user
+                    const user = await new User({
+                        googleId: profile.id,
+                        displayName: profile.displayName,
+                        email: profile.emails[0].value,
+                        photoURL: profile.photos[0].value
+                    }).save();
+
+                    done(null, user);
+                } catch (error) {
+                    console.error("Error in Google Strategy Verify Callback:", error);
+                    done(error, null);
                 }
-
-                // Create new user
-                const user = await new User({
-                    googleId: profile.id,
-                    displayName: profile.displayName,
-                    email: profile.emails[0].value,
-                    photoURL: profile.photos[0].value
-                }).save();
-
-                done(null, user);
             }
         )
     );

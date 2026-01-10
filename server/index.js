@@ -65,6 +65,15 @@ connectDB();
 // Google Auth Routes
 app.get(
     '/auth/google',
+    (req, res, next) => {
+        // Guard: Check if Google Strategy is loaded to prevent crash
+        const strategies = passport._strategies;
+        if (!strategies || !strategies.google) {
+            console.error("Attempted Google Auth but strategy not loaded (likely missing env vars)");
+            return res.status(500).send("Server Logic Error: Google Auth not configured.");
+        }
+        next();
+    },
     passport.authenticate('google', {
         scope: ['profile', 'email']
     })
@@ -116,4 +125,17 @@ if (process.env.NODE_ENV === 'production') {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
+});
+
+// Global Error Handlers to prevent 503 Crashes
+process.on('uncaughtException', (err) => {
+    console.error('UNCAUGHT EXCEPTION! 💥 Shutting down...');
+    console.error(err.name, err.message, err.stack);
+    // process.exit(1); // Keep alive for debugging in this specific context if needed, but best to restart.
+    // limiting impact:
+});
+
+process.on('unhandledRejection', (err) => {
+    console.error('UNHANDLED REJECTION! 💥');
+    console.error(err.name, err.message, err.stack);
 });
