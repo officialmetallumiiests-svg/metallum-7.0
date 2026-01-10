@@ -6,6 +6,7 @@ const cors = require('cors');
 require('dotenv').config();
 const path = require('path');
 require('./models/user');
+const fs = require('fs');
 require('./models/registration');
 require('./models/accommodation');
 require('./services/passport');
@@ -96,11 +97,20 @@ app.use('/api/accommodation', accommodationRoutes);
 
 // Serve static assets in production (or if build exists)
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../client/dist')));
+    const clientBuildPath = path.join(__dirname, '../client/dist');
 
-    app.get('*all', (req, res) => {
-        res.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'));
-    });
+    if (fs.existsSync(clientBuildPath)) {
+        app.use(express.static(clientBuildPath));
+
+        app.get('*all', (req, res) => {
+            res.sendFile(path.resolve(clientBuildPath, 'index.html'));
+        });
+    } else {
+        // Fallback if build files are missing (e.g. API-only mode)
+        app.get('/', (req, res) => {
+            res.send('API is running successfully. Frontend build not found.');
+        });
+    }
 }
 
 const PORT = process.env.PORT || 5000;

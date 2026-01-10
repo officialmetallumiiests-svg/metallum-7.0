@@ -13,6 +13,10 @@ function connectToDB() {
     })
     .catch((error) => {
       console.error('MongoDB Connection Error:', error);
+      console.error('---------------------------------------------------');
+      console.error('If you have special characters in your password (like @, :, /), you MUST URL encode them!');
+      console.error('Example: @ -> %40, : -> %3A');
+      console.error('---------------------------------------------------');
       process.exit(1);
     });
 }
