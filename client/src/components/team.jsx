@@ -1,233 +1,319 @@
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import DotGrid from "./DotGrid";
-
-gsap.registerPlugin(ScrollTrigger);
+import React from "react";
 
 export default function Team() {
   const teamData = {
     head: [
       {
-        name: "Dr. A. K. Sharma",
-        role: "Faculty Advisor",
-        image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
+        name: "Harsh Agrawal",
+        role: "Main Coordinator",
+        image: "/images/Harsh.jpeg",
       },
       {
-        name: "Dr. A. K. Sharma",
-        role: "Faculty Advisor",
-        image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
-      }, {
-        name: "Dr. A. K. Sharma",
-        role: "Faculty Advisor",
-        image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
-      }, {
-        name: "Dr. A. K. Sharma",
-        role: "Faculty Advisor",
-        image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
-      }, {
-        name: "Dr. A. K. Sharma",
-        role: "Faculty Advisor",
-        image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
-      }, {
-        name: "Dr. A. K. Sharma",
-        role: "Faculty Advisor",
-        image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
-      }, {
-        name: "Dr. A. K. Sharma",
-        role: "Faculty Advisor",
-        image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
-      }, {
-        name: "Dr. A. K. Sharma",
-        role: "Faculty Advisor",
-        image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
-      }, {
-        name: "Dr. A. K. Sharma",
-        role: "Faculty Advisor",
-        image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
-      }, {
-        name: "Dr. A. K. Sharma",
-        role: "Faculty Advisor",
-        image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
-      }, {
-        name: "Dr. A. K. Sharma",
-        role: "Faculty Advisor",
-        image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
-      }, {
-        name: "Dr. A. K. Sharma",
-        role: "Faculty Advisor",
-        image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
-      }, {
-        name: "Dr. A. K. Sharma",
-        role: "Faculty Advisor",
-        image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
-      }, {
-        name: "Dr. A. K. Sharma",
-        role: "Faculty Advisor",
-        image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
+        name: "Yash Chandekar",
+        role: "Main Coordinator",
+        image: "",
       },
+      {
+        name: "Anjani",
+        role: "Finance",
+        image: "/images/ANJANI.jfif",
+      },
+      {
+        name: "Soumyadeep Das",
+        role: "Finance",
+        image: "",
+      },
+      {
+        name: "Swagato Chakraborty",
+        role: "Finance",
+        image: "/images/SWAGATO.jpg",
+      },
+      {
+        name: "Akanksha Gupta",
+        role: "Sponsorship",
+        image: "",
+      },
+      {
+        name: "Naman Kumar Thakur",
+        role: "Sponsorship",
+        image: "/images/NAMAN.jpg",
+      },
+      {
+        name: "Aditya Singh",
+        role: "Event Management",
+        image: "/images/ADITYA.jpg",
+      },
+      {
+        name: "Srijan Yadav",
+        role: "Event Management",
+        image: "/images/SRIJAN.jpg",
+      },
+      {
+        name: "Angshu Sengupta",
+        role: "Design, Production and Decoration",
+        image: "",
+      },
+      {
+        name: "Pratyusha Sarkar",
+        role: "Design, Production and Decoration",
+        image: "/images/PRATYUSHA.jpg",
+      },
+      {
+        name: "Smarjit Adak",
+        role: "Web Development",
+        image: "/images/SMARAJIT.jpg",
+      },
+      {
+        name: "Jasmine Mallick",
+        role: "Alumni Relation and Collection",
+        image: "/images/JASMINE.jpg",
+      },
+      {
+        name: "Parijat Sarkar",
+        role: "Cultural",
+        image: "/images/PARIJAT.jpg",
+      },
+      {
+        name: "Sayak Bal",
+        role: "Cultural",
+        image: "",
+      },
+      {
+        name: "Uddipta Panja",
+        role: "Cultural",
+        image: "/images/UDDIPTA.jpeg",
+      },
+
+
     ],
     assistant: [
       {
-        name: "Rahul Verma",
-        role: "Assistant Coordinator",
-        image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
+        name: "Tejaswi Singh",
+        role: "Joint Coordinator",
+        image: "/images/TEJASWI_SINGH.jpg",
       },
       {
-        name: "Rahul Verma",
-        role: "Assistant Coordinator",
-        image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
+        name: "Sunay Manish Vanerkar",
+        role: "Finance",
+        image: "/images/SUNAY_MANISH_VANERKAR.jpg",
       }, {
-        name: "Rahul Verma",
-        role: "Assistant Coordinator",
-        image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
+        name: "Manshi Verma",
+        role: "Sponsorship",
+        image: "/images/MANSI_VERMA.jpg",
       }, {
-        name: "Rahul Verma",
-        role: "Assistant Coordinator",
-        image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
+        name: "Supriyo Barman",
+        role: "Sponsorship",
+        image: "/images/SUPRIYO_BARMAN.jpg",
       }, {
-        name: "Rahul Verma",
-        role: "Assistant Coordinator",
-        image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
+        name: "Shakti Prasad Mohanty",
+        role: "Sponorship",
+        image: "/images/SHAKTI_PRASAD_MOHANTY.jpg",
       }, {
-        name: "Rahul Verma",
-        role: "Assistant Coordinator",
-        image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
+        name: "Aritra Dutta",
+        role: "Event Management",
+        image: "",
       }, {
-        name: "Rahul Verma",
-        role: "Assistant Coordinator",
-        image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
+        name: "Gyanshi",
+        role: "Event Management",
+        image: "/images/GYANSHI_.jpg",
       }, {
-        name: "Rahul Verma",
-        role: "Assistant Coordinator",
-        image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
+        name: "Sandeep Kumawat",
+        role: "Event Management",
+        image: "/images/SANDEEP_KUMAWAT.jpg",
       }, {
-        name: "Rahul Verma",
-        role: "Assistant Coordinator",
-        image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
+        name: "Joel Varghese Baiju",
+        role: "Publicity",
+        image: "/images/JOEL_VARGHESE_BAIJU.jpg",
+      }, {
+        name: "Shivraj Jangir",
+        role: "Publicity",
+        image: "/images/SHIVRAJ_JANGIR.jpg",
+      }, {
+        name: "Abhisheak Kumar",
+        role: "Design, Production and Decoration",
+        image: "/images/ABHISHEK_KUMAR.png",
+      }, {
+        name: " Himanshu Kumar",
+        role: "Design, Production and Decoration",
+        image: "",
+      }, {
+        name: "Kritika Bairwa ",
+        role: "Design, Production and Decoration",
+        image: "/images/KRITIKA_BAIRWA.jpg",
+      }, {
+        name: "Nikhil Sah",
+        role: "Web Development ",
+        image: "/images/Nikhil.png",
+      }, {
+        name: "Deb Kumar",
+        role: "Alumini Relation and Collection",
+        image: "/images/DEBKUMAR_DE.jpg",
+      }, {
+        name: "Indranil Sarkar",
+        role: "Alumini Relation and Collection",
+        image: "/images/INDRANIL_SARKAR.png",
+      },{
+        name: "Arka Mondal",
+        role: "Photography and Videography",
+        image: "/images/ARKA_MONDAL.jpg",
+      },{
+        name: "Ayush Sarkar",
+        role: "Photography and Videography",
+        image: "",
+      },{
+        name: "Lakavath Tejaswini",
+        role: "Cultural",
+        image: "/images/LAKAVATH_TEJASWINI.jpg",
       },
     ],
+
     associate: [
       {
-        name: "Ankit Kumar",
-        role: "Associate Lead",
-        image: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg",
+        name: "Harshika Tiwari",
+        role: "Event Management",
+        image:"",
+      }, {
+        name: "Arjodeep Chatterjee",
+        role: "Event Management",
+        image:"/images/ARJODEEP_CHATTERJEE.jpg",
+      }, {
+        name: "Suryadeep Pal",
+        role: "Event Management",
+        image:"",
+      }, {
+        name: "Anushka Sarkar",
+        role: "Publicity",
+        image: "/images/ANUSHKA_SARKAR.jpg",
+      }, {
+        name: "Safra Ashkar",
+        role: "Publicity",
+        image: "/images/SAFRA_ARAKKAL_ASHKAR.jpg",
+      }, {
+        name: "Sirshapan Kunda Roy",
+        role: "Publicity",
+        image: "/images/SIRSHAPAN_KUNDA_ROY.jpg",
+      }, {
+        name: "Abhradeep Ghorai",
+        role: "Publicity",
+        image: "",
+      }, {
+        name: "Abhijeet Kumar",
+        role: "Design, Production and Decoration",
+        image: "/images/ABHIJEET_KUMAR.jpg",
+      }, {
+        name: "Drisana Chatterjee",
+        role: "Design, Production and Decoration",
+        image: "/images/DRISANA_CHATTERJEE.jpg",
+      }, {
+        name: "Prashant Kumar",
+        role: "Design, Production and Decoration",
+        image: "",
+      }, {
+        name: "Pritikana Das",
+        role: "Design, Production and Decoration",
+        image: "/images/PRITIKANA_DAS.jpg",
+      }, {
+        name: "Rajdeep Adak",
+        role: "Design, Production and Decoration",
+        image: "/images/RAJDEEP_ADAK.jpg",
+      }, {
+        name: "Sreejoyee Banerjee",
+        role: "Design, Production and Decoration",
+        image: "/images/SREEJOYEE_BANERJEE.jpg",
+      }, {
+        name: "Tanmay Sarkar",
+        role: "Design, Production and Decoration",
+        image: "/images/TANMAY_SARKAR.jpg",
+      }, {
+        name: "Aayush Guria",
+        role: "Content",
+        image: "/images/AAYUSH_GURIA.jpg",
+      }, {
+        name: "Nishant Singh",
+        role: "Content",
+        image: "",
+      }, {
+        name: "Snehasis HAlder",
+        role: "Content",
+        image: "",
+      }, {
+        name: "Vinay Chand Bharat",
+        role: "Web Development",
+        image: "",
+      }, {
+        name: "Prekshna Pal",
+        role: "Web Development",
+        image: "/images/PREKSHANA_PAL.jpg",
+      }, {
+        name: "Abhisheak Kumar",
+        role: "Alumini Relation and Collection",
+        image: "",
+      }, {
+        name: "Ayaswarya Dutta",
+        role: "Alumini Relation and Collection",
+        image: "/images/AYASWARYA_DUTTA.jpg",
+      }, {
+        name: "Bidit Sarkar",
+        role: "Alumini Relation and Collection",
+        image: "/images/BIDIT_SARKAR.jpg",
+      }, {
+        name: "Anubhav Saha",
+        role: "Refreshment and Volunteer",
+        image: "/images/ANUBHAV_SAHA.jpg",
+      }, {
+        name: "Chhote Lal Kumar",
+        role: "Refreshment and Volunteer",
+        image: "",
+      }, {
+        name: "Prithviraj Singh",
+        role: "Photography and Videography",
+        image: "",
+      }, {
+        name: "Nibedita Dutta",
+        role: "Cultural",
+        image: "/images/NIBEDITA_DUTTA.jpg",
+      }, {
+        name: "Arnab Ghosh",
+        role: "Travel and Logistics",
+        image: "/images/ARNAB_GHOSH.jpg",
+      }, {
+        name: "Ayan dutta",
+        role: "Travel and Logistics",
+        image: "",
+      }, {
+        name: "Saptangshu Saha",
+        role: "Travel and Logistics",
+        image: "",
       },
-      {
-        name: "Ankit Kumar",
-        role: "Associate Lead",
-        image: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg",
-      },
-      {
-        name: "Ankit Kumar",
-        role: "Associate Lead",
-        image: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg",
-      }, {
-        name: "Ankit Kumar",
-        role: "Associate Lead",
-        image: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg",
-      }, {
-        name: "Ankit Kumar",
-        role: "Associate Lead",
-        image: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg",
-      }, {
-        name: "Ankit Kumar",
-        role: "Associate Lead",
-        image: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg",
-      },
-      {
-        name: "Ankit Kumar",
-        role: "Associate Lead",
-        image: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg",
-      }, {
-        name: "Ankit Kumar",
-        role: "Associate Lead",
-        image: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg",
-      }, {
-        name: "Ankit Kumar",
-        role: "Associate Lead",
-        image: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg",
-      }, {
-        name: "Ankit Kumar",
-        role: "Associate Lead",
-        image: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg",
-      },
+
     ],
   };
 
-  /* ================= REF & ANIMATION SETUP ================= */
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // ANIMATE EACH SECTION
-      gsap.utils.toArray(".team-section").forEach((section) => {
-        gsap.fromTo(
-          section.querySelectorAll(".team-card"),
-          { y: 50, opacity: 0, scale: 0.9 },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: "back.out(1.2)",
-            scrollTrigger: {
-              trigger: section,
-              start: "top 80%",
-            },
-          }
-        );
-      });
-
-      // HEADER ANIMATION
-      gsap.from(".team-header", {
-        y: -50,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out"
-      });
-
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  /* ================= COMPONENTS ================= */
   const Card = ({ name, role, image, shape }) => (
     <div
-      className="team-card group relative bg-blue-900/5 backdrop-blur-md border border-blue-500/20 rounded-3xl p-6
-                 text-center shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]
-                 transition-all duration-300 hover:-translate-y-3 overflow-hidden"
+      className="group bg-base-100 border border-base-300 rounded-3xl p-6
+                 text-center shadow-md hover:shadow-xl
+                 transition-all duration-300 hover:-translate-y-2"
     >
-      {/* GLOW EFFECT */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-      <div className="relative z-10 mx-auto mb-5 w-40 h-40">
-        <div className={`absolute inset-0 bg-blue-500/20 blur-xl rounded-full scale-0 group-hover:scale-110 transition-transform duration-500`}></div>
+      <div className="mx-auto mb-5 w-36 h-36">
         <img
           src={image}
           alt={name}
           className={`w-full h-full object-cover ${shape}
-                      border-2 border-blue-500/30
-                      group-hover:border-blue-400 group-hover:scale-105 transition-all duration-500 shadow-lg`}
+                      border-4 border-primary/20
+                      group-hover:border-primary transition`}
         />
       </div>
-      <h3 className="relative z-10 text-xl font-bold text-white group-hover:text-blue-200 transition-colors font-['Orbitron'] tracking-wide">{name}</h3>
-      <p className="relative z-10 text-sm text-blue-400 font-mono mt-1">{role}</p>
+      <h3 className="text-lg font-bold">{name}</h3>
+      <p className="text-sm text-primary">{role}</p>
     </div>
   );
 
   const Section = ({ title, children }) => (
-    <div className="team-section mb-32">
-      <div className="flex items-center gap-4 mb-12 justify-center">
-        <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-blue-500"></div>
-        <h3 className="text-3xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white font-['Orbitron'] tracking-wider shadow-blue-500/50 drop-shadow-sm">{title}</h3>
-        <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-blue-500"></div>
-      </div>
-
+    <div className="mb-24">
+      <h3 className="text-2xl font-bold text-center mb-12">{title}</h3>
       <div
-        className="grid gap-8 justify-center
+        className="grid gap-12 justify-center
                    sm:grid-cols-2
                    md:grid-cols-3
                    lg:grid-cols-4"
@@ -238,35 +324,17 @@ export default function Team() {
   );
 
   return (
-    <section ref={containerRef} className="py-24 min-h-screen bg-[#0a0a0a] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#0f172a] via-[#0a0a0a] to-black text-white relative overflow-hidden">
-      {/* Background Grid/Effects */}
-      <div className="absolute inset-0 z-0">
-        <DotGrid
-          baseColor="#848190ff" // 
-          activeColor="#5227FF" // bright blue
-          gap={10}
-          dotSize={10}
-          proximity={120}
-          style={{ opacity: 0.5 }}
-          returnDuration={1.5}
-          resistance={750}
-          shockRadius={250}
-          shockStrength={5}
-        />
-      </div>
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none z-0"></div>
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-blue-900/10 via-transparent to-transparent pointer-events-none z-0"></div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section className="py-24 bg-gradient-to-b from-base-100 to-base-200">
+      <div className="max-w-7xl mx-auto px-6">
         {/* HEADER */}
-        <div className="team-header text-center mb-24">
-          <p className="uppercase tracking-[0.5em] text-xs font-bold text-blue-500 mb-4 animate-pulse">
-            // THE MOVERS & SHAKERS //
+        <div className="text-center mb-24">
+          <p className="uppercase tracking-[0.35em] text-xs font-semibold text-primary mb-4">
+            Metallum 2025
           </p>
-          <h2 className="text-5xl md:text-7xl font-black mb-6 font-['Orbitron'] text-transparent bg-clip-text bg-gradient-to-br from-white via-blue-100 to-blue-900 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">
-            OUR TEAM
+          <h2 className="text-4xl md:text-6xl font-extrabold mb-6">
+            Our Team
           </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent mx-auto rounded-full shadow-[0_0_10px_rgba(59,130,246,0.8)]" />
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
         </div>
 
         <Section title="Head">
@@ -290,3 +358,4 @@ export default function Team() {
     </section>
   );
 }
+

@@ -12,8 +12,6 @@ const AdminDashboard = () => {
 
     // Filter State
     const [selectedEvent, setSelectedEvent] = useState("All Events");
-    const [viewMode, setViewMode] = useState("Events"); // "Events" or "Accommodation"
-    const [accommodations, setAccommodations] = useState([]);
 
     const navigate = useNavigate();
 
@@ -23,20 +21,15 @@ const AdminDashboard = () => {
 
     const fetchRegistrations = async () => {
         try {
-            const [regRes, accRes] = await Promise.all([
-                fetch(`${import.meta.env.VITE_SERVER_URL}/api/register`, { credentials: 'include' }),
-                fetch(`${import.meta.env.VITE_SERVER_URL}/api/accommodation`, { credentials: 'include' })
-            ]);
+            const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/register`, { credentials: 'include' });
+            const data = await response.json();
 
-            const regData = await regRes.json();
-            const accData = await accRes.json();
-
-            if (regRes.ok) setRegistrations(regData);
-            if (accRes.ok) setAccommodations(accData);
-
-            if (!regRes.ok && !accRes.ok) setError('Failed to fetch data');
+            if (response.ok) {
+                setRegistrations(data);
+            } else {
+                setError(data.error || 'Failed to fetch data');
+            }
         } catch (err) {
-            console.error("Fetch Error:", err);
             setError('Server error');
         } finally {
             setLoading(false);
@@ -45,37 +38,24 @@ const AdminDashboard = () => {
 
     // Filter Logic
     const uniqueEvents = ["All Events", ...new Set(registrations.map(r => r.event))];
-
-    // Determine what data to show
-    const dataDisplay = viewMode === "Events"
-        ? (selectedEvent === "All Events" ? registrations : registrations.filter(r => r.event === selectedEvent))
-        : accommodations;
+    const filteredRegistrations = selectedEvent === "All Events"
+        ? registrations
+        : registrations.filter(r => r.event === selectedEvent);
 
     // 1. EXPORT TO CSV
     const downloadCSV = () => {
-        if (!dataDisplay.length) return;
+        if (!filteredRegistrations.length) return;
 
-        let headers, rows, fileName;
-
-        if (viewMode === "Events") {
-            headers = ["Name,Email,Phone,College,Branch,Year,Event,Team,Status,Date"];
-            rows = dataDisplay.map(reg =>
-                `"${reg.name}","${reg.email}","${reg.phone}","${reg.college}","${reg.branch}","${reg.year}","${reg.event}","${reg.teamName || ''}","${reg.status || 'Pending'}","${new Date(reg.createdAt).toLocaleDateString()}"`
-            );
-            fileName = `metallum_registrations_${selectedEvent.replace(' ', '_')}.csv`;
-        } else {
-            headers = ["Name,Email,Phone,College,Status,Date"];
-            rows = dataDisplay.map(reg =>
-                `"${reg.name}","${reg.email}","${reg.phone}","${reg.college}","${reg.status || 'Pending'}","${new Date(reg.createdAt).toLocaleDateString()}"`
-            );
-            fileName = `metallum_accommodation.csv`;
-        }
+        const headers = ["Name,Email,Phone,College,Branch,Year,Event,Team,Status,Date"];
+        const rows = filteredRegistrations.map(reg =>
+            `"${reg.name}","${reg.email}","${reg.phone}","${reg.college}","${reg.branch}","${reg.year}","${reg.event}","${reg.teamName || ''}","${reg.status || 'Pending'}","${new Date(reg.createdAt).toLocaleDateString()}"`
+        );
 
         const csvContent = "data:text/csv;charset=utf-8," + headers.concat(rows).join("\n");
         const encodedUri = encodeURI(csvContent);
         const link = document.createElement("a");
         link.setAttribute("href", encodedUri);
-        link.setAttribute("download", fileName);
+        link.setAttribute("download", `metallum_registrations_${selectedEvent.replace(' ', '_')}.csv`);
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -83,18 +63,12 @@ const AdminDashboard = () => {
 
     // 2. DELETE REGISTRATION
     const handleDelete = async (id) => {
-        if (!window.confirm("Are you sure you want to delete this record?")) return;
-
-        const endpoint = viewMode === "Events" ? `/api/register/${id}` : `/api/accommodation/${id}`;
+        if (!window.confirm("Are you sure you want to delete this registration?")) return;
 
         try {
-            const response = await fetch(`${import.meta.env.VITE_SERVER_URL}${endpoint}`, { method: 'DELETE', credentials: 'include' });
+            const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/register/${id}`, { method: 'DELETE', credentials: 'include' });
             if (response.ok) {
-                if (viewMode === "Events") {
-                    setRegistrations(registrations.filter(r => r._id !== id));
-                } else {
-                    setAccommodations(accommodations.filter(r => r._id !== id));
-                }
+                setRegistrations(registrations.filter(r => r._id !== id));
             } else {
                 alert("Failed to delete");
             }
@@ -136,10 +110,8 @@ const AdminDashboard = () => {
     };
 
     const handleStatusUpdate = async (id, newStatus) => {
-        const endpoint = viewMode === "Events" ? `/api/register/${id}` : `/api/accommodation/${id}`;
-
         try {
-            const response = await fetch(`${import.meta.env.VITE_SERVER_URL}${endpoint}`, {
+            const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/register/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status: newStatus }),
@@ -148,11 +120,7 @@ const AdminDashboard = () => {
 
             if (response.ok) {
                 const updated = await response.json();
-                if (viewMode === "Events") {
-                    setRegistrations(registrations.map(r => r._id === id ? updated.data : r));
-                } else {
-                    setAccommodations(accommodations.map(r => r._id === id ? updated.data : r));
-                }
+                setRegistrations(registrations.map(r => r._id === id ? updated.data : r));
             } else {
                 alert("Failed to update status");
             }
@@ -202,28 +170,13 @@ const AdminDashboard = () => {
                             ADMIN DASHBOARD
                         </h1>
                         <p className="text-gray-400 mt-1 font-mono text-sm">
-                            // {viewMode === "Events" ? "EVENT REGISTRATIONS" : "ACCOMMODATION REQUESTS"}: <span className="text-primary font-bold">{dataDisplay.length}</span>
+                            // TOTAL REGISTRATIONS: <span className="text-primary font-bold">{filteredRegistrations.length}</span>
+                            {selectedEvent !== "All Events" && <span className="text-gray-500 ml-2">(Filtered from {registrations.length})</span>}
                         </p>
                     </div>
-                    <div className="flex gap-3 items-center flex-wrap justify-center">
-                        {/* VIEW MODE TOGGLE */}
-                        <div className="join">
-                            <button
-                                className={`join-item btn btn-sm ${viewMode === "Events" ? "btn-primary" : "btn-neutral"}`}
-                                onClick={() => setViewMode("Events")}
-                            >
-                                Events
-                            </button>
-                            <button
-                                className={`join-item btn btn-sm ${viewMode === "Accommodation" ? "btn-primary" : "btn-neutral"}`}
-                                onClick={() => setViewMode("Accommodation")}
-                            >
-                                Accommodation
-                            </button>
-                        </div>
-
-                        {/* Filter Dropdown (Only for Events) */}
-                        {viewMode === "Events" && (
+                    <div className="flex gap-3 items-center">
+                        {/* Filter Dropdown */}
+                        <div className="flex flex-wrap gap-3 items-center">
                             <select
                                 className="select select-sm bg-white/10 border-white/10 text-white focus:outline-none focus:ring-1 focus:ring-primary h-10 min-h-0 rounded-lg"
                                 value={selectedEvent}
@@ -233,26 +186,26 @@ const AdminDashboard = () => {
                                     <option key={event} value={event} className="bg-black text-white">{event}</option>
                                 ))}
                             </select>
-                        )}
 
-                        <button
-                            onClick={downloadCSV}
-                            className="h-10 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition-all flex items-center gap-2"
-                        >
-                            <span>Export CSV</span>
-                        </button>
-                        <button
-                            onClick={() => navigate('/admin/tshirts')}
-                            className="h-10 px-4 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition-all flex items-center gap-2"
-                        >
-                            <span>T-Shirt Dashboard</span>
-                        </button>
-                        <button
-                            onClick={() => navigate('/')}
-                            className="h-10 px-4 rounded-lg border border-white/20 hover:bg-white/10 text-white font-bold text-sm transition-all"
-                        >
-                            Back to Home
-                        </button>
+                            <button
+                                onClick={downloadCSV}
+                                className="h-10 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition-all flex items-center gap-2"
+                            >
+                                <span>Export CSV</span>
+                            </button>
+                            <button
+                                onClick={() => navigate('/admin/tshirts')}
+                                className="h-10 px-4 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition-all flex items-center gap-2"
+                            >
+                                <span>T-Shirt Dashboard</span>
+                            </button>
+                            <button
+                                onClick={() => navigate('/')}
+                                className="h-10 px-4 rounded-lg border border-white/20 hover:bg-white/10 text-white font-bold text-sm transition-all"
+                            >
+                                Back to Home
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -261,33 +214,21 @@ const AdminDashboard = () => {
                     <table className="table table-xs md:table-sm w-full">
                         {/* head */}
                         <thead className="bg-black/40 text-gray-400 font-mono uppercase tracking-wider">
-                            {viewMode === "Events" ? (
-                                <tr>
-                                    <th>#</th>
-                                    <th>Status</th>
-                                    <th>Name</th>
-                                    <th>Phone</th>
-                                    <th>Event</th>
-                                    <th>Details</th>
-                                    <th>Date</th>
-                                    <th className="text-right">Actions</th>
-                                </tr>
-                            ) : (
-                                <tr>
-                                    <th>#</th>
-                                    <th>Status</th>
-                                    <th>Name</th>
-                                    <th>Phone</th>
-                                    <th>College</th>
-                                    <th>Date</th>
-                                    <th className="text-right">Actions</th>
-                                </tr>
-                            )}
+                            <tr>
+                                <th>#</th>
+                                <th>Status</th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Event</th>
+                                <th>Details</th>
+                                <th>Date</th>
+                                <th className="text-right">Actions</th>
+                            </tr>
                         </thead>
                         <tbody className="divide-y divide-white/5">
-                            {dataDisplay.map((reg, index) => (
+                            {filteredRegistrations.map((reg, index) => (
                                 <tr key={reg._id} className="hover:bg-white/5 transition-colors">
-                                    <th className="font-mono text-gray-500">{dataDisplay.length - index}</th>
+                                    <th className="font-mono text-gray-500">{filteredRegistrations.length - index}</th>
 
                                     {/* Status Badge */}
                                     <td>
@@ -303,24 +244,16 @@ const AdminDashboard = () => {
 
                                     <td className="font-mono text-primary">{reg.phone}</td>
 
-                                    {/* Event vs Accommodation Details */}
-                                    {viewMode === "Events" ? (
-                                        <>
-                                            <td>
-                                                <span className="badge badge-primary badge-outline text-xs">
-                                                    {reg.event}
-                                                </span>
-                                            </td>
-                                            <td className="text-xs text-gray-400 max-w-xs truncate">
-                                                {reg.college}, {reg.branch}
-                                                {reg.teamName && <div className="text-gray-500 italic">Team: {reg.teamName}</div>}
-                                            </td>
-                                        </>
-                                    ) : (
-                                        <td>
-                                            <span className="text-gray-300 font-bold">{reg.college}</span>
-                                        </td>
-                                    )}
+                                    <td>
+                                        <span className="badge badge-primary badge-outline text-xs">
+                                            {reg.event}
+                                        </span>
+                                    </td>
+
+                                    <td className="text-xs text-gray-400 max-w-xs truncate">
+                                        {reg.college}, {reg.branch}
+                                        {reg.teamName && <div className="text-gray-500 italic">Team: {reg.teamName}</div>}
+                                    </td>
 
                                     <td className="text-gray-500 text-xs text-nowrap">
                                         {new Date(reg.createdAt).toLocaleDateString()}
@@ -348,15 +281,13 @@ const AdminDashboard = () => {
                                                 </>
                                             )}
 
-                                            {viewMode === "Events" && (
-                                                <button
-                                                    onClick={() => openEditModal(reg)}
-                                                    className="btn btn-xs btn-ghost text-info hover:bg-info/10"
-                                                    title="Edit"
-                                                >
-                                                    ✏️
-                                                </button>
-                                            )}
+                                            <button
+                                                onClick={() => openEditModal(reg)}
+                                                className="btn btn-xs btn-ghost text-info hover:bg-info/10"
+                                                title="Edit"
+                                            >
+                                                ✏️
+                                            </button>
                                             <button
                                                 onClick={() => handleDelete(reg._id)}
                                                 className="btn btn-xs btn-ghost text-error hover:bg-error/10"

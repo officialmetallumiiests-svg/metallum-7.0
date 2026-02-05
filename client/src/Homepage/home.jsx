@@ -2,10 +2,12 @@ import React, { useRef, useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
+
 export default function Home() {
   const { user } = useContext(UserContext);
   /* ================= EVENT DATE ================= */
-  const eventDate = new Date("2026-02-15T00:00:00");
+  const eventDate = new Date("2026-02-19T00:00:00");
+const [ringRotation, setRingRotation] = useState(0);
 
   /* ================= COUNTDOWN LOGIC ================= */
   const calculateTimeLeft = () => {
@@ -35,6 +37,14 @@ export default function Home() {
   const [showLoginAlert, setShowLoginAlert] = useState(false);
 
   useEffect(() => {
+  const interval = setInterval(() => {
+    setRingRotation((prev) => prev + 0.3); // smooth slow rotation
+  }, 16); // ~60fps
+
+  return () => clearInterval(interval);
+}, []);
+
+  useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
@@ -42,51 +52,69 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
 
-  const handleBuyClick = (e) => {
-    if (!user) {
-      e.preventDefault();
-      setShowLoginAlert(true);
-    }
-  };
-
-  /* ================= CAROUSEL HELPERS ================= */
-  const carouselRef = useRef(null);
-
-  const scrollToSlide = (id) => {
-    const slide = carouselRef.current?.querySelector(`#${id}`);
-    slide?.scrollIntoView({ behavior: "smooth", inline: "start" });
-  };
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   /* ================= EVENTS DATA ================= */
   const events = [
+    
+
     {
-      id: 1,
-      title: "Steel Quest",
-      category: "Technical",
-      description: "A technical quiz based on metallurgy and materials science.",
-      image:
-        "https://metallum.co.in/wp-content/uploads/2025/02/Prorecruit-1.png",
-    },
-    {
-      id: 2,
-      title: "MetTricks",
-      category: "Technical",
-      description: "Brain-teasing metallurgy challenges.",
-      image:
-        "https://metallum.co.in/wp-content/uploads/2025/01/METTRICKS-1.png",
-    },
-    {
-      id: 3,
-      title: "MetExposition",
-      category: "Technical",
-      description: "Showcase innovative metallurgical ideas.",
-      image:
-        "https://metallum.co.in/wp-content/uploads/2025/01/METEXPOSITION.png",
-    },
+    id: 5,
+    title: "MET-TRICKS",
+    category: "Main Event",
+    description:
+      "A PPT-based competition where participants address real-world technical and industrial problems by presenting practical, innovative solutions while learning through idea exchange and discussion.",
+    image:
+      "/photoes/eventsposter/Metricks.png",
+  },
+  {
+    id: 6,
+    title: "METALLOSCAPE",
+    category: "Main Event",
+    description:
+      "A poster presentation event focused on metallurgy, where teams showcase research concepts and technical understanding through creative visuals and clear scientific communication.",
+    image:
+      "/photoes/eventsposter/Metalloscape.png",
+  },
+  {
+    id: 7,
+    title: "PRORECRUIT",
+    category: "Main Event",
+    description:
+      "A mock placement drive that simulates real recruitment processes, helping participants improve professional skills, gain constructive feedback, and build confidence.",
+    image:
+      "/photoes/eventsposter/Prorecruit.png",
+  },
+  {
+    id: 8,
+    title: "निर्माण ",
+    category: "Main Event",
+    description:
+      "An innovation and pitching platform where aspiring entrepreneurs solve real-world problems and present impactful ideas through dynamic pitches and interactive judge sessions.",
+    image:
+      "/photoes/eventsposter/Nirman.png",
+  },
+  {
+    id: 9,
+    title: "Dr. A. K. Seal Memorial Quiz",
+    category: "Main Event",
+    description:
+      "A fast-paced quiz designed to test logical thinking, speed, and clarity, challenging participants from diverse fields with engaging and thought-provoking questions.",
+    image:
+      "/photoes/eventsposter/Quiz.png",
+  },
+  {
+    id: 10,
+    title: "METAPOLISH",
+    category: "Main Event",
+    description:
+      "A hands-on metallography event combining a screening quiz with practical sample preparation and microstructural analysis using grinding, polishing, etching, and microscopy.",
+    image:
+      "/photoes/eventsposter/Metapolish.png",
+  },
+    
   ];
 
   /* ================= RENDER ================= */
@@ -98,22 +126,39 @@ export default function Home() {
         <iframe
           className="absolute top-1/2 left-1/2 w-[177.77vh] h-[100vh]
           min-w-[100vw] min-h-[56.25vw]
-          -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-          src="https://www.youtube.com/embed/AATLBElSkVk?autoplay=1&mute=1&loop=1&playlist=AATLBElSkVk&controls=0&playsinline=1"
+          -translate-x-1/2 -translate-y-1/2 pointer-events-none "
+          src="/photoes/background image.png"
           allow="autoplay"
         />
+        
 
         {/* DARK OVERLAY */}
-        <div className="absolute inset-0 bg-black/60 z-10" />
+<div className="relative z-20 text-center max-w-4xl px-6 mx-auto">
+  <h1
+    className="
+     relative font-heading font-extrabold uppercase tracking-widest
+    text-5xl sm:text-6xl md:text-7xl lg:text-8xl
+    text-white
+    select-none
+    "
+    style={{
+      WebkitTextStroke: "1.5px #1e3a8a", // royal blue outline
+      textShadow: "0 12px 28px rgba(30,64,175,0.4)", // depth, not flashy
+    }}
+  >
+    METALLUM 2026
+  </h1>
 
-        {/* CONTENT */}
-        <div className="relative z-20 text-center max-w-3xl px-6 text-white">
-          <h1 className="font-heading text-5xl md:text-7xl uppercase tracking-wide">
-            METALLUM 2026
-          </h1>
+  {/* underline accent */}
+  
+
+
+
+
+
 
           <p className="mt-6 text-lg opacity-90">
-            The Annual Metallurgical Fest where Innovation meets Industry.
+           The Annual Techincal Fest of Society Of Students Metallurgist IIEST Shibpur
           </p>
 
           {/* ================= COUNTDOWN ================= */}
@@ -128,7 +173,7 @@ export default function Home() {
                 key={i}
                 className="flex flex-col items-center min-w-[70px]"
               >
-                <span className="text-4xl md:text-5xl font-mono text-primary drop-shadow">
+                <span className="text-4xl md:text-5xl font-mono text-white drop-shadow">
                   {String(item.value).padStart(2, "0")}
                 </span>
                 <span className="text-xs uppercase tracking-widest opacity-80">
@@ -145,8 +190,8 @@ export default function Home() {
             </Link>
 
             {!user && (
-              <a href={`${import.meta.env.VITE_SERVER_URL}/auth/google`} className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-200 transition">
-                Login with Google
+              <a href={`${import.meta.env.VITE_SERVER_URL}/auth/google`} className="btn btn-soft px-10">
+                Login 
               </a>
             )}
           </div>
@@ -155,219 +200,357 @@ export default function Home() {
 
 
       {/* ================= ABOUT ================= */}
-      <section className="py-24 bg-base-200">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <p className="uppercase tracking-[0.3em] text-xs font-semibold text-primary mb-3 font-body">
-              About the Fest
-            </p>
+<section className="relative py-28 bg-black overflow-hidden">
 
-            <h2 className="font-heading text-4xl md:text-5xl tracking-wide uppercase mb-6">
-              Where <span className="text-primary">Metallurgy</span> Meets{" "}
-              <span className="text-secondary">Innovation</span>
-            </h2>
+  {/* ================= BACKGROUND FX ================= */}
+  <div className="absolute inset-0 bg-gradient-to-br from-[#081a3c] via-[#050b1f] to-black" />
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.28),transparent_55%)]" />
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(37,99,235,0.22),transparent_55%)]" />
+  <div className="absolute inset-0 opacity-[0.05] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
 
-            <p className="font-body text-lg opacity-80 leading-relaxed">
-              METALLUM is the annual Metallurgical Engineering fest of IIEST
-              Shibpur, designed to bridge academia and industry through
-              competitions, expert talks, workshops, and hands-on challenges.
-            </p>
+  <div className="relative max-w-6xl mx-auto px-5">
 
-            <div className="mt-10 grid sm:grid-cols-2 gap-5 transition-shadow">
-              {[
-                "🔧 Technical Competitions",
-                "🏭 Industrial Workshops",
-                "🎙️ Expert Talks",
-                "🤝 Industry Networking",
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="p-5 bg-base-100 rounded-xl shadow font-body"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
+    {/* ================= GLASS PANEL ================= */}
+    <div className="relative rounded-3xl border border-blue-500/35 bg-black/50 backdrop-blur-xl p-10 md:p-14 overflow-hidden">
 
-          <img
-            src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg"
-            alt="Metallum"
-            className="w-full max-w-md mx-auto rounded-3xl shadow-2xl"
-          />
+      {/* animated border */}
+      <div className="absolute inset-0 rounded-3xl pointer-events-none animate-pulse border border-blue-500/15" />
+
+      {/* HUD corners */}
+      {["tl","tr","bl","br"].map((c, i) => (
+        <span
+          key={i}
+          className={`
+            absolute w-7 h-7 border-blue-500/70
+            ${c === "tl" && "top-0 left-0 border-t border-l"}
+            ${c === "tr" && "top-0 right-0 border-t border-r"}
+            ${c === "bl" && "bottom-0 left-0 border-b border-l"}
+            ${c === "br" && "bottom-0 right-0 border-b border-r"}
+          `}
+        />
+      ))}
+
+      {/* ================= BADGE ================= */}
+      <div className="flex justify-center mb-6">
+        <span className="px-6 py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-400 text-white text-xs font-bold tracking-[0.35em] shadow-lg shadow-blue-500/40">
+          METALLUM 2026
+        </span>
+      </div>
+
+      {/* ================= SUBTITLE ================= */}
+      <p className="text-center text-[11px] tracking-[0.4em] text-blue-400 mb-6">
+        THE METALLURGY AND MATERIALS ENGINEERING FEST • IIEST SHIBPUR
+      </p>
+
+     
+     
+
+      {/* ================= 7TH EDITION FEATURE CARD ================= */}
+      <div className="mt-14 flex justify-center">
+        <div className="relative max-w-2xl w-full rounded-2xl bg-gradient-to-r from-blue-900/40 to-cyan-900/30 border border-cyan-400/40 p-6 text-center shadow-xl">
+          <p className="text-cyan-300 uppercase tracking-widest text-xs mb-2">
+            Legacy Continues
+          </p>
+          <h3 className="text-2xl font-bold text-white tracking-wide mb-3">
+            7<sup>th</sup> Edition of METALLUM
+          </h3>
+          <p className="text-blue-100/85 text-sm leading-relaxed">
+            Building upon years of technical excellence, the 7th edition of
+            METALLUM expands its reach with larger participation, deeper
+            industry involvement, and next-generation metallurgical challenges.
+          </p>
         </div>
-      </section>
+      </div>
 
-      <section className="py-28 bg-gradient-to-b from-base-100 to-base-200">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* ================= EVENTS & DOMAINS ================= */}
+   
 
-          {/* Section Header */}
-          <div className="text-center mb-20">
-            <p className="font-body uppercase tracking-[0.3em] text-xs text-primary mb-3">
-              Official Merchandise
-            </p>
+      {/* ================= TAGLINE ================= */}
+      <div className="mt-18 text-center">
+        <p className="text-blue-300 tracking-[0.4em] text-xs mt-14">
+          ENGINEER • INNOVATE • TRANSFORM
+        </p>
+      </div>
 
-            <h2 className="font-heading text-4xl md:text-6xl uppercase tracking-wide mb-6">
-              METALLUM T-Shirt
-            </h2>
+    </div>
+  </div>
+</section>
 
-            <p className="font-body text-lg opacity-70 max-w-2xl mx-auto">
-              Wear the spirit of Metallum — premium quality, industrial design,
-              limited edition merchandise.
-            </p>
-          </div>
 
-          {/* CARD + CTA */}
-          <div className="flex flex-col items-center">
 
-            {/* CARD */}
-            <div className="hover-3d group w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-3xl">
-              <figure className="relative bg-base-100 rounded-3xl overflow-hidden shadow-2xl">
 
-                <img
-                  src="https://images.pexels.com/photos/9558596/pexels-photo-9558596.jpeg"
-                  alt="METALLUM Official T-Shirt"
-                  className="w-full h-[260px] sm:h-[320px] md:h-[380px] object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+      <section className="relative py-28 overflow-hidden bg-gradient-to-b from-base-100 to-base-200">
+  {/* soft glow */}
+  <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.15),transparent_60%)]" />
 
-                <span className="absolute top-4 left-4 bg-secondary text-white text-xs font-body px-3 py-1 rounded-full">
-                  Limited Edition
-                </span>
+  <div className="max-w-7xl mx-auto px-6">
 
-                <figcaption className="absolute bottom-0 w-full bg-black/70 text-white p-5 backdrop-blur">
-                  <h3 className="font-heading text-lg uppercase tracking-wide">
-                    METALLUM 2025 T-Shirt
-                  </h3>
+    {/* ===== Section Header ===== */}
+    <div className="text-center mb-16">
+      <p className="font-body uppercase tracking-[0.35em] text-xs text-primary mb-3">
+        Official Merchandise
+      </p>
 
-                  <p className="font-body text-sm opacity-80 mt-1">
-                    Premium Cotton • Unisex Fit • Industrial Print
-                  </p>
+      <h2 className="font-heading text-4xl md:text-6xl uppercase tracking-wide mb-6">
+        METALLUM T-Shirt
+      </h2>
 
-                  <div className="mt-4">
-                    <span className="font-body text-xl font-semibold text-secondary">
-                      ₹599
-                    </span>
-                  </div>
-                </figcaption>
-              </figure>
+      <p className="font-body text-lg opacity-70 max-w-2xl mx-auto">
+        Premium METALLUM 2026 T-Shirts crafted for comfort, style, and legacy.
+        The wait is almost over.
+      </p>
+    </div>
 
-              {/* 3D hover layers */}
-              <div></div><div></div><div></div><div></div>
-              <div></div><div></div><div></div><div></div>
-            </div>
+    {/* ===== Launch Card ===== */}
+    <div className="flex justify-center">
+      <div className="relative w-full max-w-xl rounded-3xl border border-primary/20 bg-base-100/70 backdrop-blur-xl p-10 text-center shadow-xl">
 
-            {/* CTA BUTTON (OUTSIDE POSTER) */}
-            <Link
-              to="/tshirt"
-              onClick={(e) => {
-                if (!user) {
-                  e.preventDefault();
-                  setShowLoginAlert(true);
-                } else {
-                  scrollToTop();
-                }
-              }}
-              className="mt-10 btn btn-lg btn-primary px-10"
-            >
-              Buy Now
-            </Link>
-
-          </div>
+        {/* badge */}
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-5 py-1 rounded-full text-xs uppercase tracking-widest bg-primary text-primary-content shadow-lg">
+          Launching Soon
         </div>
-      </section>
+
+        {/* spinner */}
+        <span className="loading loading-spinner loading-lg text-primary mb-6"></span>
+
+        <h3 className="font-heading text-2xl uppercase tracking-wide mb-3">
+          METALLUM 2026 Edition
+        </h3>
+
+        <p className="font-body opacity-75 mb-6">
+          Limited edition merchandise inspired by engineering, innovation,
+          and the spirit of METALLUM.
+        </p>
+
+        {/* disabled CTA */}
+        <button
+          disabled
+          className="btn btn-outline btn-primary opacity-60 cursor-not-allowed"
+        >
+          Notify Me
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+     {/* ================= EVENTS ================= */}
+<section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-3 sm:px-6 bg-[#020617]">
+
+  {/* ===== BACKGROUND ===== */}
+  <div
+    className="absolute inset-0 -z-30"
+    style={{
+      background:
+        "linear-gradient(135deg, #020617 0%, #061a3a 50%, #020617 100%)",
+    }}
+  />
+
+  {/* glow layers */}
+  <div
+    className="absolute inset-0 -z-20"
+    style={{
+      background:
+        "radial-gradient(circle at top, rgba(59,130,246,0.35), transparent 65%)",
+    }}
+  />
+  <div
+    className="absolute inset-0 -z-20"
+    style={{
+      background:
+        "radial-gradient(circle at bottom, rgba(37,99,235,0.35), transparent 65%)",
+    }}
+  />
+
+  {/* blobs */}
+ <div className="
+  mb-6
+  sm:mb-8
+  lg:mb-14
+  lg:-translate-y-8
+  text-center
+  z-10
+">
+  <p className="uppercase tracking-[0.5em] text-[9px] sm:text-xs text-blue-400">
+    Featured Events
+  </p>
+  <h2 className="mt-1 text-2xl sm:text-4xl md:text-5xl font-bold uppercase tracking-wider text-white">
+    Tech Fest
+  </h2>
+</div>
 
 
-      {/* ================= EVENTS ================= */}
-      <section className="py-24 bg-base-100">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
-            <h2 className="font-heading text-4xl md:text-6xl uppercase tracking-wide mb-6">
-              Events & Competitions
-            </h2>
-            <p className="font-body text-lg opacity-70">
-              A curated mix of technology, creativity, learning, and fun.
-            </p>
-          </div>
 
-          <div className="grid gap-10 sm:grid-cols-2 xl:grid-cols-3">
-            {events.map((event, index) => (
-              <div
-                key={index}
-                className="bg-base-200 rounded-3xl p-7 shadow-lg hover:-translate-y-2 transition"
-              >
-                <div className="flex justify-between mb-4 font-body text-xs">
-                  <span className="font-semibold">{event.category}</span>
-                  <span className="opacity-70">{event.level}</span>
-                </div>
+  {/* ===== 3D CAROUSEL ===== */}
+  <div
+    className="relative w-full flex justify-center items-center"
+    style={{
+      height: "clamp(240px, 50vh, 560px)",
+      perspective: "clamp(900px, 1200px, 1600px)",
+    }}
+  >
+    <div
+      className="relative carousel-3d"
+      style={{
+        width: "100%",
+        maxWidth: "900px",
+        height: "clamp(260px, 50vh, 440px)",
+        transformStyle: "preserve-3d",
+        animation: "spin 40s linear infinite",
+      }}
+    >
+      {events.map((event, index) => {
+        const angle = (360 / events.length) * index;
 
-                <h3 className="font-heading text-xl tracking-wide uppercase mb-3">
+        return (
+          <div
+            key={index}
+            className="absolute inset-0 flex items-center justify-center"
+            style={{
+              transform: `
+                rotateY(${angle}deg)
+                translateZ(clamp(160px, 32vw, 420px))
+              `,
+            }}
+          >
+            {/* ===== CARD ===== */}
+           <div
+  className="
+    group relative
+    w-[160px] h-[220px]        /* 📱 mobile smaller */
+    sm:w-[220px] sm:h-[300px]
+    lg:w-[250px] lg:h-[330px]
+    rounded-3xl overflow-hidden
+    border border-blue-400/30
+    transition-transform duration-500
+    hover:scale-105
+  "
+  style={{
+    background: "rgba(10,20,40,0.65)",
+    boxShadow:
+      "0 0 30px rgba(59,130,246,0.6), 0 0 70px rgba(37,99,235,0.45)",
+    backdropFilter: "blur(12px)",
+  }}
+>
+            
+              <img
+                src={event.image}
+                alt={event.title}
+                className="w-full h-full object-cover"
+                draggable="false"
+              />
+
+              {/* overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-3 sm:p-4 flex flex-col justify-end">
+                <h3 className="text-sm sm:text-base font-semibold uppercase text-white">
                   {event.title}
                 </h3>
 
-                <p className="font-body text-sm opacity-80 mb-6">
-                  {event.desc}
+                <p className="text-[10px] uppercase tracking-widest text-blue-300 mt-1">
+                  {event.category}
+                </p>
+
+                <p className="text-xs sm:text-sm text-white/85 mt-2 line-clamp-2 sm:line-clamp-3">
+                  {event.description}
                 </p>
 
                 <Link
                   to="/events"
-                  onClick={scrollToTop}
-                  className="btn btn-sm btn-outline font-body"
+                  className="mt-3 btn btn-xs sm:btn-sm bg-blue-600 hover:bg-blue-700 text-white border-0 w-fit"
                 >
-                  Explore →
+                  Learn More →
                 </Link>
               </div>
-            ))}
-          </div>
-
-          <div className="mt-16 flex justify-center">
-            <Link
-              to="/events"
-              onClick={scrollToTop}
-              className="btn btn-lg btn-primary px-10 font-body"
-            >
-              ALL Events →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= CAROUSEL ================= */}
-      <section className="py-24 bg-base-200">
-        <div
-          ref={carouselRef}
-          className="carousel w-full rounded-3xl overflow-hidden shadow-2xl"
-        >
-          {[
-            { id: "slide1", img: "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp", prev: "slide4", next: "slide2" },
-            { id: "slide2", img: "https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp", prev: "slide1", next: "slide3" },
-            { id: "slide3", img: "https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp", prev: "slide2", next: "slide4" },
-            { id: "slide4", img: "https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp", prev: "slide3", next: "slide1" },
-          ].map((slide) => (
-            <div key={slide.id} id={slide.id} className="carousel-item relative w-full">
-              <img src={slide.img} className="w-full h-[420px] object-cover" alt="" />
-
-              <div className="absolute left-6 right-6 top-1/2 -translate-y-1/2 flex justify-between">
-                <button
-                  onClick={() => scrollToSlide(slide.prev)}
-                  className="btn btn-circle bg-white/20 backdrop-blur"
-                >
-                  ❮
-                </button>
-                <button
-                  onClick={() => scrollToSlide(slide.next)}
-                  className="btn btn-circle bg-white/20 backdrop-blur"
-                >
-                  ❯
-                </button>
-              </div>
             </div>
-          ))}
-        </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
 
-        <p className="mt-8 text-center text-sm opacity-70 font-body">
-          Click arrows to navigate
-        </p>
-      </section>
+  {/* ===== KEYFRAMES ===== */}
+  <style>{`
+    @keyframes spin {
+      from { transform: rotateY(0deg); }
+      to { transform: rotateY(360deg); }
+    }
+
+    .carousel-3d:hover {
+      animation-play-state: paused;
+    }
+
+    @media (max-width: 640px) {
+      .carousel-3d {
+        animation-duration: 55s;
+      }
+    }
+  `}</style>
+</section>
+
+
+
+
+
+
+<section className="py-24 bg-base-200 overflow-hidden">
+  <div className="relative w-full overflow-hidden">
+
+    {/* GRADIENT EDGES */}
+    <div className="pointer-events-none absolute left-0 top-0 h-full w-40 z-10 bg-gradient-to-r from-base-200 to-transparent" />
+    <div className="pointer-events-none absolute right-0 top-0 h-full w-40 z-10 bg-gradient-to-l from-base-200 to-transparent" />
+
+    {/* MOVING TRACK */}
+    <div className="rtl-track flex gap-10">
+      {[...Array(2)].flatMap(() => [
+        "/photoes/gallery.png",
+        "/photoes/metallum Collage 2.jpeg",
+        "/photoes/metallum collage .png",
+        "/photoes/gallery.png",
+        "/photoes/metallum collage .png",
+        "/photoes/metallum Collage 2.jpeg",
+        "/photoes/White Post.png",
+      ]).map((img, index) => (
+        <img
+          key={index}
+          src={img}
+          alt={`Gallery ${index}`}
+          className="
+            w-[360px] h-[480px]
+            object-cover
+            rounded-[32px]
+            flex-shrink-0
+          "
+          style={{
+            boxShadow: "0 40px 100px rgba(0,0,0,0.4)",
+          }}
+        />
+      ))}
+    </div>
+  </div>
+
+  {/* INLINE STYLE — SAME PAGE ONLY */}
+  <style jsx>{`
+    .rtl-track {
+      width: max-content;
+      animation: rtl-loop 30s linear infinite;
+    }
+
+    @keyframes rtl-loop {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+  `}</style>
+</section>
+
+
+
+
+       
 
       {/* LOGIN ALERT MODAL */}
       {showLoginAlert && (

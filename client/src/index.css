@@ -3,6 +3,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+:root {
+  --bg-main: #f8fafc;
+  --bg-accent: #e2e8f0;
+  --text-main: #020617;
+
+  --glow-primary: rgba(37, 99, 235, 0.25);
+  --glow-secondary: rgba(59, 130, 246, 0.2);
+
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --card-border: rgba(37, 99, 235, 0.25);
+}
+
+.dark {
+  --bg-main: #020617;
+  --bg-accent: #061a3a;
+  --text-main: #ffffff;
+
+  --glow-primary: rgba(37, 99, 235, 0.45);
+  --glow-secondary: rgba(59, 130, 246, 0.35);
+
+  --card-bg: rgba(10, 20, 40, 0.65);
+  --card-border: rgba(59, 130, 246, 0.35);
+}
+
  body {
   font-family: 'Poppins', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -16,4 +40,42 @@
 }
 html {
   scroll-behavior: smooth;
+}
+
+/* ======== EVENT CAROUSEL ANIMATION ======== */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ======== GRID GLOW PULSE ======== */
+@keyframes gridGlowPulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* ======== CENTER RADIAL GLOW ======== */
+@keyframes radialGlow {
+  0%, 100% {
+    box-shadow: 0 0 80px rgba(17, 30, 108, 0.4), 0 0 120px rgba(17, 30, 108, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 100px rgba(17, 30, 108, 0.6), 0 0 150px rgba(17, 30, 108, 0.3);
+  }
+}
+
+.grid-glow {
+  animation: gridGlowPulse 4s ease-in-out infinite;
+}
+
+.radial-glow {
+  animation: radialGlow 3s ease-in-out infinite;
 }
