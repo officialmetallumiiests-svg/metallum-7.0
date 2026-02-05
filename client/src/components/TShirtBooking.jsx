@@ -105,12 +105,12 @@ const TShirtBooking = () => {
                         <div className="bg-white p-4 rounded-xl inline-block mb-4">
                             {/* Placeholder QR - Replace with actual */}
                             <img
-                                src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=7510793132@ybl&pn=Metallum&am=599&tn=TShirt"
+                                src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=9993928756@jio&pn=Yash%20Chandekar&am=599&tn=TShirt"
                                 alt="Payment QR Code"
                                 className="w-48 h-48"
                             />
                         </div>
-                        <p className="text-sm text-gray-400 font-mono mb-2">UPI ID: 7510793132@ybl</p>
+                        <p className="text-sm text-gray-400 font-mono mb-2">UPI ID: 9993928756@jio</p>
                         <div className="text-3xl font-bold text-white mb-2">₹{amount}</div>
                         <p className="text-xs text-gray-500">Scan via GPay, PhonePe, Paytm</p>
                     </div>
