@@ -14,6 +14,7 @@ function Accomodation() {
     phone: "",
     gender: "",
     college: "",
+    department: "", // Added department
     transactionId: ""
   });
 
@@ -71,6 +72,7 @@ function Accomodation() {
         phone: `+91 ${formData.phone}`,
         email: user.email,
         event: "ACCOMMODATION",
+        branch: formData.department, // Map department to branch
         amount: 799
       };
 
@@ -266,10 +268,16 @@ function Accomodation() {
                   </div>
                 </div>
 
-                {/* College */}
-                <div className="form-control group">
-                  <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">College / Institute</label>
-                  <input type="text" name="college" value={formData.college} onChange={handleInputChange} required className="input bg-black/20 border border-white/10 focus:border-primary/50 text-white w-full placeholder:text-gray-700 focus:outline-none focus:ring-1 focus:ring-primary/50" placeholder="University Name" />
+                {/* College & Department */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="form-control group">
+                    <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">College / Institute</label>
+                    <input type="text" name="college" value={formData.college} onChange={handleInputChange} required className="input bg-black/20 border border-white/10 focus:border-primary/50 text-white w-full placeholder:text-gray-700 focus:outline-none focus:ring-1 focus:ring-primary/50" placeholder="University Name" />
+                  </div>
+                  <div className="form-control group">
+                    <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">Department</label>
+                    <input type="text" name="department" value={formData.department} onChange={handleInputChange} required className="input bg-black/20 border border-white/10 focus:border-primary/50 text-white w-full placeholder:text-gray-700 focus:outline-none focus:ring-1 focus:ring-primary/50" placeholder="e.g. CSE, IT" />
+                  </div>
                 </div>
 
                 {/* Payment Section */}
