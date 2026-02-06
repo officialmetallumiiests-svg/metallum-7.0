@@ -46,9 +46,9 @@ const AdminDashboard = () => {
     const downloadCSV = () => {
         if (!filteredRegistrations.length) return;
 
-        const headers = ["Name,Email,Phone,College,Branch,Year,Event,Team,Status,Date"];
+        const headers = ["Name,Email,Phone,College,Branch,Year,Event,Team,Status,Transaction ID,Date"];
         const rows = filteredRegistrations.map(reg =>
-            `"${reg.name}","${reg.email}","${reg.phone}","${reg.college}","${reg.branch}","${reg.year}","${reg.event}","${reg.teamName || ''}","${reg.status || 'Pending'}","${new Date(reg.createdAt).toLocaleDateString()}"`
+            `"${reg.name}","${reg.email}","${reg.phone}","${reg.college}","${reg.branch}","${reg.year}","${reg.event}","${reg.teamName || ''}","${reg.status || 'Pending'}","${reg.transactionId || 'N/A'}","${new Date(reg.createdAt).toLocaleDateString()}"`
         );
 
         const csvContent = "data:text/csv;charset=utf-8," + headers.concat(rows).join("\n");
@@ -220,6 +220,7 @@ const AdminDashboard = () => {
                                 <th>Name</th>
                                 <th>Phone</th>
                                 <th>Event</th>
+                                <th>Transaction ID</th>
                                 <th>Details</th>
                                 <th>Date</th>
                                 <th className="text-right">Actions</th>
@@ -248,6 +249,10 @@ const AdminDashboard = () => {
                                         <span className="badge badge-primary badge-outline text-xs">
                                             {reg.event}
                                         </span>
+                                    </td>
+
+                                    <td className="font-mono text-yellow-500 text-xs text-nowrap">
+                                        {reg.transactionId || '-'}
                                     </td>
 
                                     <td className="text-xs text-gray-400 max-w-xs truncate">
