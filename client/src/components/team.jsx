@@ -11,7 +11,12 @@ export default function Team() {
       {
         name: "Yash Chandekar",
         role: "Main Coordinator",
-        image: "",
+        image: "/images/yash.jpeg",
+      },
+      {
+        name: "Shubh Ashutosh",
+        role: "Student Convener",
+        image: "/images/Shubh_Ashutosh.jpeg",
       },
       {
         name: "Anjani",
@@ -21,7 +26,7 @@ export default function Team() {
       {
         name: "Soumyadeep Das",
         role: "Finance",
-        image: "",
+        image: "/images/somyadeep.jpeg",
       },
       {
         name: "Swagato Chakraborty",
@@ -36,7 +41,7 @@ export default function Team() {
       {
         name: "Naman Kumar Thakur",
         role: "Sponsorship",
-        image: "/images/NAMAN.jpg",
+        image: "/images/NaMan.jpeg",
       },
       {
         name: "Aditya Singh",
@@ -129,13 +134,13 @@ export default function Team() {
         role: "Publicity",
         image: "/images/SHIVRAJ_JANGIR.jpg",
       }, {
-        name: "Abhisheak Kumar",
+        name: "Abhishek Kumar",
         role: "Design, Production and Decoration",
         image: "/images/ABHISHEK_KUMAR.png",
       }, {
         name: " Himanshu Kumar",
         role: "Design, Production and Decoration",
-        image: "",
+        image: "/images/himanshu.jpeg",
       }, {
         name: "Kritika Bairwa ",
         role: "Design, Production and Decoration",

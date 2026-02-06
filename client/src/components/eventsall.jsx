@@ -149,6 +149,7 @@ function EventsAll() {
     "Team members cannot be changed after registration.",
     "Unauthorized team changes may cause disqualification.",
     "In case of a tie: position points → kills → TDM knockout round.",
+    "Registration fees: ₹50 "
   ],
 
   contacts: [
@@ -166,10 +167,12 @@ function EventsAll() {
     "A tactical shooter that demands precise aim, smart utility usage, and seamless communication as teams coordinate strategies to dominate every round.",
   image: "/photoes/eventsposter/Valorant.png",
 
-  details:
-    "Lock in with your duo and enter the most intense 2v2 Valorant showdown at Metallum 7.0. This isn’t about numbers—it's about chemistry. Every peek matters, every utility counts, and one perfectly timed play can decide the round. Expect lightning-fast duels, clutch moments, and pure competitive pressure.",
+  details:"Lock in with your duo and enter the most intense 2v2 Valorant showdown at Metallum 7.0. This isn’t about numbers—it's about chemistry. Every peek matters, every utility counts, and one perfectly timed play can decide the round. Expect lightning-fast duels, clutch moments, and pure competitive pressure.",
+
+
 
   guidelines: [
+    
     "General Rules",
     "Participants must comply with all tournament rules and admin decisions.",
     "The administration reserves the right to modify rules to ensure fair play.",
@@ -206,6 +209,7 @@ function EventsAll() {
     "Players must share screenshots of end screens.",
     "Only participating players may stay in match Discord/voice channels.",
     "After each game, teams should exit promptly for the next match.",
+    "Registration fees: ₹100 "
   ],
 
   contacts: [
@@ -308,12 +312,13 @@ function EventsAll() {
             className="bg-base-100 rounded-xl shadow-lg overflow-hidden"
           >
             {/* IMAGE */}
-            <div className="relative h-48">
+            <div className="relative w-full aspect-[7/5] bg-black">
               <img
-                src={event.image}
-                alt={event.title}
-                className="w-full h-full object-cover"
-              />
+  src={event.image}
+  alt={event.title}
+  className="w-full h-full object-contain bg-black"
+/>
+
               <span className="absolute top-3 left-3 badge badge-primary">
                 {event.category}
               </span>

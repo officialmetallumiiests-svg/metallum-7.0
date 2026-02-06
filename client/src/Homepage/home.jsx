@@ -158,7 +158,7 @@ const [ringRotation, setRingRotation] = useState(0);
 
 
           <p className="mt-6 text-lg opacity-90">
-           The Annual Techincal Fest of Society Of Students Metallurgist IIEST Shibpur
+           The Annual Techincal Fest of Society Of Student Metallurgists IIEST Shibpur
           </p>
 
           {/* ================= COUNTDOWN ================= */}
@@ -239,7 +239,8 @@ const [ringRotation, setRingRotation] = useState(0);
 
       {/* ================= SUBTITLE ================= */}
       <p className="text-center text-[11px] tracking-[0.4em] text-blue-400 mb-6">
-        THE METALLURGY AND MATERIALS ENGINEERING FEST • IIEST SHIBPUR
+        THE METALLURGY AND MATERIALS ENGINEERING FEST  
+      
       </p>
 
      
