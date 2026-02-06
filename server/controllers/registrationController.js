@@ -9,6 +9,16 @@ exports.createRegistration = async (req, res) => {
       return res.status(400).json({ message: 'Name and Email are required' });
     }
 
+    // Check if user already registered for this event
+    const existingRegistration = await Registration.findOne({
+      user: req.user.id,
+      event: event
+    });
+
+    if (existingRegistration) {
+      return res.status(400).json({ message: 'You have already registered for this event' });
+    }
+
     const registration = await Registration.create({
       user: req.user.id, // Link to logged-in user
       name,
