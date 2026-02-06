@@ -81,8 +81,8 @@ function EventsAll() {
     // Validate Teammates for BGMI
     if (registerEvent?.title === "BGMI") {
       for (let i = 0; i < teammates.length; i++) {
-        if (!teammates[i].name || teammates[i].phone.length !== 10) {
-          showToast(`Player ${i + 2} details are incomplete or invalid`, "error");
+        if (!teammates[i].name) {
+          showToast(`Player ${i + 2} name is required`, "error");
           setLoading(false);
           return;
         }
@@ -99,8 +99,7 @@ function EventsAll() {
 
       if (registerEvent?.title === "BGMI") {
         payload.teammates = teammates.map(t => ({
-          name: t.name,
-          phone: `+91 ${t.phone}`
+          name: t.name
         }));
       }
 
@@ -590,7 +589,7 @@ function EventsAll() {
                     {[0, 1, 2].map((index) => (
                       <div key={index} className="p-4 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 transition-colors">
                         <label className="text-xs text-primary font-bold tracking-wider mb-3 block">PLAYER {index + 2}</label>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 gap-4">
                           <div className="form-control group">
                             <input
                               type="text"
@@ -600,24 +599,6 @@ function EventsAll() {
                               className="input input-sm bg-black/40 border border-white/10 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/50 text-white w-full transition-all duration-300 placeholder:text-gray-600"
                               placeholder="Player Name"
                             />
-                          </div>
-                          <div className="form-control group">
-                            <div className="flex relative">
-                              <span className="inline-flex items-center px-2 rounded-l-lg border border-r-0 border-white/10 bg-white/5 text-gray-400 font-mono text-xs select-none">
-                                +91
-                              </span>
-                              <input
-                                type="tel"
-                                value={teammates[index].phone}
-                                onChange={(e) => {
-                                  const val = e.target.value.replace(/[^0-9]/g, "");
-                                  if (val.length <= 10) handleTeammateChange(index, "phone", val);
-                                }}
-                                required
-                                className="input input-sm rounded-l-none bg-black/40 border border-white/10 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/50 text-white w-full transition-all duration-300 placeholder:text-gray-600"
-                                placeholder="Phone Number"
-                              />
-                            </div>
                           </div>
                         </div>
                       </div>
@@ -641,39 +622,61 @@ function EventsAll() {
                   />
                 </div>
 
-                {/* Branch (Full Width for long text) */}
-                <div className="form-control group">
-                  <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">
-                    Branch
-                  </label>
-                  <input
-                    type="text"
-                    name="branch"
-                    value={formData.branch}
-                    onChange={handleInputChange}
-                    required
-                    className="input bg-black/20 border border-white/10 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/50 text-white w-full transition-all duration-300 placeholder:text-gray-700"
-                    placeholder="e.g. METALLURGY AND MATERIALS ENGINEERING"
-                  />
-                </div>
+                {/* Branch & Year (Hidden for BGMI) */}
+                {registerEvent?.title !== "BGMI" && (
+                  <>
+                    {/* Branch (Full Width for long text) */}
+                    <div className="form-control group">
+                      <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">
+                        Branch
+                      </label>
+                      <input
+                        type="text"
+                        name="branch"
+                        value={formData.branch}
+                        onChange={handleInputChange}
+                        required
+                        className="input bg-black/20 border border-white/10 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/50 text-white w-full transition-all duration-300 placeholder:text-gray-700"
+                        placeholder="e.g. METALLURGY AND MATERIALS ENGINEERING"
+                      />
+                    </div>
 
-                {/* Year & Team Name (Grid) */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="form-control group">
-                    <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">
-                      Year
-                    </label>
-                    <input
-                      type="text"
-                      name="year"
-                      value={formData.year}
-                      onChange={handleInputChange}
-                      required
-                      className="input bg-black/20 border border-white/10 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/50 text-white w-full transition-all duration-300 placeholder:text-gray-700"
-                      placeholder="e.g. 3rd"
-                    />
-                  </div>
+                    {/* Year & Team Name (Grid) */}
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="form-control group">
+                        <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">
+                          Year
+                        </label>
+                        <input
+                          type="text"
+                          name="year"
+                          value={formData.year}
+                          onChange={handleInputChange}
+                          required
+                          className="input bg-black/20 border border-white/10 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/50 text-white w-full transition-all duration-300 placeholder:text-gray-700"
+                          placeholder="e.g. 3rd"
+                        />
+                      </div>
 
+                      <div className="form-control group">
+                        <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">
+                          Team Name <span className="text-gray-600 normal-case tracking-normal ml-1">(Optional)</span>
+                        </label>
+                        <input
+                          type="text"
+                          name="teamName"
+                          value={formData.teamName}
+                          onChange={handleInputChange}
+                          className="input bg-black/20 border border-white/10 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/50 text-white w-full transition-all duration-300 placeholder:text-gray-700"
+                          placeholder="Enter team name"
+                        />
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                {/* Team Name Only for BGMI */}
+                {registerEvent?.title === "BGMI" && (
                   <div className="form-control group">
                     <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">
                       Team Name <span className="text-gray-600 normal-case tracking-normal ml-1">(Optional)</span>
@@ -687,7 +690,7 @@ function EventsAll() {
                       placeholder="Enter team name"
                     />
                   </div>
-                </div>
+                )}
 
                 <div className="mt-4">
                   <button
