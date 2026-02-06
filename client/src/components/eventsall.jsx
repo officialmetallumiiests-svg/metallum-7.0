@@ -18,12 +18,8 @@ function EventsAll() {
     teamName: ""
   });
 
-  // BGMI Teammates State
-  const [teammates, setTeammates] = useState([
-    { name: "", phone: "" },
-    { name: "", phone: "" },
-    { name: "", phone: "" }
-  ]);
+  // Teammates State
+  const [teammates, setTeammates] = useState([]);
 
   const handleRegisterClick = (event) => {
     if (!user) {
@@ -31,12 +27,21 @@ function EventsAll() {
       return;
     }
     setRegisterEvent(event);
-    // Reset teammates when opening modal
-    setTeammates([
-      { name: "", phone: "" },
-      { name: "", phone: "" },
-      { name: "", phone: "" }
-    ]);
+
+    // Reset teammates based on event type
+    if (event.title === "BGMI") {
+      setTeammates([
+        { name: "", phone: "" },
+        { name: "", phone: "" },
+        { name: "", phone: "" }
+      ]);
+    } else if (event.title === "VALORANT") {
+      setTeammates([
+        { name: "", phone: "" } // Only 1 teammate for 2v2
+      ]);
+    } else {
+      setTeammates([]);
+    }
   };
 
   const handleInputChange = (e) => {
@@ -78,8 +83,8 @@ function EventsAll() {
       return;
     }
 
-    // Validate Teammates for BGMI
-    if (registerEvent?.title === "BGMI") {
+    // Validate Teammates for BGMI or VALORANT
+    if (registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT") {
       for (let i = 0; i < teammates.length; i++) {
         if (!teammates[i].name) {
           showToast(`Player ${i + 2} name is required`, "error");
@@ -97,7 +102,7 @@ function EventsAll() {
         event: registerEvent.title
       };
 
-      if (registerEvent?.title === "BGMI") {
+      if (registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT") {
         payload.teammates = teammates.map(t => ({
           name: t.name
         }));
@@ -118,7 +123,7 @@ function EventsAll() {
         setShowSuccess(true);
         setRegisterEvent(null);
         setFormData({ name: "", phone: "", college: "", branch: "", year: "", teamName: "" });
-        setTeammates([{ name: "", phone: "" }, { name: "", phone: "" }, { name: "", phone: "" }]);
+        setTeammates([]);
       } else {
         showToast(data.message || "Registration failed", "error");
       }
@@ -131,7 +136,6 @@ function EventsAll() {
   };
 
   const events = [
-
     {
       id: 1,
       title: "Chess",
@@ -159,8 +163,7 @@ function EventsAll() {
         { name: "Anjani", phone: "9219611024" },
         { name: "Gyanshi", phone: "7678624280" },
       ],
-    }
-    ,
+    },
 
     {
       id: 2,
@@ -195,8 +198,7 @@ function EventsAll() {
         { name: "Aritra Dutta", phone: "7865979275" },
         { name: "Sirshapan Kunda Roy", phone: "7478206983" },
       ],
-    }
-    ,
+    },
 
     {
       id: 3,
@@ -208,10 +210,7 @@ function EventsAll() {
 
       details: "Lock in with your duo and enter the most intense 2v2 Valorant showdown at Metallum 7.0. This isn’t about numbers—it's about chemistry. Every peek matters, every utility counts, and one perfectly timed play can decide the round. Expect lightning-fast duels, clutch moments, and pure competitive pressure.",
 
-
-
       guidelines: [
-
         "General Rules",
         "Participants must comply with all tournament rules and admin decisions.",
         "The administration reserves the right to modify rules to ensure fair play.",
@@ -255,8 +254,7 @@ function EventsAll() {
         { name: "Adarsh Das", phone: "9748890527" },
         { name: "Sandeep Kumawat", phone: "8003936610" },
       ],
-    }
-    ,
+    },
 
     {
       id: 4,
@@ -271,7 +269,6 @@ function EventsAll() {
 
       guidelines: [
         "Hackathon Structure",
-
         "Stage 1: Qualifier Round",
         "Teams must submit a fully functional project.",
         "Submission must include a GitHub repository, live application/website link, README file, and a demo video.",
@@ -529,7 +526,7 @@ function EventsAll() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="form-control group">
                     <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">
-                      {registerEvent?.title === "BGMI" ? "Team Leader Name" : "Name"}
+                      {(registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT") ? "Team Leader Name" : "Name"}
                     </label>
                     <input
                       type="text"
@@ -559,7 +556,7 @@ function EventsAll() {
                 {/* Phone */}
                 <div className="form-control group">
                   <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">
-                    {registerEvent?.title === "BGMI" ? "Team Leader Phone Number" : "Phone Number"}
+                    {(registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT") ? "Team Leader Phone Number" : "Phone Number"}
                   </label>
                   <div className="flex relative">
                     <span className="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-white/10 bg-white/5 text-gray-400 font-mono text-sm select-none">
@@ -577,23 +574,25 @@ function EventsAll() {
                   </div>
                 </div>
 
-                {/* BGMI Teammates Section */}
-                {registerEvent?.title === "BGMI" && (
+                {/* BGMI & VALORANT Teammates Section */}
+                {(registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT") && (
                   <div className="space-y-4 mt-2 mb-2">
                     <div className="flex items-center gap-4 my-2">
                       <div className="h-px bg-white/10 flex-1"></div>
-                      <span className="text-xs text-gray-500 font-mono">TEAMMATES (3 PLAYERS)</span>
+                      <span className="text-xs text-gray-500 font-mono">
+                        {registerEvent?.title === "VALORANT" ? "TEAMMATE (1 PLAYER)" : "TEAMMATES (3 PLAYERS)"}
+                      </span>
                       <div className="h-px bg-white/10 flex-1"></div>
                     </div>
 
-                    {[0, 1, 2].map((index) => (
+                    {teammates.map((member, index) => (
                       <div key={index} className="p-4 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 transition-colors">
                         <label className="text-xs text-primary font-bold tracking-wider mb-3 block">PLAYER {index + 2}</label>
                         <div className="grid grid-cols-1 gap-4">
                           <div className="form-control group">
                             <input
                               type="text"
-                              value={teammates[index].name}
+                              value={member.name}
                               onChange={(e) => handleTeammateChange(index, "name", e.target.value)}
                               required
                               className="input input-sm bg-black/40 border border-white/10 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/50 text-white w-full transition-all duration-300 placeholder:text-gray-600"
@@ -622,8 +621,8 @@ function EventsAll() {
                   />
                 </div>
 
-                {/* Branch & Year (Hidden for BGMI) */}
-                {registerEvent?.title !== "BGMI" && (
+                {/* Branch & Year (Hidden for BGMI and VALORANT) */}
+                {(registerEvent?.title !== "BGMI" && registerEvent?.title !== "VALORANT") && (
                   <>
                     {/* Branch (Full Width for long text) */}
                     <div className="form-control group">
@@ -675,8 +674,8 @@ function EventsAll() {
                   </>
                 )}
 
-                {/* Team Name Only for BGMI */}
-                {registerEvent?.title === "BGMI" && (
+                {/* Team Name Only for BGMI or VALORANT */}
+                {(registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT") && (
                   <div className="form-control group">
                     <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">
                       Team Name <span className="text-gray-600 normal-case tracking-normal ml-1">(Optional)</span>
