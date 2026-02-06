@@ -95,8 +95,8 @@ function EventsAll() {
       }
     }
 
-    // Validate Transaction ID for VALORANT
-    if (registerEvent?.title === "VALORANT" && !formData.transactionId) {
+    // Validate Transaction ID for VALORANT or BGMI
+    if ((registerEvent?.title === "VALORANT" || registerEvent?.title === "BGMI") && !formData.transactionId) {
       showToast("Transaction ID is required", "error");
       setLoading(false);
       return;
@@ -119,6 +119,11 @@ function EventsAll() {
       if (registerEvent?.title === "VALORANT") {
         payload.transactionId = formData.transactionId;
         payload.amount = 100;
+      }
+
+      if (registerEvent?.title === "BGMI") {
+        payload.transactionId = formData.transactionId;
+        payload.amount = 50;
       }
 
       const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/register`, {
@@ -618,8 +623,8 @@ function EventsAll() {
                   </div>
                 )}
 
-                {/* VALORANT Payment Section */}
-                {registerEvent?.title === "VALORANT" && (
+                {/* BGMI & VALORANT Payment Section */}
+                {(registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT") && (
                   <div className="space-y-4 mt-4 bg-white/5 p-4 rounded-lg border border-yellow-500/30">
                     <div className="flex items-center gap-4 my-2">
                       <div className="h-px bg-yellow-500/20 flex-1"></div>
@@ -632,11 +637,11 @@ function EventsAll() {
                       {/* QR Code and Amount */}
                       <div className="bg-white p-4 rounded-lg inline-block shadow-lg">
                         <img
-                          src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent("upi://pay?pa=9993928756@jio&pn=Yash Chandekar&am=100&cu=INR")}`}
+                          src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(`upi://pay?pa=9993928756@jio&pn=Yash Chandekar&am=${registerEvent?.title === "BGMI" ? "50" : "100"}&cu=INR`)}`}
                           alt="Payment QR Code"
                           className="w-32 h-32 mx-auto"
                         />
-                        <p className="text-black font-bold text-lg mt-2">₹100</p>
+                        <p className="text-black font-bold text-lg mt-2">₹{registerEvent?.title === "BGMI" ? "50" : "100"}</p>
                       </div>
 
                       <div className="space-y-2">
@@ -664,7 +669,7 @@ function EventsAll() {
 
                       {/* Pay Now Button (Deep Link) as Backup */}
                       <a
-                        href="upi://pay?pa=9993928756@jio&pn=Yash%20Chandekar&am=100&cu=INR"
+                        href={`upi://pay?pa=9993928756@jio&pn=Yash%20Chandekar&am=${registerEvent?.title === "BGMI" ? "50" : "100"}&cu=INR`}
                         target="_blank"
                         rel="noreferrer"
                         className="btn btn-outline btn-warning btn-sm w-full"
