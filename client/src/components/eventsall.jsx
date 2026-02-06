@@ -354,7 +354,7 @@ function EventsAll() {
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold">Pre-Events</h1>
         <p className="opacity-70 mt-2">
-          Each event has More Info and Register buttons
+          The road to the fest begins here
         </p>
       </div>
 

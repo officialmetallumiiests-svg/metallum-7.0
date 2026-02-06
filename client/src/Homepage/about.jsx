@@ -25,7 +25,7 @@ export default function About() {
             </h1>
 
             <p className="text-sm md:text-lg opacity-90 leading-relaxed">
-              METALLUM is the annual Metallurgical Engineering fest of{" "}
+              METALLUM is the annual Technical  fest of the department of Metallurgy and Materials Engineering of{" "}
               <span className="font-semibold">IIEST Shibpur</span>, celebrating
               innovation, research, and advancements in materials &
               metallurgical science. It unites students, industry professionals,
