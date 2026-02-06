@@ -17,6 +17,10 @@ const registrationSchema = new mongoose.Schema({
   amount: Number,
   paymentDate: { type: Date },
   status: { type: String, enum: ['Pending', 'Approved', 'Rejected'], default: 'Pending' },
+  teammates: [{
+    name: String,
+    phone: String
+  }],
   createdAt: { type: Date, default: Date.now }
 });
 

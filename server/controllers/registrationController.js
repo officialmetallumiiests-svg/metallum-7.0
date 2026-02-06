@@ -3,7 +3,7 @@ const Registration = require('../models/registration');
 // POST: register for event
 exports.createRegistration = async (req, res) => {
   try {
-    const { name, email, phone, college, branch, year, event, teamName, tshirtSize, tshirtName, transactionId, amount } = req.body;
+    const { name, email, phone, college, branch, year, event, teamName, tshirtSize, tshirtName, transactionId, amount, teammates } = req.body;
 
     if (!name || !email) {
       return res.status(400).json({ message: 'Name and Email are required' });
@@ -23,6 +23,7 @@ exports.createRegistration = async (req, res) => {
       tshirtName,
       transactionId,
       amount,
+      teammates,
       paymentDate: transactionId ? new Date() : undefined
     });
 

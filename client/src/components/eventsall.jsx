@@ -18,12 +18,25 @@ function EventsAll() {
     teamName: ""
   });
 
+  // BGMI Teammates State
+  const [teammates, setTeammates] = useState([
+    { name: "", phone: "" },
+    { name: "", phone: "" },
+    { name: "", phone: "" }
+  ]);
+
   const handleRegisterClick = (event) => {
     if (!user) {
       setShowLoginAlert(true);
       return;
     }
     setRegisterEvent(event);
+    // Reset teammates when opening modal
+    setTeammates([
+      { name: "", phone: "" },
+      { name: "", phone: "" },
+      { name: "", phone: "" }
+    ]);
   };
 
   const handleInputChange = (e) => {
@@ -39,6 +52,12 @@ function EventsAll() {
     } else {
       setFormData({ ...formData, [name]: value });
     }
+  };
+
+  const handleTeammateChange = (index, field, value) => {
+    const updatedTeammates = [...teammates];
+    updatedTeammates[index][field] = value;
+    setTeammates(updatedTeammates);
   };
 
   /* ================= TOAST STATE ================= */
@@ -59,18 +78,38 @@ function EventsAll() {
       return;
     }
 
+    // Validate Teammates for BGMI
+    if (registerEvent?.title === "BGMI") {
+      for (let i = 0; i < teammates.length; i++) {
+        if (!teammates[i].name || teammates[i].phone.length !== 10) {
+          showToast(`Player ${i + 2} details are incomplete or invalid`, "error");
+          setLoading(false);
+          return;
+        }
+      }
+    }
+
     try {
+      const payload = {
+        ...formData,
+        phone: `+91 ${formData.phone}`,
+        email: user.email,
+        event: registerEvent.title
+      };
+
+      if (registerEvent?.title === "BGMI") {
+        payload.teammates = teammates.map(t => ({
+          name: t.name,
+          phone: `+91 ${t.phone}`
+        }));
+      }
+
       const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          ...formData,
-          phone: `+91 ${formData.phone}`,
-          email: user.email,
-          event: registerEvent.title
-        }),
+        body: JSON.stringify(payload),
         credentials: "include" // Send cookies
       });
 
@@ -80,6 +119,7 @@ function EventsAll() {
         setShowSuccess(true);
         setRegisterEvent(null);
         setFormData({ name: "", phone: "", college: "", branch: "", year: "", teamName: "" });
+        setTeammates([{ name: "", phone: "" }, { name: "", phone: "" }, { name: "", phone: "" }]);
       } else {
         showToast(data.message || "Registration failed", "error");
       }
@@ -92,205 +132,205 @@ function EventsAll() {
   };
 
   const events = [
-  
-   {
-  id: 1,
-  title: "Chess",
-  category: "Pre-Event",
-  description:
-    "A test of patience, foresight, and mental sharpness where every move can instantly change momentum, rewarding players who think strategically and plan several steps ahead.",
-  image: "/photoes/Chess.png",
 
-  details:
-    "Prepare for a battle of minds at Metallum 7.0 thrilling Chess Tournament! Whether you're a seasoned strategist or a rising talent, this event promises intense matches, testing your skills and focus. The qualifiers will push players to their limits, with a 60-minute frenzy of rapid (5+2) games. Only the top 8 players will advance to the Final Round with a Time control (10+2) format. Sharpen your tactics and play fair because only the sharpest minds will claim victory!",
-
-  guidelines: [
-    "Guidelines for the event:",
-    "Match Format:",
-    "• Qualifiers: Participants must play as many games as possible in 60 minutes (Time Control: 5+2).",
-    "• Final Round: Top 8 players will compete in a Time Control (10+2) format.",
-    "Rules:",
-    "• A win is worth 2 points, a draw is worth 1 point, and a loss is worth 0 points.",
-    "• Please ensure a stable internet connection during the tournament.",
-    "• Any form of cheating is strictly prohibited. Violators will be immediately disqualified.",
-  ],
-
-  contacts: [
-   { name: "For any queries, contact:", phone: "" },
-    { name: "Anjani", phone: "9219611024" },
-    { name: "Gyanshi", phone: "7678624280" },
-  ],
-}
-,
-
-  {
-  id: 2,
-  title: "BGMI",
-  category: "Pre-Event",
-  description:
-    "A high-intensity battle where squads rely on teamwork, quick decision-making, and adaptability to outplay opponents and survive the chaos of fast-paced matches.",
-  image: "/photoes/eventsposter/Bgmi.png",
-
-  details:
-    "Get ready for an adrenaline-fueled showdown at the BGMI Tournament in Metallum 7.0, happening from 16th to 18th February. This mobile-only event will feature six intense matches across four iconic maps—Erangel (3), Miramar (1), Sanhok (1), and Vikendi (1). Whether you're a seasoned pro or a passionate fan, this tournament promises thrilling battles, unmatched strategies, and heart-pounding moments.",
-
-  guidelines: [
-    "Only mobile players will be allowed.",
-    "There will be a total of 6 matches across Erangel (3), Miramar (1), Sanhok (1), and Vikendi (1).",
-    "Participants must download all required maps before the event.",
-    "Winner will be decided based on the points reward system.",
-    "Winner: 10 pts.",
-    "2nd Position: 8 pts.",
-    "3rd Position: 7 pts.",
-    "4th Position: 5 pts.",
-    "5th Position: 3 pts.",
-    "Per kill: 1 pt.",
-    "Use of any unfair means is strictly prohibited.",
-    "Team members cannot be changed after registration.",
-    "Unauthorized team changes may cause disqualification.",
-    "In case of a tie: position points → kills → TDM knockout round.",
-    "Registration fees: ₹50 "
-  ],
-
-  contacts: [
-    { name: "Aritra Dutta", phone: "7865979275" },
-    { name: "Sirshapan Kunda Roy", phone: "7478206983" },
-  ],
-}
-,
-  
- {
-  id: 3,
-  title: "VALORANT",
-  category: "Pre-Event",
-  description:
-    "A tactical shooter that demands precise aim, smart utility usage, and seamless communication as teams coordinate strategies to dominate every round.",
-  image: "/photoes/eventsposter/Valorant.png",
-
-  details:"Lock in with your duo and enter the most intense 2v2 Valorant showdown at Metallum 7.0. This isn’t about numbers—it's about chemistry. Every peek matters, every utility counts, and one perfectly timed play can decide the round. Expect lightning-fast duels, clutch moments, and pure competitive pressure.",
-
-
-
-  guidelines: [
-    
-    "General Rules",
-    "Participants must comply with all tournament rules and admin decisions.",
-    "The administration reserves the right to modify rules to ensure fair play.",
-    "All participants must behave respectfully towards admins and other players.",
-    "Intentional losing is strictly forbidden.",
-    "Vulgar, racist, sexist, or offensive player names are prohibited.",
-    "Admins reserve the right to edit inappropriate player names.",
-
-    "Tournament Structure & Schedule",
-    "Matches will follow a Round Robin and Double Elimination format.",
-    "Teams may be divided into groups based on registrations.",
-    "Match schedules will be announced later.",
-
-    "Facility",
-    "All matches will be played online.",
-
-    "Game Rules",
-    "Each team must consist of exactly 2 players (2v2).",
-    "Side selection will be decided by toss.",
-    "Players cannot switch teams once the tournament begins.",
-    "All players must record their gameplay.",
-    "Server Settings: Mode – All Random One Site.",
-    "Match Format – Best of 3 (Bo3).",
-    "Competitive Settings – Map ban, map select, agent ban.",
-    "Tournament Mode – ON. Cheats – OFF.",
-
-    "Penalties",
-    "Unsportsmanlike behavior will result in warnings or disqualification.",
-    "Trolling or intentionally throwing matches is prohibited.",
-    "Cheating (hacking, ghosting, teaming, third-party tools) leads to immediate disqualification.",
-
-    "Miscellaneous",
-    "All officials’ decisions are final.",
-    "Players must share screenshots of end screens.",
-    "Only participating players may stay in match Discord/voice channels.",
-    "After each game, teams should exit promptly for the next match.",
-    "Registration fees: ₹100 "
-  ],
-
-  contacts: [
-    { name: "Adarsh Das", phone: "9748890527" },
-    { name: "Sandeep Kumawat", phone: "8003936610" },
-  ],
-}
-,
-  
- {
-  id: 4,
-  title: "M-CODE",
-  category: "Pre-Event",
-  description:
-    "A time-bound coding challenge where participants design and implement innovative solutions to real-world problems, with creativity, technical skill, and execution driving success.",
-  image: "/photoes/eventsposter/M-Code.png",
-
-  details:
-    "METALLUM 7.0 presents M-CODE, a high-intensity 36-hour online hackathon designed to challenge innovation, problem-solving, and technical excellence. From 12th to 15th February 2026, participants will work on real-world problem statements, build impactful solutions, and compete for exciting prizes.",
-
-  guidelines: [
-    "Hackathon Structure",
-
-    "Stage 1: Qualifier Round",
-    "Teams must submit a fully functional project.",
-    "Submission must include a GitHub repository, live application/website link, README file, and a demo video.",
-    "Time allotted: 36 hours.",
-    "Problem Statement Announcement: 12/02/2026 – 11:59 AM.",
-    "Project Submission Deadline: 13/02/2026 – 11:59 PM.",
-    "Selected teams will advance to the Presentation Round.",
-
-    "Stage 2: Presentation Round",
-    "Presentation Date: 15/02/2026, Time: 06:30 PM (Google Meet).",
-    "Teams must present using a PPT (maximum 6 slides).",
-    "Evaluation includes presentation clarity, technical soundness, innovation, and execution.",
-    "Teams must be prepared for a Q&A session.",
-
-    "General Guidelines",
-    "Teams must consist only of registered participants.",
-    "All work must be original and developed during the hackathon.",
-    "Use of external libraries, APIs, and AI/ML tools is allowed but must be declared.",
-    "Any form of plagiarism or unethical behavior will result in immediate disqualification.",
-
-    "Judging Criteria",
-    "Innovation and creativity of the idea.",
-    "Design, usability, and UI/UX quality.",
-    "Real-world impact of the solution.",
-    "Technical complexity and stability.",
-    "Code quality, documentation, and GitHub repository.",
-    "Deployment of the application (deployed projects score higher).",
-
-    "Bonus Points",
-    "Use of latest technologies.",
-    "Effective integration of AI and Machine Learning.",
-  ],
-
-  faq: [
     {
-      question: "Can we start working on the project before the hackathon?",
-      answer:
-        "Participants may study required technologies, but prior development of projects is strictly prohibited.",
-    },
-    {
-      question: "What if we face technical issues during the hackathon?",
-      answer:
-        "A dedicated support team, mentors, and volunteers will be available to assist.",
-    },
-    {
-      question: "Will my team be disqualified if the project is not deployed?",
-      answer:
-        "No. Non-deployed projects will not be disqualified, but deployed projects will score higher.",
-    },
-  ],
+      id: 1,
+      title: "Chess",
+      category: "Pre-Event",
+      description:
+        "A test of patience, foresight, and mental sharpness where every move can instantly change momentum, rewarding players who think strategically and plan several steps ahead.",
+      image: "/photoes/Chess.png",
 
-  contacts: [
-    { name: "Karan Kumar", phone: "8809285699" },
-    { name: "Tejaswi Singh", phone: "9151613350" },
-  ],
-}
+      details:
+        "Prepare for a battle of minds at Metallum 7.0 thrilling Chess Tournament! Whether you're a seasoned strategist or a rising talent, this event promises intense matches, testing your skills and focus. The qualifiers will push players to their limits, with a 60-minute frenzy of rapid (5+2) games. Only the top 8 players will advance to the Final Round with a Time control (10+2) format. Sharpen your tactics and play fair because only the sharpest minds will claim victory!",
 
-];
+      guidelines: [
+        "Guidelines for the event:",
+        "Match Format:",
+        "• Qualifiers: Participants must play as many games as possible in 60 minutes (Time Control: 5+2).",
+        "• Final Round: Top 8 players will compete in a Time Control (10+2) format.",
+        "Rules:",
+        "• A win is worth 2 points, a draw is worth 1 point, and a loss is worth 0 points.",
+        "• Please ensure a stable internet connection during the tournament.",
+        "• Any form of cheating is strictly prohibited. Violators will be immediately disqualified.",
+      ],
+
+      contacts: [
+        { name: "For any queries, contact:", phone: "" },
+        { name: "Anjani", phone: "9219611024" },
+        { name: "Gyanshi", phone: "7678624280" },
+      ],
+    }
+    ,
+
+    {
+      id: 2,
+      title: "BGMI",
+      category: "Pre-Event",
+      description:
+        "A high-intensity battle where squads rely on teamwork, quick decision-making, and adaptability to outplay opponents and survive the chaos of fast-paced matches.",
+      image: "/photoes/eventsposter/Bgmi.png",
+
+      details:
+        "Get ready for an adrenaline-fueled showdown at the BGMI Tournament in Metallum 7.0, happening from 16th to 18th February. This mobile-only event will feature six intense matches across four iconic maps—Erangel (3), Miramar (1), Sanhok (1), and Vikendi (1). Whether you're a seasoned pro or a passionate fan, this tournament promises thrilling battles, unmatched strategies, and heart-pounding moments.",
+
+      guidelines: [
+        "Only mobile players will be allowed.",
+        "There will be a total of 6 matches across Erangel (3), Miramar (1), Sanhok (1), and Vikendi (1).",
+        "Participants must download all required maps before the event.",
+        "Winner will be decided based on the points reward system.",
+        "Winner: 10 pts.",
+        "2nd Position: 8 pts.",
+        "3rd Position: 7 pts.",
+        "4th Position: 5 pts.",
+        "5th Position: 3 pts.",
+        "Per kill: 1 pt.",
+        "Use of any unfair means is strictly prohibited.",
+        "Team members cannot be changed after registration.",
+        "Unauthorized team changes may cause disqualification.",
+        "In case of a tie: position points → kills → TDM knockout round.",
+        "Registration fees: ₹50 "
+      ],
+
+      contacts: [
+        { name: "Aritra Dutta", phone: "7865979275" },
+        { name: "Sirshapan Kunda Roy", phone: "7478206983" },
+      ],
+    }
+    ,
+
+    {
+      id: 3,
+      title: "VALORANT",
+      category: "Pre-Event",
+      description:
+        "A tactical shooter that demands precise aim, smart utility usage, and seamless communication as teams coordinate strategies to dominate every round.",
+      image: "/photoes/eventsposter/Valorant.png",
+
+      details: "Lock in with your duo and enter the most intense 2v2 Valorant showdown at Metallum 7.0. This isn’t about numbers—it's about chemistry. Every peek matters, every utility counts, and one perfectly timed play can decide the round. Expect lightning-fast duels, clutch moments, and pure competitive pressure.",
+
+
+
+      guidelines: [
+
+        "General Rules",
+        "Participants must comply with all tournament rules and admin decisions.",
+        "The administration reserves the right to modify rules to ensure fair play.",
+        "All participants must behave respectfully towards admins and other players.",
+        "Intentional losing is strictly forbidden.",
+        "Vulgar, racist, sexist, or offensive player names are prohibited.",
+        "Admins reserve the right to edit inappropriate player names.",
+
+        "Tournament Structure & Schedule",
+        "Matches will follow a Round Robin and Double Elimination format.",
+        "Teams may be divided into groups based on registrations.",
+        "Match schedules will be announced later.",
+
+        "Facility",
+        "All matches will be played online.",
+
+        "Game Rules",
+        "Each team must consist of exactly 2 players (2v2).",
+        "Side selection will be decided by toss.",
+        "Players cannot switch teams once the tournament begins.",
+        "All players must record their gameplay.",
+        "Server Settings: Mode – All Random One Site.",
+        "Match Format – Best of 3 (Bo3).",
+        "Competitive Settings – Map ban, map select, agent ban.",
+        "Tournament Mode – ON. Cheats – OFF.",
+
+        "Penalties",
+        "Unsportsmanlike behavior will result in warnings or disqualification.",
+        "Trolling or intentionally throwing matches is prohibited.",
+        "Cheating (hacking, ghosting, teaming, third-party tools) leads to immediate disqualification.",
+
+        "Miscellaneous",
+        "All officials’ decisions are final.",
+        "Players must share screenshots of end screens.",
+        "Only participating players may stay in match Discord/voice channels.",
+        "After each game, teams should exit promptly for the next match.",
+        "Registration fees: ₹100 "
+      ],
+
+      contacts: [
+        { name: "Adarsh Das", phone: "9748890527" },
+        { name: "Sandeep Kumawat", phone: "8003936610" },
+      ],
+    }
+    ,
+
+    {
+      id: 4,
+      title: "M-CODE",
+      category: "Pre-Event",
+      description:
+        "A time-bound coding challenge where participants design and implement innovative solutions to real-world problems, with creativity, technical skill, and execution driving success.",
+      image: "/photoes/eventsposter/M-Code.png",
+
+      details:
+        "METALLUM 7.0 presents M-CODE, a high-intensity 36-hour online hackathon designed to challenge innovation, problem-solving, and technical excellence. From 12th to 15th February 2026, participants will work on real-world problem statements, build impactful solutions, and compete for exciting prizes.",
+
+      guidelines: [
+        "Hackathon Structure",
+
+        "Stage 1: Qualifier Round",
+        "Teams must submit a fully functional project.",
+        "Submission must include a GitHub repository, live application/website link, README file, and a demo video.",
+        "Time allotted: 36 hours.",
+        "Problem Statement Announcement: 12/02/2026 – 11:59 AM.",
+        "Project Submission Deadline: 13/02/2026 – 11:59 PM.",
+        "Selected teams will advance to the Presentation Round.",
+
+        "Stage 2: Presentation Round",
+        "Presentation Date: 15/02/2026, Time: 06:30 PM (Google Meet).",
+        "Teams must present using a PPT (maximum 6 slides).",
+        "Evaluation includes presentation clarity, technical soundness, innovation, and execution.",
+        "Teams must be prepared for a Q&A session.",
+
+        "General Guidelines",
+        "Teams must consist only of registered participants.",
+        "All work must be original and developed during the hackathon.",
+        "Use of external libraries, APIs, and AI/ML tools is allowed but must be declared.",
+        "Any form of plagiarism or unethical behavior will result in immediate disqualification.",
+
+        "Judging Criteria",
+        "Innovation and creativity of the idea.",
+        "Design, usability, and UI/UX quality.",
+        "Real-world impact of the solution.",
+        "Technical complexity and stability.",
+        "Code quality, documentation, and GitHub repository.",
+        "Deployment of the application (deployed projects score higher).",
+
+        "Bonus Points",
+        "Use of latest technologies.",
+        "Effective integration of AI and Machine Learning.",
+      ],
+
+      faq: [
+        {
+          question: "Can we start working on the project before the hackathon?",
+          answer:
+            "Participants may study required technologies, but prior development of projects is strictly prohibited.",
+        },
+        {
+          question: "What if we face technical issues during the hackathon?",
+          answer:
+            "A dedicated support team, mentors, and volunteers will be available to assist.",
+        },
+        {
+          question: "Will my team be disqualified if the project is not deployed?",
+          answer:
+            "No. Non-deployed projects will not be disqualified, but deployed projects will score higher.",
+        },
+      ],
+
+      contacts: [
+        { name: "Karan Kumar", phone: "8809285699" },
+        { name: "Tejaswi Singh", phone: "9151613350" },
+      ],
+    }
+
+  ];
 
 
   return (
@@ -314,10 +354,10 @@ function EventsAll() {
             {/* IMAGE */}
             <div className="relative w-full aspect-[7/5] bg-black">
               <img
-  src={event.image}
-  alt={event.title}
-  className="w-full h-full object-contain bg-black"
-/>
+                src={event.image}
+                alt={event.title}
+                className="w-full h-full object-contain bg-black"
+              />
 
               <span className="absolute top-3 left-3 badge badge-primary">
                 {event.category}
@@ -343,15 +383,15 @@ function EventsAll() {
                   More Info
                 </button>
 
-               <button
-  className="btn btn-active btn-primary btn-sm flex-1"
-  disabled={loading}
-  onClick={() => handleRegisterClick(event)}
->
-  {loading && registerEvent?.id === event.id
-    ? "Processing..."
-    : "Register"}
-</button>
+                <button
+                  className="btn btn-active btn-primary btn-sm flex-1"
+                  disabled={loading}
+                  onClick={() => handleRegisterClick(event)}
+                >
+                  {loading && registerEvent?.id === event.id
+                    ? "Processing..."
+                    : "Register"}
+                </button>
 
               </div>
             </div>
@@ -393,48 +433,48 @@ function EventsAll() {
               </div>
             </div>
 
-           <div className="p-8 max-w-4xl mx-auto">
+            <div className="p-8 max-w-4xl mx-auto">
 
-  {/* DETAILS */}
-  {selectedEvent.details && (
-    <p className="text-lg opacity-80 mb-8">
-      {selectedEvent.details}
-    </p>
-  )}
+              {/* DETAILS */}
+              {selectedEvent.details && (
+                <p className="text-lg opacity-80 mb-8">
+                  {selectedEvent.details}
+                </p>
+              )}
 
-  {/* GUIDELINES */}
-  {selectedEvent.guidelines?.length > 0 && (
-    <div className="mb-8">
-      <h3 className="text-2xl font-bold mb-4">Guidelines</h3>
-      <ul className="list-disc pl-6 space-y-2 opacity-80">
-        {selectedEvent.guidelines.map((rule, i) => (
-          <li key={i}>{rule}</li>
-        ))}
-      </ul>
-    </div>
-  )}
+              {/* GUIDELINES */}
+              {selectedEvent.guidelines?.length > 0 && (
+                <div className="mb-8">
+                  <h3 className="text-2xl font-bold mb-4">Guidelines</h3>
+                  <ul className="list-disc pl-6 space-y-2 opacity-80">
+                    {selectedEvent.guidelines.map((rule, i) => (
+                      <li key={i}>{rule}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
-  {/* CONTACTS */}
-  {selectedEvent.contacts?.length > 0 && (
-    <div className="mb-10">
-      <h3 className="text-2xl font-bold mb-4">Contacts</h3>
-      <div className="space-y-2 opacity-80">
-        {selectedEvent.contacts.map((c, i) => (
-          <p key={i}>
-            {c.name} — <span className="font-semibold">{c.phone}</span>
-          </p>
-        ))}
-      </div>
-    </div>
-  )}
+              {/* CONTACTS */}
+              {selectedEvent.contacts?.length > 0 && (
+                <div className="mb-10">
+                  <h3 className="text-2xl font-bold mb-4">Contacts</h3>
+                  <div className="space-y-2 opacity-80">
+                    {selectedEvent.contacts.map((c, i) => (
+                      <p key={i}>
+                        {c.name} — <span className="font-semibold">{c.phone}</span>
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              )}
 
-  {/* REGISTER BUTTON */}
-<button
-  onClick={() => {
-    setSelectedEvent(null);
-    handleRegisterClick(selectedEvent);
-  }}
-  className="
+              {/* REGISTER BUTTON */}
+              <button
+                onClick={() => {
+                  setSelectedEvent(null);
+                  handleRegisterClick(selectedEvent);
+                }}
+                className="
     btn w-full sm:w-auto
     bg-gradient-to-r from-blue-600 to-blue-800
     hover:from-blue-700 hover:to-blue-900
@@ -444,11 +484,11 @@ function EventsAll() {
     shadow-lg hover:shadow-xl
     transition-all duration-300
   "
->
-  Register Now
-</button>
+              >
+                Register Now
+              </button>
 
-</div>
+            </div>
 
           </div>
         </div>
@@ -489,7 +529,9 @@ function EventsAll() {
                 {/* User Info */}
                 <div className="grid grid-cols-2 gap-4">
                   <div className="form-control group">
-                    <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">Name</label>
+                    <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">
+                      {registerEvent?.title === "BGMI" ? "Team Leader Name" : "Name"}
+                    </label>
                     <input
                       type="text"
                       name="name"
@@ -518,7 +560,7 @@ function EventsAll() {
                 {/* Phone */}
                 <div className="form-control group">
                   <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">
-                    Phone Number
+                    {registerEvent?.title === "BGMI" ? "Team Leader Phone Number" : "Phone Number"}
                   </label>
                   <div className="flex relative">
                     <span className="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-white/10 bg-white/5 text-gray-400 font-mono text-sm select-none">
@@ -535,6 +577,53 @@ function EventsAll() {
                     />
                   </div>
                 </div>
+
+                {/* BGMI Teammates Section */}
+                {registerEvent?.title === "BGMI" && (
+                  <div className="space-y-4 mt-2 mb-2">
+                    <div className="flex items-center gap-4 my-2">
+                      <div className="h-px bg-white/10 flex-1"></div>
+                      <span className="text-xs text-gray-500 font-mono">TEAMMATES (3 PLAYERS)</span>
+                      <div className="h-px bg-white/10 flex-1"></div>
+                    </div>
+
+                    {[0, 1, 2].map((index) => (
+                      <div key={index} className="p-4 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 transition-colors">
+                        <label className="text-xs text-primary font-bold tracking-wider mb-3 block">PLAYER {index + 2}</label>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          <div className="form-control group">
+                            <input
+                              type="text"
+                              value={teammates[index].name}
+                              onChange={(e) => handleTeammateChange(index, "name", e.target.value)}
+                              required
+                              className="input input-sm bg-black/40 border border-white/10 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/50 text-white w-full transition-all duration-300 placeholder:text-gray-600"
+                              placeholder="Player Name"
+                            />
+                          </div>
+                          <div className="form-control group">
+                            <div className="flex relative">
+                              <span className="inline-flex items-center px-2 rounded-l-lg border border-r-0 border-white/10 bg-white/5 text-gray-400 font-mono text-xs select-none">
+                                +91
+                              </span>
+                              <input
+                                type="tel"
+                                value={teammates[index].phone}
+                                onChange={(e) => {
+                                  const val = e.target.value.replace(/[^0-9]/g, "");
+                                  if (val.length <= 10) handleTeammateChange(index, "phone", val);
+                                }}
+                                required
+                                className="input input-sm rounded-l-none bg-black/40 border border-white/10 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/50 text-white w-full transition-all duration-300 placeholder:text-gray-600"
+                                placeholder="Phone Number"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 {/* College */}
                 <div className="form-control group">

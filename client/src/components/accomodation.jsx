@@ -109,13 +109,13 @@ function Accomodation() {
                 <h3 className="text-2xl font-bold text-white mb-2 font-['Orbitron']">STANDARD PACKAGE</h3>
                 <ul className="text-gray-400 space-y-2 mt-4 text-sm font-mono">
                   <li className="flex items-center gap-2">
-                    <span className="text-green-500">✓</span> 3 Days / 2 Nights Stay
+                    <span className="text-green-500">✓</span> Welcome Kit
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="text-green-500">✓</span> Meal Coupons Included
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-green-500">✓</span> Welcome Kit
+                    <span className="text-green-500">✓</span> 3 Days / 2 Nights Stay
                   </li>
                 </ul>
               </div>
