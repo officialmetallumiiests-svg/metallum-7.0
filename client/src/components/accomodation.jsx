@@ -5,14 +5,17 @@ function Accomodation() {
   const { user } = useContext(UserContext);
   const [showLoginAlert, setShowLoginAlert] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [showBookModal, setShowBookModal] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [toast, setToast] = useState(null);
 
-  const handleBookClick = () => {
-    if (!user) {
-      setShowLoginAlert(true);
-    } else {
-      setShowSuccess(true);
-    }
-  };
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    gender: "",
+    college: "",
+    transactionId: ""
+  });
 
   const amenities = [
     { icon: "🛌", title: "Comfortable Stay", desc: "Clean and hygienic dormitories." },
@@ -21,28 +24,103 @@ function Accomodation() {
     { icon: "🍽️", title: "Food & Dining", desc: "Nutritious meals included in the package." },
   ];
 
+  /* ================= HANDLERS ================= */
+  const handleBookClick = () => {
+    if (!user) {
+      setShowLoginAlert(true);
+    } else {
+      setShowBookModal(true);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "phone") {
+      const numericValue = value.replace(/[^0-9]/g, "");
+      if (numericValue.length <= 10) {
+        setFormData({ ...formData, [name]: numericValue });
+      }
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+  };
+
+  const showToast = (message, type = "success") => {
+    setToast({ message, type });
+    setTimeout(() => setToast(null), 3000);
+  };
+
+  const submitBooking = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    if (formData.phone.length !== 10) {
+      showToast("Phone number must be exactly 10 digits", "error");
+      setLoading(false);
+      return;
+    }
+    if (!formData.transactionId) {
+      showToast("Transaction ID is required", "error");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const payload = {
+        ...formData,
+        phone: `+91 ${formData.phone}`,
+        email: user.email,
+        event: "ACCOMMODATION",
+        amount: 799
+      };
+
+      const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/register`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        credentials: "include"
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setShowBookModal(false);
+        setShowSuccess(true);
+        setFormData({ name: "", phone: "", gender: "", college: "", transactionId: "" });
+      } else {
+        showToast(data.message || "Booking failed", "error");
+      }
+    } catch (error) {
+      console.error("Booking error:", error);
+      showToast("Something went wrong. Please try again.", "error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-primary selection:text-black">
 
       {/* ================= HERO SECTION ================= */}
-     <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
 
-  {/* BACKGROUND IMAGE */}
-  <div className="absolute inset-0">
-    <img
-      src="/photoes/acc background.jpeg"
-      alt="Accommodation"
-      className="w-full h-full object-cover"
-    />
+        {/* BACKGROUND IMAGE */}
+        <div className="absolute inset-0">
+          <img
+            src="/photoes/acc background.jpeg"
+            alt="Accommodation"
+            className="w-full h-full object-cover"
+          />
 
-    {/* DARK OVERLAY */}
-    <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
-  </div>
+          {/* DARK OVERLAY */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
+        </div>
 
-  {/* CONTENT */}
-  <div className="relative z-10 text-center px-6">
-    <h1
-      className="
+        {/* CONTENT */}
+        <div className="relative z-10 text-center px-6">
+          <h1
+            className="
         text-4xl sm:text-5xl md:text-6xl lg:text-7xl
         font-['Orbitron'] font-extrabold
         tracking-[0.25em]
@@ -50,23 +128,23 @@ function Accomodation() {
         drop-shadow-[0_6px_20px_rgba(0,0,0,0.8)]
         mb-6
       "
-    >
-      ACCOMMODATION
-    </h1>
+          >
+            ACCOMMODATION
+          </h1>
 
-    <p
-      className="
+          <p
+            className="
         text-sm sm:text-base md:text-lg
         text-gray-300
         font-mono
         tracking-widest
         uppercase
       "
-    >
-      Experience Comfort & Convenience
-    </p>
-  </div>
-</section>
+          >
+            Experience Comfort & Convenience
+          </p>
+        </div>
+      </section>
 
 
       {/* ================= DETAILS SECTION ================= */}
@@ -143,6 +221,107 @@ function Accomodation() {
 
       {/* ================= MODALS ================= */}
 
+      {/* REGISTRATION FORM MODAL */}
+      {showBookModal && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/80 backdrop-blur-md transition-opacity" onClick={() => setShowBookModal(false)}></div>
+          <div className="relative bg-[#0a0a0a] rounded-2xl shadow-[0_0_50px_rgba(0,100,255,0.1)] border border-white/10 w-full max-w-lg overflow-hidden flex flex-col max-h-[90vh]">
+
+            {/* Header */}
+            <div className="relative p-6 pb-4 border-b border-white/5 bg-gradient-to-r from-gray-900 via-black to-gray-900">
+              <button onClick={() => setShowBookModal(false)} className="absolute top-4 right-4 p-2 text-white/50 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
+              </button>
+              <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 font-['Orbitron'] tracking-wide">BOOKING</h3>
+              <p className="text-sm text-primary font-mono mt-1 tracking-wider opacity-80">// ACCOMMODATION</p>
+            </div>
+
+            {/* Form Body */}
+            <div className="p-6 overflow-y-auto custom-scrollbar">
+              <form onSubmit={submitBooking} className="flex flex-col gap-5">
+
+                {/* Name & Gender */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="form-control group">
+                    <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">Name</label>
+                    <input type="text" name="name" value={formData.name} onChange={handleInputChange} required className="input bg-black/20 border border-white/10 focus:border-primary/50 text-white w-full placeholder:text-gray-700 focus:outline-none focus:ring-1 focus:ring-primary/50" placeholder="Full Name" />
+                  </div>
+                  <div className="form-control group">
+                    <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">Gender</label>
+                    <select name="gender" value={formData.gender} onChange={handleInputChange} required className="select bg-black/20 border border-white/10 focus:border-primary/50 text-white w-full focus:outline-none focus:ring-1 focus:ring-primary/50">
+                      <option value="" disabled>Select</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Phone */}
+                <div className="form-control group">
+                  <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">Phone Number</label>
+                  <div className="flex relative">
+                    <span className="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-white/10 bg-white/5 text-gray-400 font-mono text-sm select-none">+91</span>
+                    <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} required className="input rounded-l-none bg-black/20 border border-white/10 focus:border-primary/50 text-white w-full placeholder:text-gray-700 focus:outline-none focus:ring-1 focus:ring-primary/50" placeholder="XXXXXXXXXX" />
+                  </div>
+                </div>
+
+                {/* College */}
+                <div className="form-control group">
+                  <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">College / Institute</label>
+                  <input type="text" name="college" value={formData.college} onChange={handleInputChange} required className="input bg-black/20 border border-white/10 focus:border-primary/50 text-white w-full placeholder:text-gray-700 focus:outline-none focus:ring-1 focus:ring-primary/50" placeholder="University Name" />
+                </div>
+
+                {/* Payment Section */}
+                <div className="space-y-4 mt-4 bg-white/5 p-4 rounded-lg border border-primary/30">
+                  <div className="flex items-center gap-4 my-2">
+                    <div className="h-px bg-primary/20 flex-1"></div>
+                    <span className="text-xs text-primary font-mono tracking-widest">PAYMENT REQUIRED</span>
+                    <div className="h-px bg-primary/20 flex-1"></div>
+                  </div>
+
+                  <div className="text-center space-y-4">
+                    <div className="bg-white p-4 rounded-lg inline-block shadow-lg">
+                      <img
+                        src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent("upi://pay?pa=9993928756@jio&pn=Yash Chandekar&am=799&cu=INR")}`}
+                        alt="Payment QR Code"
+                        className="w-32 h-32 mx-auto"
+                      />
+                      <p className="text-black font-bold text-lg mt-2">₹799</p>
+                    </div>
+
+                    <div className="space-y-2">
+                      <p className="text-xs text-gray-400">Scan QR using any UPI App</p>
+                      <p className="text-xs text-gray-500">OR</p>
+                      <div className="bg-black/30 p-3 rounded text-left space-y-2 text-xs border border-white/5">
+                        <div className="flex justify-between"><span className="text-gray-400">UPI ID:</span><span className="text-primary font-mono select-all">9993928756@jio</span></div>
+                        <div className="flex justify-between"><span className="text-gray-400">Name:</span><span className="text-white select-all">Yash Chandekar</span></div>
+                      </div>
+                    </div>
+                    <a href="upi://pay?pa=9993928756@jio&pn=Yash%20Chandekar&am=799&cu=INR" target="_blank" rel="noreferrer" className="btn btn-outline btn-primary btn-sm w-full">Try 'Pay Now' Button</a>
+                  </div>
+
+                  <div className="form-control group mt-4">
+                    <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">Transaction ID / UTR</label>
+                    <input type="text" name="transactionId" value={formData.transactionId} onChange={handleInputChange} required className="input bg-black/40 border border-white/10 focus:border-primary/50 text-white w-full placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-primary/50" placeholder="Enter Transaction ID" />
+                  </div>
+                </div>
+
+                <div className="mt-4">
+                  <button type="submit" className="btn btn-primary w-full relative overflow-hidden group border-none text-white font-bold tracking-wider" disabled={loading}>
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:from-blue-500 group-hover:to-purple-500 transition-all duration-300"></div>
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      {loading ? <span className="loading loading-spinner loading-sm"></span> : "CONFIRM BOOKING"}
+                    </span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+
       {/* LOGIN ALERT MODAL */}
       {showLoginAlert && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
@@ -162,7 +341,7 @@ function Accomodation() {
         </div>
       )}
 
-      {/* BOOKING SUCCESS STUB MODAL */}
+      {/* BOOKING SUCCESS MODAL */}
       {showSuccess && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/90 backdrop-blur-xl" onClick={() => setShowSuccess(false)}></div>
@@ -173,9 +352,18 @@ function Accomodation() {
                 <svg className="w-16 h-16 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg>
               </div>
             </div>
-            <h2 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white via-green-400 to-green-600 font-['Orbitron'] mb-2">REQUEST SENT</h2>
-            <p className="text-gray-400 text-lg font-mono tracking-widest uppercase mb-8">We will contact you shortly.</p>
+            <h2 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white via-green-400 to-green-600 font-['Orbitron'] mb-2">BOOKING CONFIRMED!</h2>
+            <p className="text-gray-400 text-lg font-mono tracking-widest uppercase mb-8">We will verify your payment and contact you shortly.</p>
             <button onClick={() => setShowSuccess(false)} className="px-8 py-3 bg-white text-black font-bold tracking-widest hover:scale-105 active:scale-95 transition-all duration-200">CONTINUE</button>
+          </div>
+        </div>
+      )}
+
+      {/* TOAST NOTIFICATION */}
+      {toast && (
+        <div className="toast toast-end toast-bottom z-[100]">
+          <div className={`alert ${toast.type === "success" ? "alert-success" : "alert-error"} text-white`}>
+            <span>{toast.message}</span>
           </div>
         </div>
       )}
