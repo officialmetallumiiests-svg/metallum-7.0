@@ -18,11 +18,7 @@ export default function Team() {
         role: "Student Convener",
         image: "/images/Shubh_Ashutosh.jpeg",
       },
-      {
-        name: "Anjani",
-        role: "Finance",
-        image: "/images/ANJANI.jfif",
-      },
+      
       {
         name: "Soumyadeep Das",
         role: "Finance",
@@ -32,6 +28,11 @@ export default function Team() {
         name: "Swagato Chakraborty",
         role: "Finance",
         image: "/images/SWAGATO.jpg",
+      },
+      {
+        name: "Anjani",
+        role: "Finance",
+        image: "/images/ANJANI.jfif",
       },
       {
         name: "Akanksha Gupta",
@@ -71,7 +72,7 @@ export default function Team() {
       {
         name: "Jasmine Mallick",
         role: "Alumni Relation and Collection",
-        image: "/images/JASMINE.jpg",
+        image: "/images/_JASMINE.jpg",
       },
       {
         name: "Parijat Sarkar",
@@ -100,9 +101,9 @@ export default function Team() {
       {
         name: "Sunay Manish Vanerkar",
         role: "Finance",
-        image: "/images/SUNAY_MANISH_VANERKAR.jpg",
+        image: "/images/SUNAY_MANISH VANERKAR.jpg",
       }, {
-        name: "Manshi Verma",
+        name: "Mansi Verma",
         role: "Sponsorship",
         image: "/images/MANSI_VERMA.jpg",
       }, {
@@ -111,12 +112,12 @@ export default function Team() {
         image: "/images/SUPRIYO_BARMAN.jpg",
       }, {
         name: "Shakti Prasad Mohanty",
-        role: "Sponorship",
-        image: "/images/SHAKTI_PRASAD_MOHANTY.jpg",
+        role: "Sponsorship",
+        image: "/images/SHAKTI_PRASAD MOHANTY.jpg",
       }, {
         name: "Aritra Dutta",
         role: "Event Management",
-        image: "",
+        image: "/images/ARITRA_DUTTA.jpg",
       }, {
         name: "Gyanshi",
         role: "Event Management",
@@ -128,7 +129,7 @@ export default function Team() {
       }, {
         name: "Joel Varghese Baiju",
         role: "Publicity",
-        image: "/images/JOEL_VARGHESE_BAIJU.jpg",
+        image: "/images/JOEL_VARGHESE BAIJU.jpg",
       }, {
         name: "Shivraj Jangir",
         role: "Publicity",
@@ -151,11 +152,11 @@ export default function Team() {
         image: "/images/Nikhil.png",
       }, {
         name: "Deb Kumar",
-        role: "Alumini Relation and Collection",
+        role: "Alumni Relation and Collection",
         image: "/images/DEBKUMAR_DE.jpg",
       }, {
         name: "Indranil Sarkar",
-        role: "Alumini Relation and Collection",
+        role: "Alumni Relation and Collection",
         image: "/images/INDRANIL_SARKAR.png",
       },{
         name: "Arka Mondal",
@@ -251,15 +252,15 @@ export default function Team() {
         image: "/images/PREKSHANA_PAL.jpg",
       }, {
         name: "Abhisheak Kumar",
-        role: "Alumini Relation and Collection",
+        role: "Alumni Relation and Collection",
         image: "",
       }, {
         name: "Ayaswarya Dutta",
-        role: "Alumini Relation and Collection",
+        role: "Alumni Relation and Collection",
         image: "/images/AYASWARYA_DUTTA.jpg",
       }, {
         name: "Bidit Sarkar",
-        role: "Alumini Relation and Collection",
+        role: "Alumni Relation and Collection",
         image: "/images/BIDIT_SARKAR.jpg",
       }, {
         name: "Anubhav Saha",
@@ -334,7 +335,7 @@ export default function Team() {
         {/* HEADER */}
         <div className="text-center mb-24">
           <p className="uppercase tracking-[0.35em] text-xs font-semibold text-primary mb-4">
-            Metallum 2025
+            Metallum 2026
           </p>
           <h2 className="text-4xl md:text-6xl font-extrabold mb-6">
             Our Team

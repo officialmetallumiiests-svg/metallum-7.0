@@ -25,11 +25,11 @@ export default function About() {
             </h1>
 
             <p className="text-sm md:text-lg opacity-90 leading-relaxed">
-              METALLUM is the annual Technical  fest of the department of Metallurgy and Materials Engineering of{" "}
+              METALLUM is the annual technical  fest of the department of Metallurgy and Materials Engineering of{" "}
               <span className="font-semibold">IIEST Shibpur</span>, celebrating
               innovation, research, and advancements in materials &
               metallurgical science. It unites students, industry professionals,
-              and researchers from across India.
+              and researchers from across nation.
             </p>
 
             <p className="mt-4 text-sm md:text-lg opacity-90">
@@ -39,7 +39,36 @@ export default function About() {
             </p>
 
             {/* HIGHLIGHTS */}
-            <div className="mt-10 grid sm:grid-cols-2 gap-4 text-sm md:text-base">
+       <div
+  className="
+    mt-8 sm:mt-10
+    grid grid-cols-1 sm:grid-cols-2
+    gap-4 sm:gap-5 md:gap-6
+    text-sm sm:text-base
+
+    transition-all duration-500 ease-out
+
+    md:hover:gap-8
+
+    [&>div]:relative
+    [&>div]:overflow-hidden
+    [&>div]:rounded-lg sm:rounded-xl
+    [&>div]:p-4 sm:p-5
+    [&>div]:bg-base-200/70
+    [&>div]:backdrop-blur-sm sm:backdrop-blur-md
+
+    [&>div]:transition-all
+    [&>div]:duration-300
+    [&>div]:ease-out
+
+    md:[&>div]:hover:-translate-y-2
+    md:[&>div]:hover:scale-[1.03]
+    md:[&>div]:hover:shadow-2xl
+  "
+>
+
+
+
               {[
                 "🔧 Technical Competitions",
                 "🏭 Industrial Workshops",

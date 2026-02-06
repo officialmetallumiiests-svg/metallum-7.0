@@ -122,17 +122,21 @@ function Accomodation() {
         {/* CONTENT */}
         <div className="relative z-10 text-center px-6">
           <h1
-            className="
-        text-4xl sm:text-5xl md:text-6xl lg:text-7xl
-        font-['Orbitron'] font-extrabold
-        tracking-[0.25em]
-        text-white
-        drop-shadow-[0_6px_20px_rgba(0,0,0,0.8)]
-        mb-6
-      "
-          >
-            ACCOMMODATION
-          </h1>
+  className="
+    text-3xl sm:text-4xl md:text-6xl lg:text-7xl
+    font-['Orbitron'] font-extrabold
+    tracking-[0.12em] sm:tracking-[0.18em] md:tracking-[0.25em]
+    text-white
+    drop-shadow-[0_6px_20px_rgba(0,0,0,0.8)]
+    mb-4 sm:mb-6
+    text-center
+    animate-pulse
+    leading-tight
+    break-words
+  "
+>
+  ACCOMMODATION
+</h1>
 
           <p
             className="
@@ -301,7 +305,7 @@ function Accomodation() {
                     <div className="space-y-2">
                       <p className="text-xs text-gray-400">Scan QR using any UPI App</p>
                       <p className="text-xs text-gray-500">OR</p>
-                      <div className="bg-black/30 p-3 rounded text-left space-y-2 text-xs border border-white/5">
+                      <div className="bg-black/30 p-3 rounded text-left space-y-2 text-xs border border-yellow-500">
                         <div className="flex justify-between"><span className="text-gray-400">UPI ID:</span><span className="text-primary font-mono select-all">9993928756@jio</span></div>
                         <div className="flex justify-between"><span className="text-gray-400">Name:</span><span className="text-white select-all">Yash Chandekar</span></div>
                       </div>

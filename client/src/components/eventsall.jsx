@@ -398,7 +398,7 @@ function EventsAll() {
                 </button>
 
                 <button
-                  className="btn btn-active btn-primary btn-sm flex-1"
+                  className="btn btn-outline btn-primary btn-sm flex-1"
                   disabled={loading}
                   onClick={() => handleRegisterClick(event)}
                 >

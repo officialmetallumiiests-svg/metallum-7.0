@@ -27,7 +27,7 @@ export default function Footer() {
               METALLUM 7.0
             </h2>
             <p className="mt-4 text-sm opacity-80 leading-relaxed">
-              The Annual Techincal Fest of The Department of Metallurgy and Materials engineering of IIEST Shibpur where
+              The Annual techincal Fest of The Department of Metallurgy and Materials engineering of IIEST Shibpur where
               innovation meets industry, culture, and competition.
             </p>
           </div>
@@ -110,6 +110,22 @@ export default function Footer() {
         className="w-8 h-8"
       />
     </a>
+  
+    {/* LinkedIn */}
+<a
+  href="https://www.linkedin.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block transform transition-transform duration-300 hover:scale-110"
+>
+  <img
+    src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+    alt="LinkedIn"
+    className="w-8 h-8"
+  />
+</a>
+
+
   </div>
 </div>
 
@@ -120,44 +136,55 @@ export default function Footer() {
         </div>
       </footer>
 
-      {/* CONTACT MODAL */}
-      {open && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
-          onClick={() => setOpen(false)}
-        >
-          <div
-            className="bg-base-100 rounded-2xl shadow-xl w-[90%] max-w-md p-8 relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              className="absolute top-4 right-4 text-xl"
-              onClick={() => setOpen(false)}
-            >
-              ✕
-            </button>
+     {/* CONTACT MODAL */}
+{open && (
+  <div
+    className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+    onClick={() => setOpen(false)}
+  >
+    <div
+      className="bg-base-100 rounded-2xl shadow-xl w-[90%] max-w-md p-8 relative"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <button
+        className="absolute top-4 right-4 text-xl"
+        onClick={() => setOpen(false)}
+      >
+        ✕
+      </button>
 
-            <h3 className="text-2xl font-bold mb-6">Contact Us</h3>
+      <h3 className="text-2xl font-bold mb-6 text-center">Contact Us</h3>
 
-            <div className="space-y-4 text-sm">
-              <p><strong>Email:</strong> metallum@iiests.ac.in</p>
-              <p><strong>Phone:</strong> +91 98765 43210</p>
-              <p>
-                <strong>Address:</strong>  
-                Indian Institute of Engineering Science and Technology,
-                Shibpur, Howrah, West Bengal
-              </p>
-            </div>
+      <div className="space-y-6 text-sm">
 
-            <button
-              className="btn btn-primary w-full mt-8"
-              onClick={() => setOpen(false)}
-            >
-              Close
-            </button>
-          </div>
+        {/* Contact Person 1 */}
+        <div className="pb-2">
+          <p><strong>Name:</strong> Harsh Agrawal</p>
+         
+          <p><strong>Phone:</strong>+91 7488 484 122</p>
         </div>
-      )}
+
+        {/* Contact Person 2 */}
+        <div className=" pb-2">
+          <p><strong>Name:</strong> Yash Chandekar</p>
+         
+          <p><strong>Phone:+91 99939 28756</strong></p>
+        </div>
+
+        
+
+      </div>
+
+      <button
+        className="btn btn-primary w-full mt-8"
+        onClick={() => setOpen(false)}
+      >
+        Close
+      </button>
+    </div>
+  </div>
+)}
+
     </>
   );
 } 

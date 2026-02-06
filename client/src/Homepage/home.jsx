@@ -505,11 +505,12 @@ const [ringRotation, setRingRotation] = useState(0);
     <div className="rtl-track flex gap-10">
       {[...Array(2)].flatMap(() => [
         "/photoes/gallery.png",
-        "/photoes/metallum Collage 2.jpeg",
-        "/photoes/metallum collage .png",
+        "/photoes/metallum1 .jpeg",
+        "/photoes/Collage 3.jpeg",
+        "/photoes/_Collage4 .jpeg",
         "/photoes/gallery.png",
-        "/photoes/metallum collage .png",
-        "/photoes/metallum Collage 2.jpeg",
+        "/photoes/metallum .jpeg",
+        "/photoes/metallum1 .jpeg",
         "/photoes/White Post.png",
       ]).map((img, index) => (
         <img
