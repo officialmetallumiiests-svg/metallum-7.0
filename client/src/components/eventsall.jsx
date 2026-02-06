@@ -15,7 +15,10 @@ function EventsAll() {
     college: "",
     branch: "",
     year: "",
-    teamName: ""
+    branch: "",
+    year: "",
+    teamName: "",
+    transactionId: ""
   });
 
   // Teammates State
@@ -94,6 +97,13 @@ function EventsAll() {
       }
     }
 
+    // Validate Transaction ID for VALORANT
+    if (registerEvent?.title === "VALORANT" && !formData.transactionId) {
+      showToast("Transaction ID is required", "error");
+      setLoading(false);
+      return;
+    }
+
     try {
       const payload = {
         ...formData,
@@ -106,6 +116,11 @@ function EventsAll() {
         payload.teammates = teammates.map(t => ({
           name: t.name
         }));
+      }
+
+      if (registerEvent?.title === "VALORANT") {
+        payload.transactionId = formData.transactionId;
+        payload.amount = 100;
       }
 
       const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/register`, {
@@ -122,7 +137,7 @@ function EventsAll() {
       if (response.ok) {
         setShowSuccess(true);
         setRegisterEvent(null);
-        setFormData({ name: "", phone: "", college: "", branch: "", year: "", teamName: "" });
+        setFormData({ name: "", phone: "", college: "", branch: "", year: "", teamName: "", transactionId: "" });
         setTeammates([]);
       } else {
         showToast(data.message || "Registration failed", "error");
@@ -602,6 +617,50 @@ function EventsAll() {
                         </div>
                       </div>
                     ))}
+                  </div>
+                )}
+
+                {/* VALORANT Payment Section */}
+                {registerEvent?.title === "VALORANT" && (
+                  <div className="space-y-4 mt-4 bg-white/5 p-4 rounded-lg border border-yellow-500/30">
+                    <div className="flex items-center gap-4 my-2">
+                      <div className="h-px bg-yellow-500/20 flex-1"></div>
+                      <span className="text-xs text-yellow-500 font-mono tracking-widest">PAYMENT REQUIRED</span>
+                      <div className="h-px bg-yellow-500/20 flex-1"></div>
+                    </div>
+
+                    <div className="text-center space-y-3">
+                      <p className="text-sm text-gray-300">Registration Fee: <span className="text-xl font-bold text-white">₹100</span></p>
+
+                      <a
+                        href="upi://pay?pa=9993928756@jio&pn=Yash%20Chandekar&am=100&cu=INR"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn btn-warning btn-sm w-full font-bold tracking-wide text-black"
+                      >
+                        PAY NOW via UPI app
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                      </a>
+
+                      <p className="text-xs text-gray-500">
+                        Scan QR Code or Click 'Pay Now'. After payment, enter the Transaction ID below.
+                      </p>
+                    </div>
+
+                    <div className="form-control group">
+                      <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-yellow-500 transition-colors">
+                        Transaction ID / UTR
+                      </label>
+                      <input
+                        type="text"
+                        name="transactionId"
+                        value={formData.transactionId}
+                        onChange={handleInputChange}
+                        required
+                        className="input bg-black/40 border border-white/10 focus:border-yellow-500/50 focus:outline-none focus:ring-1 focus:ring-yellow-500/50 text-white w-full transition-all duration-300 placeholder:text-gray-600"
+                        placeholder="Enter Transaction ID (e.g. T230...)"
+                      />
+                    </div>
                   </div>
                 )}
 
