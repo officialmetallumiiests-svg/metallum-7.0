@@ -15,8 +15,6 @@ function EventsAll() {
     college: "",
     branch: "",
     year: "",
-    branch: "",
-    year: "",
     teamName: "",
     transactionId: ""
   });
@@ -629,25 +627,54 @@ function EventsAll() {
                       <div className="h-px bg-yellow-500/20 flex-1"></div>
                     </div>
 
-                    <div className="text-center space-y-3">
-                      <p className="text-sm text-gray-300">Registration Fee: <span className="text-xl font-bold text-white">₹100</span></p>
+                    <div className="text-center space-y-4">
 
+                      {/* QR Code and Amount */}
+                      <div className="bg-white p-4 rounded-lg inline-block shadow-lg">
+                        <img
+                          src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent("upi://pay?pa=9993928756@jio&pn=Yash Chandekar&am=100&cu=INR")}`}
+                          alt="Payment QR Code"
+                          className="w-32 h-32 mx-auto"
+                        />
+                        <p className="text-black font-bold text-lg mt-2">₹100</p>
+                      </div>
+
+                      <div className="space-y-2">
+                        <p className="text-xs text-gray-400">
+                          Scan the QR Code using any UPI App (GPay, PhonePe, Paytm)
+                        </p>
+                        <p className="text-xs text-gray-500">OR</p>
+
+                        {/* Manual Payment Details */}
+                        <div className="bg-black/30 p-3 rounded text-left space-y-2 text-xs border border-white/5">
+                          <div className="flex justify-between">
+                            <span className="text-gray-400">UPI ID:</span>
+                            <span className="text-yellow-500 font-mono select-all">9993928756@jio</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-400">Name:</span>
+                            <span className="text-white select-all">Yash Chandekar</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-400">Mobile:</span>
+                            <span className="text-white font-mono select-all">9993928756</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Pay Now Button (Deep Link) as Backup */}
                       <a
                         href="upi://pay?pa=9993928756@jio&pn=Yash%20Chandekar&am=100&cu=INR"
                         target="_blank"
                         rel="noreferrer"
-                        className="btn btn-warning btn-sm w-full font-bold tracking-wide text-black"
+                        className="btn btn-outline btn-warning btn-sm w-full"
                       >
-                        PAY NOW via UPI app
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                        Try 'Pay Now' Button
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                       </a>
-
-                      <p className="text-xs text-gray-500">
-                        Scan QR Code or Click 'Pay Now'. After payment, enter the Transaction ID below.
-                      </p>
                     </div>
 
-                    <div className="form-control group">
+                    <div className="form-control group mt-4">
                       <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-yellow-500 transition-colors">
                         Transaction ID / UTR
                       </label>
