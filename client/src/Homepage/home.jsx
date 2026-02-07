@@ -167,7 +167,7 @@ const [ringRotation, setRingRotation] = useState(0);
 
 
           <p className="mt-6 inline-block rounded-xl bg-white/10 backdrop-blur-md px-6 py-2">
-           The Annual Techincal Fest of Society Of Student Metallurgists IIEST Shibpur
+           The Annual Techincal Fest of Department of Metallurgy and Materials Engineering IIEST Shibpur
           </p>
 
           {/* ================= COUNTDOWN ================= */}
