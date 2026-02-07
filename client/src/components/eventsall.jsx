@@ -175,6 +175,7 @@ function EventsAll() {
         "• A win is worth 2 points, a draw is worth 1 point, and a loss is worth 0 points.",
         "• Please ensure a stable internet connection during the tournament.",
         "• Any form of cheating is strictly prohibited. Violators will be immediately disqualified.",
+        "•Date: 10 Feb 2026",
       ],
 
       contacts: [
@@ -266,7 +267,8 @@ function EventsAll() {
         "Players must share screenshots of end screens.",
         "Only participating players may stay in match Discord/voice channels.",
         "After each game, teams should exit promptly for the next match.",
-        "Registration fees: ₹100 "
+        "Registration fees: ₹100 ",
+        "Date: 16 Feb 2026",
       ],
 
       contacts: [
