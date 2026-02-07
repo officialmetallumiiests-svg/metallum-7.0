@@ -26,12 +26,6 @@ export default function Navbar() {
   const toggleTheme = () =>
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
 
-  /* ---------- TEXT COLOR ---------- */
-  const textColor =
-    theme === "light"
-      ? "text-neutral-800"
-      : "text-neutral-100";
-
   /* ---------- MENU ITEMS ---------- */
   const menuItems = [
     {
@@ -46,7 +40,7 @@ export default function Navbar() {
     { name: "Accommodation", path: "/accommodation" },
   ];
 
-  if (user?.role === "admin") {
+  if (user?.role === 'admin') {
     menuItems.push({ name: "Admin Panel", path: "/admin" });
   }
 
@@ -60,13 +54,13 @@ export default function Navbar() {
           {/* HAMBURGER */}
           <button
             onClick={() => setMenuOpen(true)}
-            className={`lg:hidden w-14 h-14 text-2xl font-semibold flex items-center justify-center hover:scale-105 transition ${textColor}`}
+            className="lg:hidden w-14 h-14 text-2xl font-semibold flex items-center justify-center hover:scale-105 transition"
           >
             ☰
           </button>
 
           {/* DESKTOP MENU */}
-          <ul className={`menu menu-horizontal hidden lg:flex gap-2 font-medium ${textColor}`}>
+          <ul className="menu menu-horizontal hidden lg:flex gap-2 font-medium">
             {menuItems.map((item) => (
               <li key={item.name}>
                 <Link
@@ -83,9 +77,7 @@ export default function Navbar() {
 
         {/* CENTER */}
         <div className="navbar-center">
-          <span
-            className={`text-2xl font-semibold tracking-wide hover:underline cursor-pointer transition ${textColor}`}
-          >
+          <span className="text-2xl font-semibold tracking-wide hover:underline cursor-pointer">
             METALLUM 7.0
           </span>
         </div>
@@ -94,46 +86,26 @@ export default function Navbar() {
         <div className="navbar-end gap-3">
           <button
             onClick={toggleTheme}
-            className={`btn btn-ghost btn-circle ${textColor}`}
+            className="btn btn-ghost btn-circle"
           >
             {theme === "light" ? "🌙" : "☀️"}
           </button>
 
-          {/* AUTH */}
+          {/* AUTH BUTTONS */}
           {user ? (
             <div className="dropdown dropdown-end">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost btn-circle avatar"
-              >
+              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img
-                    alt="User"
-                    src={
-                      user.photoURL ||
-                      "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                    }
-                  />
+                  <img alt="User" src={user.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"} />
                 </div>
               </div>
-              <ul
-                tabIndex={0}
-                className={`menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 ${textColor}`}
-              >
-                <li><span className="font-bold">{user.displayName}</span></li>
-                <li>
-                  <a href={`${import.meta.env.VITE_SERVER_URL}/auth/logout`}>
-                    Logout
-                  </a>
-                </li>
+              <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                <li><a className="font-bold">{user.displayName}</a></li>
+                <li><a href={`${import.meta.env.VITE_SERVER_URL}/auth/logout`}>Logout</a></li>
               </ul>
             </div>
           ) : (
-            <a
-              href={`${import.meta.env.VITE_SERVER_URL}/auth/google`}
-              className="btn btn-primary btn-sm"
-            >
+            <a href={`${import.meta.env.VITE_SERVER_URL}/auth/google`} className="btn btn-primary btn-sm">
               Login
             </a>
           )}
@@ -144,7 +116,7 @@ export default function Navbar() {
       {menuOpen && (
         <div
           onClick={() => setMenuOpen(false)}
-          className="fixed inset-0 z-[60] bg-white/30"
+          className="fixed inset-0 z-[60] bg-gray-600/30"
         />
       )}
 
@@ -165,13 +137,13 @@ export default function Navbar() {
         {/* CLOSE */}
         <button
           onClick={() => setMenuOpen(false)}
-          className={`absolute top-6 left-6 text-xl font-semibold opacity-70 hover:opacity-100 transition ${textColor}`}
+          className="absolute top-6 left-6 text-xl font-semibold opacity-70 hover:opacity-100 transition"
         >
           ✕
         </button>
 
         {/* MOBILE MENU */}
-        <div className={`mt-24 ml-20 flex flex-col gap-4 text-base font-medium tracking-wide ${textColor}`}>
+        <div className="mt-24 ml-20 flex flex-col gap-4 text-base font-medium tracking-wide">
           {menuItems.map((item) => (
             <Link
               key={item.name}

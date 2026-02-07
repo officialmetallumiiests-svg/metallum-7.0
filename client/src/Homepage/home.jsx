@@ -121,16 +121,25 @@ const [ringRotation, setRingRotation] = useState(0);
   return (
     <>
       {/* ================= HERO SECTION ================= */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* BACKGROUND VIDEO */}
-        <iframe
-          className="absolute top-1/2 left-1/2 w-[177.77vh] h-[100vh]
-          min-w-[100vw] min-h-[56.25vw]
-          -translate-x-1/2 -translate-y-1/2 pointer-events-none "
-          src="/photoes/background image.png"
-          allow="autoplay"
-        />
-        
+     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  {/* BACKGROUND IMAGE */}
+  <img
+    src="/photoes/background image.png"
+    alt="Background"
+    className="
+      absolute inset-0
+      w-full h-full
+      object-cover
+      -z-10
+    "
+  />
+
+  {/* CONTENT */}
+  <div className="relative z-10 text-white">
+    {/* your content here */}
+  </div>
+
+
 
         {/* DARK OVERLAY */}
 <div className="relative z-20 text-center max-w-4xl px-6 mx-auto">
@@ -157,12 +166,12 @@ const [ringRotation, setRingRotation] = useState(0);
 
 
 
-          <p className="mt-6 text-lg opacity-90">
-           The Annual Techincal Fest of Department of Metallurgy and Materials Engineering of IIEST Shibpur
+          <p className="mt-6 inline-block rounded-xl bg-white/10 backdrop-blur-md px-6 py-2">
+           The Annual Techincal Fest of Society Of Student Metallurgists IIEST Shibpur
           </p>
 
           {/* ================= COUNTDOWN ================= */}
-          <div className="mt-6 mb-8 flex flex-wrap justify-center gap-6 text-center">
+          <div className="mt-6 mb-8 flex flex-wrap backdrop-blur-md px-6 py-2 justify-center gap-6 text-center">
             {[
               { label: "Days", value: timeLeft.days },
               { label: "Hours", value: timeLeft.hours },

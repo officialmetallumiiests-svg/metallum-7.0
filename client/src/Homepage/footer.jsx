@@ -27,7 +27,7 @@ export default function Footer() {
               METALLUM 7.0
             </h2>
             <p className="mt-4 text-sm opacity-80 leading-relaxed">
-              The Annual Techincal Fest of The Department of Metallurgy and Materials Engineering of IIEST Shibpur where
+              The Annual techincal Fest of The Department of Metallurgy and Materials engineering of IIEST Shibpur where
               innovation meets industry, culture, and competition.
             </p>
           </div>

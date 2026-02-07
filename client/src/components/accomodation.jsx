@@ -196,9 +196,6 @@ function Accomodation() {
                     <span className="text-green-500">✓</span> Welcome Kit
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-green-500">✓</span> Official Merchandise
-                  </li>
-                  <li className="flex items-center gap-2">
                     <span className="text-green-500">✓</span> Meal Coupons Included
                   </li>
                   <li className="flex items-center gap-2">
@@ -288,7 +285,7 @@ function Accomodation() {
                 </div>
 
                 {/* Payment Section */}
-                <div className="space-y-4 mt-4 bg-white/5 p-4 rounded-lg border border-primary/30">
+                <div className="space-y-4 mt-4 bg-white/5 p-4 rounded-lg border border-yellow-500">
                   <div className="flex items-center gap-4 my-2">
                     <div className="h-px bg-primary/20 flex-1"></div>
                     <span className="text-xs text-primary font-mono tracking-widest">PAYMENT REQUIRED</span>

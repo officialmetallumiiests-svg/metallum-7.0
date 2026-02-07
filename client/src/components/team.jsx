@@ -32,12 +32,12 @@ export default function Team() {
       {
         name: "Anjani",
         role: "Finance",
-        image: "/images/ANJANI.jfif",
+        image: "/images/ANJANI.jpeg",
       },
       {
         name: "Akanksha Gupta",
         role: "Sponsorship",
-        image: "",
+        image: "/images/AKANKSHA_GUPTA.jpeg",
       },
       {
         name: "Naman Kumar Thakur",
@@ -52,7 +52,7 @@ export default function Team() {
       {
         name: "Srijan Yadav",
         role: "Event Management",
-        image: "/images/SRIJAN.jpg",
+        image: "/images/SRIJAN.jpeg",
       },
       {
         name: "Angshu Sengupta",
@@ -82,7 +82,7 @@ export default function Team() {
       {
         name: "Sayak Bal",
         role: "Cultural",
-        image: "",
+        image: "/images/SAYAK.jpeg",
       },
       {
         name: "Uddipta Panja",
@@ -94,6 +94,11 @@ export default function Team() {
     ],
     assistant: [
       {
+        name: "Nikhil Sah",
+        role: "Web Development ",
+        image: "/images/Nikhil.png",
+      },
+      {
         name: "Tejaswi Singh",
         role: "Joint Coordinator",
         image: "/images/TEJASWI_SINGH.jpg",
@@ -101,7 +106,7 @@ export default function Team() {
       {
         name: "Sunay Manish Vanerkar",
         role: "Finance",
-        image: "/images/SUNAY_MANISH VANERKAR.jpg",
+        image: "/images/sunay.jpeg",
       }, {
         name: "Mansi Verma",
         role: "Sponsorship",
@@ -145,12 +150,8 @@ export default function Team() {
       }, {
         name: "Kritika Bairwa ",
         role: "Design, Production and Decoration",
-        image: "/images/KRITIKA_BAIRWA.jpg",
-      }, {
-        name: "Nikhil Sah",
-        role: "Web Development ",
-        image: "/images/Nikhil.png",
-      }, {
+        image: "/images/kritika.jpeg",
+      },  {
         name: "Deb Kumar",
         role: "Alumni Relation and Collection",
         image: "/images/DEBKUMAR_DE.jpg",
@@ -174,6 +175,7 @@ export default function Team() {
     ],
 
     associate: [
+       
       {
         name: "Harshika Tiwari",
         role: "Event Management",
