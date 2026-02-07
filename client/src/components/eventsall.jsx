@@ -30,7 +30,7 @@ function EventsAll() {
     setRegisterEvent(event);
 
     // Reset teammates based on event type
-    if (event.title === "BGMI" || event.title === "M-CODE") {
+    if (event.title === "BGMI") {
       setTeammates([
         { name: "", phone: "" },
         { name: "", phone: "" },
@@ -39,6 +39,11 @@ function EventsAll() {
     } else if (event.title === "VALORANT") {
       setTeammates([
         { name: "", phone: "" } // Only 1 teammate for 2v2
+      ]);
+    } else if (event.title === "M-CODE") {
+      setTeammates([
+        { name: "", phone: "" },
+        { name: "", phone: "" }
       ]);
     } else {
       setTeammates([]);
@@ -601,7 +606,11 @@ function EventsAll() {
                     <div className="flex items-center gap-4 my-2">
                       <div className="h-px bg-white/10 flex-1"></div>
                       <span className="text-xs text-gray-500 font-mono">
-                        {registerEvent?.title === "VALORANT" ? "TEAMMATE (1 PLAYER)" : "TEAMMATES (3 PLAYERS)"}
+                        {registerEvent?.title === "VALORANT"
+                          ? "TEAMMATE (1 PLAYER)"
+                          : registerEvent?.title === "M-CODE"
+                            ? "TEAMMATES (2 PLAYERS)"
+                            : "TEAMMATES (3 PLAYERS)"}
                       </span>
                       <div className="h-px bg-white/10 flex-1"></div>
                     </div>
