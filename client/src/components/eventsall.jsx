@@ -30,7 +30,7 @@ function EventsAll() {
     setRegisterEvent(event);
 
     // Reset teammates based on event type
-    if (event.title === "BGMI") {
+    if (event.title === "BGMI" || event.title === "M-CODE") {
       setTeammates([
         { name: "", phone: "" },
         { name: "", phone: "" },
@@ -85,7 +85,8 @@ function EventsAll() {
     }
 
     // Validate Teammates for BGMI or VALORANT
-    if (registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT") {
+    // Validate Teammates for BGMI, VALORANT, or M-CODE
+    if (registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT" || registerEvent?.title === "M-CODE") {
       for (let i = 0; i < teammates.length; i++) {
         if (!teammates[i].name) {
           showToast(`Player ${i + 2} name is required`, "error");
@@ -110,7 +111,7 @@ function EventsAll() {
         event: registerEvent.title
       };
 
-      if (registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT") {
+      if (registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT" || registerEvent?.title === "M-CODE") {
         payload.teammates = teammates.map(t => ({
           name: t.name
         }));
@@ -544,7 +545,7 @@ function EventsAll() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="form-control group">
                     <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">
-                      {(registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT") ? "Team Leader Name" : "Name"}
+                      {(registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT" || registerEvent?.title === "M-CODE") ? "Team Leader Name" : "Name"}
                     </label>
                     <input
                       type="text"
@@ -574,7 +575,7 @@ function EventsAll() {
                 {/* Phone */}
                 <div className="form-control group">
                   <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">
-                    {(registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT") ? "Team Leader Phone Number" : "Phone Number"}
+                    {(registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT" || registerEvent?.title === "M-CODE") ? "Team Leader Phone Number" : "Phone Number"}
                   </label>
                   <div className="flex relative">
                     <span className="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-white/10 bg-white/5 text-gray-400 font-mono text-sm select-none">
@@ -592,8 +593,8 @@ function EventsAll() {
                   </div>
                 </div>
 
-                {/* BGMI & VALORANT Teammates Section */}
-                {(registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT") && (
+                {/* BGMI & VALORANT & M-CODE Teammates Section */}
+                {(registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT" || registerEvent?.title === "M-CODE") && (
                   <div className="space-y-4 mt-2 mb-2">
                     <div className="flex items-center gap-4 my-2">
                       <div className="h-px bg-white/10 flex-1"></div>
@@ -713,7 +714,7 @@ function EventsAll() {
                 </div>
 
                 {/* Branch & Year (Hidden for BGMI and VALORANT) */}
-                {(registerEvent?.title !== "BGMI" && registerEvent?.title !== "VALORANT") && (
+                {(registerEvent?.title !== "BGMI" && registerEvent?.title !== "VALORANT" && registerEvent?.title !== "M-CODE") && (
                   <>
                     {/* Branch (Full Width for long text) */}
                     <div className="form-control group">
@@ -766,7 +767,7 @@ function EventsAll() {
                 )}
 
                 {/* Team Name Only for BGMI or VALORANT */}
-                {(registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT") && (
+                {(registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT" || registerEvent?.title === "M-CODE") && (
                   <div className="form-control group">
                     <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">
                       Team Name <span className="text-gray-600 normal-case tracking-normal ml-1">(Optional)</span>

@@ -196,6 +196,9 @@ function Accomodation() {
                     <span className="text-green-500">✓</span> Welcome Kit
                   </li>
                   <li className="flex items-center gap-2">
+                    <span className="text-green-500">✓</span> Official Merchandise
+                  </li>
+                  <li className="flex items-center gap-2">
                     <span className="text-green-500">✓</span> Meal Coupons Included
                   </li>
                   <li className="flex items-center gap-2">
