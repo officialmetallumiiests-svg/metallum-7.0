@@ -40,6 +40,11 @@ function EventsAll() {
       setTeammates([
         { name: "", phone: "" } // Only 1 teammate for 2v2
       ]);
+    } else if (event.title === "M-CODE") {
+      setTeammates([
+        { name: "", phone: "" },
+        { name: "", phone: "" }
+      ]);
     } else {
       setTeammates([]);
     }
@@ -84,8 +89,8 @@ function EventsAll() {
       return;
     }
 
-    // Validate Teammates for BGMI or VALORANT
-    if (registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT") {
+    // Validate Teammates for BGMI or VALORANT or M-CODE
+    if (registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT" || registerEvent?.title === "M-CODE") {
       for (let i = 0; i < teammates.length; i++) {
         if (!teammates[i].name) {
           showToast(`Player ${i + 2} name is required`, "error");
@@ -110,7 +115,7 @@ function EventsAll() {
         event: registerEvent.title
       };
 
-      if (registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT") {
+      if (registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT" || registerEvent?.title === "M-CODE") {
         payload.teammates = teammates.map(t => ({
           name: t.name
         }));
@@ -166,7 +171,7 @@ function EventsAll() {
         "Prepare for a battle of minds at Metallum 7.0 thrilling Chess Tournament! Whether you're a seasoned strategist or a rising talent, this event promises intense matches, testing your skills and focus. The qualifiers will push players to their limits, with a 60-minute frenzy of rapid (5+2) games. Only the top 8 players will advance to the Final Round with a Time control (10+2) format. Sharpen your tactics and play fair because only the sharpest minds will claim victory!",
 
       guidelines: [
-        
+
         "Match Format:",
         "Qualifiers: Participants must play as many games as possible in 60 minutes (Time Control: 5+2).",
         " Final Round: Top 8 players will compete in a Time Control (10+2) format.",
@@ -546,7 +551,7 @@ function EventsAll() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="form-control group">
                     <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">
-                      {(registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT") ? "Team Leader Name" : "Name"}
+                      {(registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT" || registerEvent?.title === "M-CODE") ? "Team Leader Name" : "Name"}
                     </label>
                     <input
                       type="text"
@@ -576,7 +581,7 @@ function EventsAll() {
                 {/* Phone */}
                 <div className="form-control group">
                   <label className="label text-xs uppercase text-gray-400 font-bold tracking-wider mb-1 pl-1 group-focus-within:text-primary transition-colors">
-                    {(registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT") ? "Team Leader Phone Number" : "Phone Number"}
+                    {(registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT" || registerEvent?.title === "M-CODE") ? "Team Leader Phone Number" : "Phone Number"}
                   </label>
                   <div className="flex relative">
                     <span className="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-white/10 bg-white/5 text-gray-400 font-mono text-sm select-none">
@@ -595,12 +600,12 @@ function EventsAll() {
                 </div>
 
                 {/* BGMI & VALORANT Teammates Section */}
-                {(registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT") && (
+                {(registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT" || registerEvent?.title === "M-CODE") && (
                   <div className="space-y-4 mt-2 mb-2">
                     <div className="flex items-center gap-4 my-2">
                       <div className="h-px bg-white/10 flex-1"></div>
                       <span className="text-xs text-gray-500 font-mono">
-                        {registerEvent?.title === "VALORANT" ? "TEAMMATE (1 PLAYER)" : "TEAMMATES (3 PLAYERS)"}
+                        {registerEvent?.title === "VALORANT" ? "TEAMMATE (1 PLAYER)" : registerEvent?.title === "M-CODE" ? "TEAMMATES (2 PLAYERS)" : "TEAMMATES (3 PLAYERS)"}
                       </span>
                       <div className="h-px bg-white/10 flex-1"></div>
                     </div>
