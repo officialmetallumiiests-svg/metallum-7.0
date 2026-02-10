@@ -159,6 +159,115 @@ function EventsAll() {
   };
 
   const events = [
+     {
+    id: 5,
+    title: "MET-TRICKS",
+    category: "Main Event",
+    description:
+      "A PPT-based competition where participants address real-world technical and industrial problems by presenting practical, innovative solutions while learning through idea exchange and discussion.",
+    image:
+      "/photoes/eventsposter/Metricks.png",
+      details:
+"Met-tricks encourages young engineers to utilize their knowledge for solving metallurgical-industry issues as well as present their analysis of a topic relevant to material science, in the form of Power-Point Presentation. In the first stage, participants must submit an abstract outlining their problem, proposed solution or research topic. In the second stage, selected students will present their ideas in front of jury, followed by a Q/A session.",
+    guidelines:[
+     
+ "#AbstractSubmission :-",
+    "The abstract must be based on one of the provided problem statements.",
+    "The abstract should not exceed 300 words.",
+    "Submissions must be made in PDF format only.",
+    "All abstracts will be reviewed for originality and plagiarism.",
+    "Submissions with excessive plagiarism will be disqualified.",
+    "Participants are advised to refer to the sample abstract for proper structure and formatting.",
+    "The link to the sample abstract will be provided separately.",
+"#Presentation guidelines :-",
+    "Each team is allowed a maximum of 15 slides.",
+    "Exceeding the slide limit may lead to disqualification.",
+    "Total time allotted per team is 10 minutes.",
+    "Presentation time: 8 minutes, followed by a 2-minute Q&A session.",
+    "All presentation content must be original.",
+    "Any instance of plagiarism may result in disqualification.",
+"#JudgingCriteria :-",
+  "Problem-Solving Approach",
+  "Relevance of the Proposed Solution",
+  "Technical Feasibility",
+  "Clarity and Structure of the Presentation",
+  "Effectiveness in Handling Q&A",
+   "Event Schedule: 20 February 2026",
+   "Venue: Alumni Seminar Hall ",
+
+
+
+   "Time:-12:15 pm – 2:00 pm"
+    ],
+
+      contacts: [
+        { name: "For any queries, contact:", phone: "" },
+        { name: "Srijan Yadav", phone: "9120754845" },
+         { name: "Ayush", phone: "8003936610" },
+        { name: "Sandeep Kumawa", phone: "9102166734" },]
+
+  },
+ {
+  id: 7,
+  title: "PRORECRUIT",
+  category: "Main Event",
+  description:
+    "A mock placement drive designed to simulate real recruitment processes, enabling participants to enhance professional skills, receive constructive feedback, and build confidence for actual placements.",
+
+  image: "/photoes/eventsposter/Prorecruit.png",
+
+  details:
+    "ProRecruit is a mock placement drive that closely replicates the real campus recruitment process. The competition is conducted in three elimination stages. Stage 1 consists of an online assessment focused on aptitude and technical knowledge. Stage 2 involves a group discussion round to evaluate communication skills, teamwork, and clarity of thought. Stage 3 is a one-on-one personal interview conducted by an expert panel. The event provides participants with practical exposure to placement scenarios, valuable feedback, and an opportunity to prepare effectively for real-world recruitment while competing for exciting prizes.",
+
+  guidelines: [
+  "Dress code is strictly formal for all participants.",
+  "Each participant must bring a printed copy of their resume for the interview round.",
+  "Participants must report on time at the venue to ensure smooth conduct of the event.",
+  "Any form of misconduct or indiscipline may lead to disqualification.",
+
+
+
+  "Stage 1:-",
+  "This stage will test aptitude and technical knowledge.",
+  "Participants must bring their own laptops for the assessment.",
+  "Remote participation is not allowed.",
+  "Only participants present at the designated venue will be eligible for evaluation.",
+  "Participants should carry their own stationery; only rough sheets will be provided.",
+  "Use of mobile phones or any unfair means will result in immediate disqualification.",
+
+
+
+  "Stage 2:-",
+  "Selected participants from Stage 1 will be divided into groups.",
+  "Each group will be assigned a discussion topic.",
+  "Group discussions will be conducted within a fixed time limit.",
+  "Participants must maintain respectful, professional, and ethical conduct during the discussion.",
+
+ 
+
+  "Stage 3:-",
+  "Shortlisted candidates from Stage 2 will appear for a personal interview before an expert panel.",
+  "The interview will assess communication skills, confidence, subject knowledge, and overall personality.",
+  "Participants must be punctual for the interview round.",
+
+
+  "Event Schedule: 20 February 2026",
+   "Venue: 4th Year Classroom (Stage 1)",
+"Main Building (Stage 2 and Stage 3) ",
+
+
+
+],
+
+  contacts: [
+    { name: "Prithvi Raj Singh", phone: "6289757984" },
+    { name: "Gyanshi", phone: "7678624280" },
+    { name: "Srijan Yadav", phone: "9120754845" }
+  ]
+}
+,
+
+
     {
       id: 1,
       title: "Chess",
@@ -349,11 +458,8 @@ function EventsAll() {
         { name: "Karan Kumar", phone: "8809285699" },
         { name: "Tejaswi Singh", phone: "9151613350" },
       ],
-    }
-
+    },
   ];
-
-
   return (
     <div className="min-h-screen bg-base-200 px-6 py-12">
 
