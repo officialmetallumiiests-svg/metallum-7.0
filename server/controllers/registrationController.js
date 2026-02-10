@@ -5,6 +5,10 @@ exports.createRegistration = async (req, res) => {
   try {
     const { name, email, phone, college, branch, year, event, teamName, tshirtSize, tshirtName, transactionId, amount, teammates } = req.body;
 
+    if (event === "Chess") {
+      return res.status(400).json({ message: 'Registration for Chess is closed' });
+    }
+
     if (!name || !email) {
       return res.status(400).json({ message: 'Name and Email are required' });
     }

@@ -406,12 +406,12 @@ function EventsAll() {
 
                 <button
                   className="btn btn-outline btn-primary btn-sm flex-1"
-                  disabled={loading}
+                  disabled={loading || event.title === "Chess"}
                   onClick={() => handleRegisterClick(event)}
                 >
                   {loading && registerEvent?.id === event.id
                     ? "Processing..."
-                    : "Register"}
+                    : event.title === "Chess" ? "Closed" : "Register"}
                 </button>
 
               </div>
