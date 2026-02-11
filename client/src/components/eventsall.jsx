@@ -203,10 +203,9 @@ function EventsAll() {
   ],
 
   contacts: [
-    { name: "For any queries, contact:", phone: "" },
     { name: "Srijan Yadav", phone: "9120754845" },
-    { name: "Ayush", phone: "8003936610" },
-    { name: "Sandeep Kumawa", phone: "9102166734" }
+    { name: "Sandeep Kumawat", phone: "8003936610" },
+    { name: "Ayush", phone: "9102166734" }
   ]
 }
 ,
@@ -263,9 +262,9 @@ function EventsAll() {
 ],
 
   contacts: [
-    { name: "Prithvi Raj Singh", phone: "6289757984" },
+    { name: "Srijan Yadav", phone: "9120754845" },
     { name: "Gyanshi", phone: "7678624280" },
-    { name: "Srijan Yadav", phone: "9120754845" }
+    { name: "Prithvi Raj Singh", phone: "6289757984" }
   ]
 }
 ,
