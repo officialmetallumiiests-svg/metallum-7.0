@@ -374,7 +374,7 @@ function EventsAll() {
         "Sample Abstract Link: Refer to the provided abstract link.",
 
         "# Presentation Guidelines :-",
-        "Each team is allowed a maximum of 15 slides.",
+        "Each team is allowed a maximum of 10 slides.",
         "Exceeding the slide limit may lead to disqualification.",
         "Total time allotted per team is 10 minutes.",
         "Presentation time: 8 minutes, followed by a 2-minute Q&A session.",
@@ -384,8 +384,9 @@ function EventsAll() {
 
 
         "Event Schedule: 20 February 2026",
-        "Venue: Alumni Seminar Hall",
-        "Time: 12:15 pm – 2:00 pm"
+        "Time: 12:15 pm – 2:00 pm",
+        "Venue: Alumni Seminar Hall"
+
       ],
       Judging_Criteria: [
         "Problem-Solving Approach",
@@ -815,15 +816,14 @@ function EventsAll() {
                 </div>
               )}
               {selectedEvent.abstractLink && (
-                <div className="mt-2 ">
-                  <span className="text-m font-large"> Abstract:&nbsp;</span>
+                <div className="mt-4 mb-4">
                   <a
                     href={selectedEvent.abstractLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-link p-0 text-primary"
+                    className="btn btn-primary btn-outline w-full sm:w-auto"
                   >
-                    View
+                    Problem Statement
                   </a>
                 </div>
               )}
