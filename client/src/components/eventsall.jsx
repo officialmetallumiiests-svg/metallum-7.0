@@ -362,7 +362,7 @@ function EventsAll() {
         "Met-tricks encourages young engineers to utilize their knowledge for solving metallurgical-industry issues as well as present their analysis of a topic relevant to material science, in the form of Power-Point Presentation. In the first stage, participants must submit an abstract outlining their problem, proposed solution or research topic. In the second stage, selected students will present their ideas in front of jury, followed by a Q/A session.",
 
       abstractLink: "/pdf/Problem Statement MET-Tricks.pdf",
-      submissionLink: "#", // Dummy link for now
+      submissionLink: "https://forms.gle/ZTPvZX7KvBYCNeK6A",
 
       guidelines: [
         "# Abstract Submission :-",
@@ -371,12 +371,11 @@ function EventsAll() {
         "Submissions must be made in PDF format only.",
         "All abstracts will be reviewed for originality and plagiarism.",
         "Submissions with excessive plagiarism will be disqualified.",
-        "Participants are advised to refer to the sample abstract for proper structure and formatting.",
         "Deadline for abstract submission: 17th Feb by 11:59 PM.",
 
 
         "# Presentation Guidelines :-",
-        "Presentation will be held at 2oth Feb 2026 in offline mode at IIEST SHIBPUR.",
+        "Presentation will be held at 20th Feb 2026 in offline mode at IIEST SHIBPUR.",
         "Each team is allowed a maximum of 10 slides.",
         "Exceeding the slide limit may lead to disqualification.",
         "Total time allotted per team is 10 minutes.",
