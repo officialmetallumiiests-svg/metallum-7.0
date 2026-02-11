@@ -159,308 +159,307 @@ function EventsAll() {
   };
 
   const events = [
-    
-  /* ...   {
-    id: 6,
-    title: "METALLOSCAPE",
-    category: "Main Event",
-    description:
-      "A poster presentation event focused on metallurgy, where teams showcase research concepts and technical understanding through creative visuals and clear scientific communication.",
-    image: "/photoes/eventsposter/Metalloscape.png",
-      details:"Metalloscape is a technical poster presentation competition where participants get to showcase their research and technical skills with a creative and artistic twist. In the first stage, teams will submit a brief abstract on their chosen topic. If selected, they’ll move on to the final round, where they’ll present their posters. Each team will have 8 minutes to present, followed by a 2-minute Q&A session. With great prizes up for grabs, don’t miss out on this exciting opportunity—register now and show off your expertise and creativity! ",
-   
-   abstractLink:"https://drive.google.com/file/d/1SonksaSBIb8B7zIbZuCHqGBiQk71ehgx/view?usp=sharing",
-      guidelines: [
-  "#Guidelines for Abstract Submission",
-  "The abstract must be on a topic relevant to Metallurgy and Materials Engineering.",
-  "Participants may refer to the list of suggested topics provided by the organizers.",
-  "The abstract must not exceed 300 words.",
-  "The abstract must be submitted in PDF format only.",
-  "All submissions will be reviewed for authenticity and plagiarism.",
-  "Submissions with excessive plagiarism will be disqualified.",
-  "Participants are advised to refer to the sample abstract provided by the organizers.",
 
-  "#Guidelines for Poster Presentation",
-  "The dimensions of the poster must be 120 cm × 90 cm. Participants are advised to strictly adhere to these dimensions to avoid printing issues.",
-  "The poster should include the following sections:",
-  "Title and author(s) (placed at the upper portion, spanning the full width of the poster).",
-  "Abstract.",
-  "Methodology.",
-  "Results.",
-  "Conclusions.",
-  "References.",
-  "Each team will be allotted a total of 10 minutes: 8 minutes for presentation followed by 2 minutes for Q&A.",
-  "All poster content must be original. Any instance of plagiarism may lead to disqualification.",
-  "Participants must submit their posters before the specified deadline to ensure timely and proper printing.",
-  "Failure to meet the submission deadline may result in disqualification."],
-
-Judging_Criteria:[
-
-  "Technical content and depth of understanding.",
-  "Poster design and visual presentation.",
-  "Originality and creativity of the work.",
-  "Clarity of explanation and communication skills.",
-  "Effectiveness in handling the Q&A session.",
-  "Event Schedule: 20 February 2026",
-    "Venue: Parade Ground"
-
-],
-contacts: [ { name: "For any queries, contact:", phone: "" },
-  { name: "Arjodeep Chatterjee", phone: "9031945823" },
-  { name: "Gyanshi", phone: "7678624280" },
-  { name: "Srijan Yadav", phone: "9120754845" }
-]
-
-
-
-  },
-  {
-      id: 8,
-    title: "निर्माण ",
-    category: "Main Event",
-    description:
-      "An innovation and pitching platform where aspiring entrepreneurs solve real-world problems and present impactful ideas through dynamic pitches and interactive judge sessions.",
-    
-
-    image:"/photoes/eventsposter/Nirman.png",
-        details:"Startup-oriented problem-solving and idea pitching event designed to encourage innovative thinking and entrepreneurial skills among participants. Participants will be provided with a problem statement on 15th Feb at 6 PM. Based on the given problem, teams are required to develop a startup idea and propose a practical solution in the form of PowerPoint Presentation",
-  guidelines: [
-  "#Guidelines for Online Submission (Round 1)",
-  "Participants will be provided with a total of 6 problem statements from the domains of Core Metallurgy and Non-Core (General Problems) on 15 February 2026 at 6:00 PM.",
-  "Teams must submit a PPT presenting their original ideas and solutions by 18 February 2026 before 6:00 PM.",
-  "All submitted PPTs will be checked for plagiarism and AI-generated content.",
-  "Based on the submitted ideas, teams will be ranked and the top 8 teams will qualify for Round 2.",
-
-  "#Rules (Round 1)",
-  "The ideas must be original, practical, and feasible.",
-  "Copy-paste content or use of AI tools is strictly prohibited.",
-  "Ideas should be cost-effective, innovative, and sustainable.",
-  "Late submissions will not be accepted.",
-
-  "#Guidelines for Presentation (Round 2)",
-  "Qualified teams will present their PPT to the judges.",
-  "The presentation must contain a maximum of 10 slides, including the cover and thank-you slides.",
-  "Total presentation time is 10 minutes: 7–8 minutes for pitching followed by 2 minutes for Q&A.",
-
-  "#Rules (Round 2)",
-  "Teams must deliver a convincing and well-structured pitch for the assigned problem.",
-  "The first slide must include the problem title along with the names of all team members.",
-  "Judges will evaluate the presentation based on originality, practicality, and overall aesthetics of the PPT."],
-
- Judging_Criteria:[
-
-  "Cost-effectiveness – Affordability and practical implementation of the solution.",
-  "Innovation – Uniqueness and creativity of the proposed idea.",
-  "Efficiency – Effectiveness of the solution in addressing the problem.",
-  "Sustainability – Long-term applicability and environmental or economic impact of the idea.",
-   "Event Schedule: 20 February 2026",
-    "Venue: Alumni Seminar Hall"
-],
-contacts: [
-  { name: "For any queries, contact:", phone: "" },
-  { name: "Tejaswi Singh", phone: "9151613350" },
-  { name: "Ankita Kumari", phone: "8252044688" }
-]
-
-      },
-  
-   {
-  id: 9,
-  title: "Dr. A. K. Seal Memorial Quiz",
-  category: "Main Event",
-  description:
-    "A fast-paced quiz designed to test logical thinking, speed, and clarity, challenging participants from diverse fields with engaging and thought-provoking questions.",
-
-  details:
-    "Get ready to put your knowledge to the test in an exhilarating quiz competition designed for passionate fans of the field. This event challenges your expertise, quick thinking, and problem-solving skills. The competition kicks off with a Qualifier Round, where teams will face tricky general awareness questions, and only the best will advance to the Final Round. In the final round, participants will tackle both general awareness and material-related questions in a thrilling, point-based showdown. The team with the sharpest intellect and the most points will claim victory. Gear up for a fierce competition and may the best team win.",
-
-  image: "/photoes/eventsposter/Quiz.png",
-
-  guidelines: [
-    
-  
-
-    "#General Rules",
-    "The use of mobile phones or any unfair means during any stage of the competition is strictly prohibited.",
-    "Any violation of rules will result in immediate disqualification.",
-    "Event Schedule: 21 February 2026",
-    "Venue: Alumni Seminar Hall",
-    "Time: 2:00PM – 4:00PM",
-
-  ],
-  stages:["The competition will consist of two stages.",
-
-    "#Stage 1: Qualifier Round",
-    "Teams will take a quiz focused on general awareness.",
-    "This will be an elimination round.",
-
-    "#Stage 2: Final Round",
-    "Top teams from the Qualifier Round will be selected for the Final Round.",
-    "The final round will follow a point-based reward system.",
-    "The quiz will focus on general awareness and material-related knowledge.",
-    "The team with the highest points at the end of the round will be declared the winner.",
-    "In case of a tie, the team with fewer negative points will be ranked higher."],
-    
-  contacts: [
-    { name: "For any queries, contact:", phone: "" },
-  { name: "Shubh Ashutosh", phone: "7295946762" },
-  { name: "Aritra Dutta", phone: "7865979275" },
-  { name: "Ayush Kumar", phone: "9102166734" }
-]
-
-},
-  {
-    id: 10,
-    title: "METAPOLISH",
-    category: "Main Event",
-    description:"A hands-on metallography event combining a screening quiz with practical sample preparation and microstructural analysis using grinding, polishing, etching, and microscopy.",
-    image:"/photoes/eventsposter/Metapolish.png",
-    details:"Get ready to showcase your skills in metallography with Metapolish! This exciting two-stage competition begins with a metallography quiz, where your knowledge of metallurgy will be put to the test. The top participants will advance to Stage 2, where they’ll work in teams to prepare and analyse metallographic samples. With fantastic prizes at stake, don’t miss out—register now and be part of this exciting challenge! ",
-guidelines: [
- 
-
-  
-  "#General Rules",
-  "The use of mobile phones or any unfair means during any stage of the competition is strictly prohibited.",
-  "Any violation of the rules will result in immediate disqualification.",
-  "Event Schedule: 19 February 2026",
-    "Venue: 4th Year Classroom (Stage 1)",
-    "Metallography Lab (Stage 2)",
-    "Time: 6:00PM – 8:00PM"],
-stages:["#Stage 1: Metallography Quiz",
-  "Participants will take a quiz focused on general metallurgy and metallography.",
-  "This will be an elimination round.",
-
-  "#Stage 2: Sample Preparation and Analysis",
-  "Selected participants from Stage 1 will be paired into groups.",
-  "Each group will be provided with a metallography sample.",
-  "Groups must prepare the sample using standard metallographic techniques such as grinding, polishing, and etching within a specified time limit.",
-  "After sample preparation, groups will analyze the microstructure to identify the sample and its key features.",
-  "All necessary materials required for sample preparation will be provided to the participants in advance.",
-  "The group that performs the most accurate microstructural analysis in the shortest time will be declared the winner.",
-
-
-],
-contacts: [
-    { name: "For any queries, contact:", phone: "" },
-  { name: "Suryadeep Pal", phone: "9748993477" },
-  { name: "Sunay Vanerkar", phone: "9049593980" },
-  { name: "Pratyusha Sarkar", phone: "9851709251" }
-]
-
-  },*/
-
-{
-  id: 5,
-  title: "MET-TRICKS",
-  category: "Main Event",
-  description:
-    "A PPT-based competition where participants address real-world technical and industrial problems by presenting practical, innovative solutions while learning through idea exchange and discussion.",
-  image: "/photoes/eventsposter/Metricks.png",
-
-  details:
-    "Met-tricks encourages young engineers to utilize their knowledge for solving metallurgical-industry issues as well as present their analysis of a topic relevant to material science, in the form of Power-Point Presentation. In the first stage, participants must submit an abstract outlining their problem, proposed solution or research topic. In the second stage, selected students will present their ideas in front of jury, followed by a Q/A session.",
-
-  abstractLink: "https://drive.google.com/file/d/1oLesqfHRSc9GGrkvT0a9dwHNCX1JrDck/view?usp=sharing",
-
-  guidelines: [
-    "# Abstract Submission :-",
-    "The abstract must be based on one of the provided problem statements.",
-    "The abstract should not exceed 300 words.",
-    "Submissions must be made in PDF format only.",
-    "All abstracts will be reviewed for originality and plagiarism.",
-    "Submissions with excessive plagiarism will be disqualified.",
-    "Participants are advised to refer to the sample abstract for proper structure and formatting.",
-    "Sample Abstract Link: Refer to the provided abstract link.",
-
-    "# Presentation Guidelines :-",
-    "Each team is allowed a maximum of 15 slides.",
-    "Exceeding the slide limit may lead to disqualification.",
-    "Total time allotted per team is 10 minutes.",
-    "Presentation time: 8 minutes, followed by a 2-minute Q&A session.",
-    "All presentation content must be original.",
-    "Any instance of plagiarism may result in disqualification.",
-
+    /* ...   {
+      id: 6,
+      title: "METALLOSCAPE",
+      category: "Main Event",
+      description:
+        "A poster presentation event focused on metallurgy, where teams showcase research concepts and technical understanding through creative visuals and clear scientific communication.",
+      image: "/photoes/eventsposter/Metalloscape.png",
+        details:"Metalloscape is a technical poster presentation competition where participants get to showcase their research and technical skills with a creative and artistic twist. In the first stage, teams will submit a brief abstract on their chosen topic. If selected, they’ll move on to the final round, where they’ll present their posters. Each team will have 8 minutes to present, followed by a 2-minute Q&A session. With great prizes up for grabs, don’t miss out on this exciting opportunity—register now and show off your expertise and creativity! ",
      
-
-    "Event Schedule: 20 February 2026",
-    "Venue: Alumni Seminar Hall",
-    "Time: 12:15 pm – 2:00 pm"
-  ],
-Judging_Criteria:[
-    "Problem-Solving Approach",
-    "Relevance of the Proposed Solution",
-    "Technical Feasibility",
-    "Clarity and Structure of the Presentation",
-    "Effectiveness in Handling Q&A"],
-  contacts: [
-    { name: "For any queries, contact:", phone: "" },
-    { name: "Srijan Yadav", phone: "9120754845" },
-    { name: "Ayush", phone: "8003936610" },
-    { name: "Sandeep Kumawa", phone: "9102166734" }
-  ]
-}
-,
- {
-  id: 7,
-  title: "PRORECRUIT",
-  category: "Main Event",
-  description:
-    "A mock placement drive designed to simulate real recruitment processes, enabling participants to enhance professional skills, receive constructive feedback, and build confidence for actual placements.",
-
-  image: "/photoes/eventsposter/Prorecruit.png",
-
-  details:
-    "ProRecruit is a mock placement drive that closely replicates the real campus recruitment process. The competition is conducted in three elimination stages. Stage 1 consists of an online assessment focused on aptitude and technical knowledge. Stage 2 involves a group discussion round to evaluate communication skills, teamwork, and clarity of thought. Stage 3 is a one-on-one personal interview conducted by an expert panel. The event provides participants with practical exposure to placement scenarios, valuable feedback, and an opportunity to prepare effectively for real-world recruitment while competing for exciting prizes.",
-
-  guidelines: [
-  "Dress code is strictly formal for all participants.",
-  "Each participant must bring a printed copy of their resume for the interview round.",
-  "Participants must report on time at the venue to ensure smooth conduct of the event.",
-  "Any form of misconduct or indiscipline may lead to disqualification.",
-"Event Schedule: 20 February 2026",
-   "Venue: 4th Year Classroom (Stage 1)",
-"Main Building (Stage 2 and Stage 3) ",
-],
-
-
-stages:[
-  "Stage 1:-",
-  "This stage will test aptitude and technical knowledge.",
-  "Participants must bring their own laptops for the assessment.",
-  "Remote participation is not allowed.",
-  "Only participants present at the designated venue will be eligible for evaluation.",
-  "Participants should carry their own stationery; only rough sheets will be provided.",
-  "Use of mobile phones or any unfair means will result in immediate disqualification.",
-
-
-
-  "Stage 2:-",
-  "Selected participants from Stage 1 will be divided into groups.",
-  "Each group will be assigned a discussion topic.",
-  "Group discussions will be conducted within a fixed time limit.",
-  "Participants must maintain respectful, professional, and ethical conduct during the discussion.",
-
- 
-
-  "Stage 3:-",
-  "Shortlisted candidates from Stage 2 will appear for a personal interview before an expert panel.",
-  "The interview will assess communication skills, confidence, subject knowledge, and overall personality.",
-  "Participants must be punctual for the interview round.",
-],
-
+     abstractLink:"https://drive.google.com/file/d/1SonksaSBIb8B7zIbZuCHqGBiQk71ehgx/view?usp=sharing",
+        guidelines: [
+    "#Guidelines for Abstract Submission",
+    "The abstract must be on a topic relevant to Metallurgy and Materials Engineering.",
+    "Participants may refer to the list of suggested topics provided by the organizers.",
+    "The abstract must not exceed 300 words.",
+    "The abstract must be submitted in PDF format only.",
+    "All submissions will be reviewed for authenticity and plagiarism.",
+    "Submissions with excessive plagiarism will be disqualified.",
+    "Participants are advised to refer to the sample abstract provided by the organizers.",
   
-
-
-
-
-  contacts: [
-    { name: "Prithvi Raj Singh", phone: "6289757984" },
+    "#Guidelines for Poster Presentation",
+    "The dimensions of the poster must be 120 cm × 90 cm. Participants are advised to strictly adhere to these dimensions to avoid printing issues.",
+    "The poster should include the following sections:",
+    "Title and author(s) (placed at the upper portion, spanning the full width of the poster).",
+    "Abstract.",
+    "Methodology.",
+    "Results.",
+    "Conclusions.",
+    "References.",
+    "Each team will be allotted a total of 10 minutes: 8 minutes for presentation followed by 2 minutes for Q&A.",
+    "All poster content must be original. Any instance of plagiarism may lead to disqualification.",
+    "Participants must submit their posters before the specified deadline to ensure timely and proper printing.",
+    "Failure to meet the submission deadline may result in disqualification."],
+  
+  Judging_Criteria:[
+  
+    "Technical content and depth of understanding.",
+    "Poster design and visual presentation.",
+    "Originality and creativity of the work.",
+    "Clarity of explanation and communication skills.",
+    "Effectiveness in handling the Q&A session.",
+    "Event Schedule: 20 February 2026",
+      "Venue: Parade Ground"
+  
+  ],
+  contacts: [ { name: "For any queries, contact:", phone: "" },
+    { name: "Arjodeep Chatterjee", phone: "9031945823" },
     { name: "Gyanshi", phone: "7678624280" },
     { name: "Srijan Yadav", phone: "9120754845" }
   ]
-}
-,
+  
+  
+  
+    },
+    {
+        id: 8,
+      title: "निर्माण ",
+      category: "Main Event",
+      description:
+        "An innovation and pitching platform where aspiring entrepreneurs solve real-world problems and present impactful ideas through dynamic pitches and interactive judge sessions.",
+      
+  
+      image:"/photoes/eventsposter/Nirman.png",
+          details:"Startup-oriented problem-solving and idea pitching event designed to encourage innovative thinking and entrepreneurial skills among participants. Participants will be provided with a problem statement on 15th Feb at 6 PM. Based on the given problem, teams are required to develop a startup idea and propose a practical solution in the form of PowerPoint Presentation",
+    guidelines: [
+    "#Guidelines for Online Submission (Round 1)",
+    "Participants will be provided with a total of 6 problem statements from the domains of Core Metallurgy and Non-Core (General Problems) on 15 February 2026 at 6:00 PM.",
+    "Teams must submit a PPT presenting their original ideas and solutions by 18 February 2026 before 6:00 PM.",
+    "All submitted PPTs will be checked for plagiarism and AI-generated content.",
+    "Based on the submitted ideas, teams will be ranked and the top 8 teams will qualify for Round 2.",
+  
+    "#Rules (Round 1)",
+    "The ideas must be original, practical, and feasible.",
+    "Copy-paste content or use of AI tools is strictly prohibited.",
+    "Ideas should be cost-effective, innovative, and sustainable.",
+    "Late submissions will not be accepted.",
+  
+    "#Guidelines for Presentation (Round 2)",
+    "Qualified teams will present their PPT to the judges.",
+    "The presentation must contain a maximum of 10 slides, including the cover and thank-you slides.",
+    "Total presentation time is 10 minutes: 7–8 minutes for pitching followed by 2 minutes for Q&A.",
+  
+    "#Rules (Round 2)",
+    "Teams must deliver a convincing and well-structured pitch for the assigned problem.",
+    "The first slide must include the problem title along with the names of all team members.",
+    "Judges will evaluate the presentation based on originality, practicality, and overall aesthetics of the PPT."],
+  
+   Judging_Criteria:[
+  
+    "Cost-effectiveness – Affordability and practical implementation of the solution.",
+    "Innovation – Uniqueness and creativity of the proposed idea.",
+    "Efficiency – Effectiveness of the solution in addressing the problem.",
+    "Sustainability – Long-term applicability and environmental or economic impact of the idea.",
+     "Event Schedule: 20 February 2026",
+      "Venue: Alumni Seminar Hall"
+  ],
+  contacts: [
+    { name: "For any queries, contact:", phone: "" },
+    { name: "Tejaswi Singh", phone: "9151613350" },
+    { name: "Ankita Kumari", phone: "8252044688" }
+  ]
+  
+        },
+    
+     {
+    id: 9,
+    title: "Dr. A. K. Seal Memorial Quiz",
+    category: "Main Event",
+    description:
+      "A fast-paced quiz designed to test logical thinking, speed, and clarity, challenging participants from diverse fields with engaging and thought-provoking questions.",
+  
+    details:
+      "Get ready to put your knowledge to the test in an exhilarating quiz competition designed for passionate fans of the field. This event challenges your expertise, quick thinking, and problem-solving skills. The competition kicks off with a Qualifier Round, where teams will face tricky general awareness questions, and only the best will advance to the Final Round. In the final round, participants will tackle both general awareness and material-related questions in a thrilling, point-based showdown. The team with the sharpest intellect and the most points will claim victory. Gear up for a fierce competition and may the best team win.",
+  
+    image: "/photoes/eventsposter/Quiz.png",
+  
+    guidelines: [
+      
+    
+  
+      "#General Rules",
+      "The use of mobile phones or any unfair means during any stage of the competition is strictly prohibited.",
+      "Any violation of rules will result in immediate disqualification.",
+      "Event Schedule: 21 February 2026",
+      "Venue: Alumni Seminar Hall",
+      "Time: 2:00PM – 4:00PM",
+  
+    ],
+    stages:["The competition will consist of two stages.",
+  
+      "#Stage 1: Qualifier Round",
+      "Teams will take a quiz focused on general awareness.",
+      "This will be an elimination round.",
+  
+      "#Stage 2: Final Round",
+      "Top teams from the Qualifier Round will be selected for the Final Round.",
+      "The final round will follow a point-based reward system.",
+      "The quiz will focus on general awareness and material-related knowledge.",
+      "The team with the highest points at the end of the round will be declared the winner.",
+      "In case of a tie, the team with fewer negative points will be ranked higher."],
+      
+    contacts: [
+      { name: "For any queries, contact:", phone: "" },
+    { name: "Shubh Ashutosh", phone: "7295946762" },
+    { name: "Aritra Dutta", phone: "7865979275" },
+    { name: "Ayush Kumar", phone: "9102166734" }
+  ]
+  
+  },
+    {
+      id: 10,
+      title: "METAPOLISH",
+      category: "Main Event",
+      description:"A hands-on metallography event combining a screening quiz with practical sample preparation and microstructural analysis using grinding, polishing, etching, and microscopy.",
+      image:"/photoes/eventsposter/Metapolish.png",
+      details:"Get ready to showcase your skills in metallography with Metapolish! This exciting two-stage competition begins with a metallography quiz, where your knowledge of metallurgy will be put to the test. The top participants will advance to Stage 2, where they’ll work in teams to prepare and analyse metallographic samples. With fantastic prizes at stake, don’t miss out—register now and be part of this exciting challenge! ",
+  guidelines: [
+   
+  
+    
+    "#General Rules",
+    "The use of mobile phones or any unfair means during any stage of the competition is strictly prohibited.",
+    "Any violation of the rules will result in immediate disqualification.",
+    "Event Schedule: 19 February 2026",
+      "Venue: 4th Year Classroom (Stage 1)",
+      "Metallography Lab (Stage 2)",
+      "Time: 6:00PM – 8:00PM"],
+  stages:["#Stage 1: Metallography Quiz",
+    "Participants will take a quiz focused on general metallurgy and metallography.",
+    "This will be an elimination round.",
+  
+    "#Stage 2: Sample Preparation and Analysis",
+    "Selected participants from Stage 1 will be paired into groups.",
+    "Each group will be provided with a metallography sample.",
+    "Groups must prepare the sample using standard metallographic techniques such as grinding, polishing, and etching within a specified time limit.",
+    "After sample preparation, groups will analyze the microstructure to identify the sample and its key features.",
+    "All necessary materials required for sample preparation will be provided to the participants in advance.",
+    "The group that performs the most accurate microstructural analysis in the shortest time will be declared the winner.",
+  
+  
+  ],
+  contacts: [
+      { name: "For any queries, contact:", phone: "" },
+    { name: "Suryadeep Pal", phone: "9748993477" },
+    { name: "Sunay Vanerkar", phone: "9049593980" },
+    { name: "Pratyusha Sarkar", phone: "9851709251" }
+  ]
+  
+    },*/
+
+    {
+      id: 5,
+      title: "MET-TRICKS",
+      category: "Main Event",
+      description:
+        "A PPT-based competition where participants address real-world technical and industrial problems by presenting practical, innovative solutions while learning through idea exchange and discussion.",
+      image: "/photoes/eventsposter/Metricks.png",
+
+      details:
+        "Met-tricks encourages young engineers to utilize their knowledge for solving metallurgical-industry issues as well as present their analysis of a topic relevant to material science, in the form of Power-Point Presentation. In the first stage, participants must submit an abstract outlining their problem, proposed solution or research topic. In the second stage, selected students will present their ideas in front of jury, followed by a Q/A session.",
+
+      abstractLink: "https://drive.google.com/file/d/1oLesqfHRSc9GGrkvT0a9dwHNCX1JrDck/view?usp=sharing",
+
+      guidelines: [
+        "# Abstract Submission :-",
+        "The abstract must be based on one of the provided problem statements.",
+        "The abstract should not exceed 300 words.",
+        "Submissions must be made in PDF format only.",
+        "All abstracts will be reviewed for originality and plagiarism.",
+        "Submissions with excessive plagiarism will be disqualified.",
+        "Participants are advised to refer to the sample abstract for proper structure and formatting.",
+        "Sample Abstract Link: Refer to the provided abstract link.",
+
+        "# Presentation Guidelines :-",
+        "Each team is allowed a maximum of 15 slides.",
+        "Exceeding the slide limit may lead to disqualification.",
+        "Total time allotted per team is 10 minutes.",
+        "Presentation time: 8 minutes, followed by a 2-minute Q&A session.",
+        "All presentation content must be original.",
+        "Any instance of plagiarism may result in disqualification.",
+
+
+
+        "Event Schedule: 20 February 2026",
+        "Venue: Alumni Seminar Hall",
+        "Time: 12:15 pm – 2:00 pm"
+      ],
+      Judging_Criteria: [
+        "Problem-Solving Approach",
+        "Relevance of the Proposed Solution",
+        "Technical Feasibility",
+        "Clarity and Structure of the Presentation",
+        "Effectiveness in Handling Q&A"],
+      contacts: [
+        { name: "Srijan Yadav", phone: "9120754845" },
+        { name: "Sandeep Kumawat", phone: "8003936610" },
+        { name: "Ayush", phone: "9102166734" }
+      ]
+    }
+    ,
+    {
+      id: 7,
+      title: "PRORECRUIT",
+      category: "Main Event",
+      description:
+        "A mock placement drive designed to simulate real recruitment processes, enabling participants to enhance professional skills, receive constructive feedback, and build confidence for actual placements.",
+
+      image: "/photoes/eventsposter/Prorecruit.png",
+
+      details:
+        "ProRecruit is a mock placement drive that closely replicates the real campus recruitment process. The competition is conducted in three elimination stages. Stage 1 consists of an online assessment focused on aptitude and technical knowledge. Stage 2 involves a group discussion round to evaluate communication skills, teamwork, and clarity of thought. Stage 3 is a one-on-one personal interview conducted by an expert panel. The event provides participants with practical exposure to placement scenarios, valuable feedback, and an opportunity to prepare effectively for real-world recruitment while competing for exciting prizes.",
+
+      guidelines: [
+        "Dress code is strictly formal for all participants.",
+        "Each participant must bring a printed copy of their resume for the interview round.",
+        "Participants must report on time at the venue to ensure smooth conduct of the event.",
+        "Any form of misconduct or indiscipline may lead to disqualification.",
+        "Event Schedule: 20 February 2026",
+        "Venue: 4th Year Classroom (Stage 1)",
+        "Main Building (Stage 2 and Stage 3) ",
+      ],
+
+
+      stages: [
+        "Stage 1:-",
+        "This stage will test aptitude and technical knowledge.",
+        "Participants must bring their own laptops for the assessment.",
+        "Remote participation is not allowed.",
+        "Only participants present at the designated venue will be eligible for evaluation.",
+        "Participants should carry their own stationery; only rough sheets will be provided.",
+        "Use of mobile phones or any unfair means will result in immediate disqualification.",
+
+
+
+        "Stage 2:-",
+        "Selected participants from Stage 1 will be divided into groups.",
+        "Each group will be assigned a discussion topic.",
+        "Group discussions will be conducted within a fixed time limit.",
+        "Participants must maintain respectful, professional, and ethical conduct during the discussion.",
+
+
+
+        "Stage 3:-",
+        "Shortlisted candidates from Stage 2 will appear for a personal interview before an expert panel.",
+        "The interview will assess communication skills, confidence, subject knowledge, and overall personality.",
+        "Participants must be punctual for the interview round.",
+      ],
+
+
+
+
+
+
+      contacts: [
+        { name: "Prithvi Raj Singh", phone: "6289757984" },
+        { name: "Gyanshi", phone: "7678624280" },
+        { name: "Srijan Yadav", phone: "9120754845" }
+      ]
+    }
+    ,
 
 
     {
@@ -744,7 +743,7 @@ stages:[
               >
                 ✕
               </button>
-              
+
 
               <div className="absolute bottom-4 left-6 text-white">
                 <span className="badge badge-primary mb-2">
@@ -771,7 +770,12 @@ stages:[
                   <h3 className="text-2xl font-bold mb-4">Guidelines</h3>
                   <ul className="list-disc pl-6 space-y-2 opacity-80">
                     {selectedEvent.guidelines.map((rule, i) => (
-                      <li key={i}>{rule}</li>
+                      <li
+                        key={i}
+                        className={rule.trim().startsWith("#") ? "list-none font-bold text-lg -ml-4 mt-2" : ""}
+                      >
+                        {rule.trim().startsWith("#") ? rule.replace("#", "").trim() : rule}
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -786,16 +790,16 @@ stages:[
                   </ul>
                 </div>
               )}
-                  {selectedEvent.Judging_Criteria?.length > 0 && (
-  <div className="mb-8">
-    <h3 className="text-2xl font-bold mb-4">Judging_Criteria</h3>
-    <ul className="list-disc pl-6 space-y-2 opacity-80">
-      {selectedEvent.Judging_Criteria.map((criteria, i) => (
-        <li key={i}>{criteria}</li>
-      ))}
-    </ul>
-  </div>
-)}
+              {selectedEvent.Judging_Criteria?.length > 0 && (
+                <div className="mb-8">
+                  <h3 className="text-2xl font-bold mb-4">Judging_Criteria</h3>
+                  <ul className="list-disc pl-6 space-y-2 opacity-80">
+                    {selectedEvent.Judging_Criteria.map((criteria, i) => (
+                      <li key={i}>{criteria}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               {/* CONTACTS */}
               {selectedEvent.contacts?.length > 0 && (
@@ -811,18 +815,18 @@ stages:[
                 </div>
               )}
               {selectedEvent.abstractLink && (
-  <div className="mt-2 ">
-    <span className="text-m font-large"> Abstract:&nbsp;</span>
-    <a
-      href={selectedEvent.abstractLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="btn btn-link p-0 text-primary"
-    >
-      View
-    </a>
-  </div>
-)}
+                <div className="mt-2 ">
+                  <span className="text-m font-large"> Abstract:&nbsp;</span>
+                  <a
+                    href={selectedEvent.abstractLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-link p-0 text-primary"
+                  >
+                    View
+                  </a>
+                </div>
+              )}
 
 
               {/* REGISTER BUTTON */}
