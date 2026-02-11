@@ -362,6 +362,7 @@ function EventsAll() {
         "Met-tricks encourages young engineers to utilize their knowledge for solving metallurgical-industry issues as well as present their analysis of a topic relevant to material science, in the form of Power-Point Presentation. In the first stage, participants must submit an abstract outlining their problem, proposed solution or research topic. In the second stage, selected students will present their ideas in front of jury, followed by a Q/A session.",
 
       abstractLink: "/pdf/Problem Statement MET-Tricks.pdf",
+      submissionLink: "#", // Dummy link for now
 
       guidelines: [
         "# Abstract Submission :-",
@@ -371,10 +372,10 @@ function EventsAll() {
         "All abstracts will be reviewed for originality and plagiarism.",
         "Submissions with excessive plagiarism will be disqualified.",
         "Participants are advised to refer to the sample abstract for proper structure and formatting.",
-        
+
 
         "# Presentation Guidelines :-",
-        "Presentation is held at 2oth Feb 2026 in offline mode at IIEST SHIBPUR",
+        "Presentation is held at 2oth Feb 2026 in offline mode at IIEST SHIBPUR.",
         "Each team is allowed a maximum of 10 slides.",
         "Exceeding the slide limit may lead to disqualification.",
         "Total time allotted per team is 10 minutes.",
@@ -415,7 +416,7 @@ function EventsAll() {
         "ProRecruit is a mock placement drive that closely replicates the real campus recruitment process. The competition is conducted in three elimination stages. Stage 1 consists of an online assessment focused on aptitude and technical knowledge. Stage 2 involves a group discussion round to evaluate communication skills, teamwork, and clarity of thought. Stage 3 is a one-on-one personal interview conducted by an expert panel. The event provides participants with practical exposure to placement scenarios, valuable feedback, and an opportunity to prepare effectively for real-world recruitment while competing for exciting prizes.",
 
       guidelines: [
-        "All the stages will be held at IIEST SHIBPUR in offline mode  on 20th Feb 2026",
+        "All the stages will be held at IIEST SHIBPUR in offline mode on 20th Feb 2026.",
         "Dress code is strictly formal for all participants.",
         "Each participant must bring a printed copy of their resume for the interview round.",
         "Participants must report on time at the venue to ensure smooth conduct of the event.",
@@ -859,6 +860,29 @@ function EventsAll() {
               >
                 Register Now
               </button>
+
+              {/* ABSTRACT SUBMISSION BUTTON */}
+              {selectedEvent.submissionLink && (
+                <div className="mt-4">
+                  <a
+                    href={selectedEvent.submissionLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      btn w-full sm:w-auto
+                      bg-gradient-to-r from-blue-600 to-blue-800
+                      hover:from-blue-700 hover:to-blue-900
+                      text-white font-semibold tracking-wide
+                      px-10 py-3
+                      rounded-full
+                      shadow-lg hover:shadow-xl
+                      transition-all duration-300
+                    "
+                  >
+                    Abstract Submission
+                  </a>
+                </div>
+              )}
 
             </div>
 
