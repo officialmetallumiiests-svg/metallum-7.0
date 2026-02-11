@@ -372,16 +372,18 @@ function EventsAll() {
         "All abstracts will be reviewed for originality and plagiarism.",
         "Submissions with excessive plagiarism will be disqualified.",
         "Participants are advised to refer to the sample abstract for proper structure and formatting.",
+        "Deadline for abstract submission: 17th Feb by 11:59 PM.",
 
 
         "# Presentation Guidelines :-",
-        "Presentation is held at 2oth Feb 2026 in offline mode at IIEST SHIBPUR.",
+        "Presentation will be held at 2oth Feb 2026 in offline mode at IIEST SHIBPUR.",
         "Each team is allowed a maximum of 10 slides.",
         "Exceeding the slide limit may lead to disqualification.",
         "Total time allotted per team is 10 minutes.",
         "Presentation time: 8 minutes, followed by a 2-minute Q&A session.",
         "All presentation content must be original.",
         "Any instance of plagiarism may result in disqualification.",
+        "Deadline for presentation submission: 19th Feb by 06:00 PM.",
 
 
 
@@ -390,7 +392,7 @@ function EventsAll() {
         "Venue: Alumni Seminar Hall, IIEST SHIBPUR"
 
       ],
-      Judging_Criteria: [
+      Judging Criteria: [
         "Problem-Solving Approach",
         "Relevance of the Proposed Solution",
         "Technical Feasibility",
@@ -428,7 +430,7 @@ function EventsAll() {
 
 
       stages: [
-        "Stage 1:-",
+        "#Stage 1:-",
         "This stage will test aptitude and technical knowledge.",
         "Participants must bring their own laptops for the assessment.",
         "Remote participation is not allowed.",
@@ -438,7 +440,7 @@ function EventsAll() {
 
 
 
-        "Stage 2:-",
+        "#Stage 2:-",
         "Selected participants from Stage 1 will be divided into groups.",
         "Each group will be assigned a discussion topic.",
         "Group discussions will be conducted within a fixed time limit.",
@@ -446,7 +448,7 @@ function EventsAll() {
 
 
 
-        "Stage 3:-",
+        "#Stage 3:-",
         "Shortlisted candidates from Stage 2 will appear for a personal interview before an expert panel.",
         "The interview will assess communication skills, confidence, subject knowledge, and overall personality.",
         "Participants must be punctual for the interview round.",
@@ -789,7 +791,12 @@ function EventsAll() {
                   <h3 className="text-2xl font-bold mb-4">Stages</h3>
                   <ul className="list-disc pl-6 space-y-2 opacity-80">
                     {selectedEvent.stages.map((stage, i) => (
-                      <li key={i}>{stage}</li>
+                      <li
+                        key={i}
+                        className={stage.trim().startsWith("#") ? "list-none font-bold text-lg -ml-4 mt-2" : ""}
+                      >
+                        {stage.trim().startsWith("#") ? stage.replace("#", "").trim() : stage}
+                      </li>
                     ))}
                   </ul>
                 </div>
