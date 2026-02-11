@@ -392,7 +392,7 @@ function EventsAll() {
         "Venue: Alumni Seminar Hall, IIEST SHIBPUR",
 
       ],
-      Judging Criteria: [
+      Judging_Criteria: [
         "Problem-Solving Approach",
         "Relevance of the Proposed Solution",
         "Technical Feasibility",
@@ -463,7 +463,7 @@ function EventsAll() {
         { name: "Srijan Yadav", phone: "9120754845" },
         { name: "Gyanshi", phone: "7678624280" },
         { name: "Prithvi Raj Singh", phone: "6289757984" }
-        
+
       ]
     }
     ,
