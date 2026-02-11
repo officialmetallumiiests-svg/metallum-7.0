@@ -389,7 +389,7 @@ function EventsAll() {
 
         "Event Schedule: 20 February 2026",
         "Time: 12:15 pm – 2:00 pm",
-        "Venue: Alumni Seminar Hall, IIEST SHIBPUR"
+        "Venue: Alumni Seminar Hall, IIEST SHIBPUR",
 
       ],
       Judging Criteria: [
@@ -460,9 +460,10 @@ function EventsAll() {
 
 
       contacts: [
-        { name: "Prithvi Raj Singh", phone: "6289757984" },
+        { name: "Srijan Yadav", phone: "9120754845" },
         { name: "Gyanshi", phone: "7678624280" },
-        { name: "Srijan Yadav", phone: "9120754845" }
+        { name: "Prithvi Raj Singh", phone: "6289757984" }
+        
       ]
     }
     ,
