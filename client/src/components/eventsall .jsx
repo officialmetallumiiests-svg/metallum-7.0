@@ -159,53 +159,57 @@ function EventsAll() {
   };
 
   const events = [
-     {
-    id: 5,
-    title: "MET-TRICKS",
-    category: "Main Event",
-    description:
-      "A PPT-based competition where participants address real-world technical and industrial problems by presenting practical, innovative solutions while learning through idea exchange and discussion.",
-    image:
-      "/photoes/eventsposter/Metricks.png",
-      details:
-"Met-tricks encourages young engineers to utilize their knowledge for solving metallurgical-industry issues as well as present their analysis of a topic relevant to material science, in the form of Power-Point Presentation. In the first stage, participants must submit an abstract outlining their problem, proposed solution or research topic. In the second stage, selected students will present their ideas in front of jury, followed by a Q/A session.",
-    guidelines:[
-     
- "#AbstractSubmission :-",
+    {
+  id: 5,
+  title: "MET-TRICKS",
+  category: "Main Event",
+  description:
+    "A PPT-based competition where participants address real-world technical and industrial problems by presenting practical, innovative solutions while learning through idea exchange and discussion.",
+  image: "/photoes/eventsposter/Metricks.png",
+
+  details:
+    "Met-tricks encourages young engineers to utilize their knowledge for solving metallurgical-industry issues as well as present their analysis of a topic relevant to material science, in the form of Power-Point Presentation. In the first stage, participants must submit an abstract outlining their problem, proposed solution or research topic. In the second stage, selected students will present their ideas in front of jury, followed by a Q/A session.",
+
+  abstractLink: "https://drive.google.com/file/d/1oLesqfHRSc9GGrkvT0a9dwHNCX1JrDck/view?usp=sharing",
+
+  guidelines: [
+    "# Abstract Submission :-",
     "The abstract must be based on one of the provided problem statements.",
     "The abstract should not exceed 300 words.",
     "Submissions must be made in PDF format only.",
     "All abstracts will be reviewed for originality and plagiarism.",
     "Submissions with excessive plagiarism will be disqualified.",
     "Participants are advised to refer to the sample abstract for proper structure and formatting.",
-    "The link to the sample abstract will be provided separately.",
-"#Presentation guidelines :-",
+    "Sample Abstract Link: Refer to the provided abstract link.",
+
+    "# Presentation Guidelines :-",
     "Each team is allowed a maximum of 15 slides.",
     "Exceeding the slide limit may lead to disqualification.",
     "Total time allotted per team is 10 minutes.",
     "Presentation time: 8 minutes, followed by a 2-minute Q&A session.",
     "All presentation content must be original.",
     "Any instance of plagiarism may result in disqualification.",
-"#JudgingCriteria :-",
-  "Problem-Solving Approach",
-  "Relevance of the Proposed Solution",
-  "Technical Feasibility",
-  "Clarity and Structure of the Presentation",
-  "Effectiveness in Handling Q&A",
-   "Event Schedule: 20 February 2026",
-   "Venue: Alumni Seminar Hall ",
 
+    "# Judging Criteria :-",
+    "Problem-Solving Approach",
+    "Relevance of the Proposed Solution",
+    "Technical Feasibility",
+    "Clarity and Structure of the Presentation",
+    "Effectiveness in Handling Q&A",
 
+    "Event Schedule: 20 February 2026",
+    "Venue: Alumni Seminar Hall",
+    "Time: 12:15 pm – 2:00 pm"
+  ],
 
-   "Time:-12:15 pm – 2:00 pm"
-    ],
-
-      contacts: [
-        { name: "Srijan Yadav", phone: "9120754845" },
-        { name: "Sandeep Kumawat", phone: "8003936610" },
-        { name: "Ayush", phone: "9102166734" }]
-
-  },
+  contacts: [
+    { name: "For any queries, contact:", phone: "" },
+    { name: "Srijan Yadav", phone: "9120754845" },
+    { name: "Ayush", phone: "8003936610" },
+    { name: "Sandeep Kumawa", phone: "9102166734" }
+  ]
+}
+,
  {
   id: 7,
   title: "PRORECRUIT",
@@ -259,9 +263,9 @@ function EventsAll() {
 ],
 
   contacts: [
-     { name: "Srijan Yadav", phone: "9120754845" },
-     { name: "Gyanshi", phone: "7678624280" },
     { name: "Prithvi Raj Singh", phone: "6289757984" },
+    { name: "Gyanshi", phone: "7678624280" },
+    { name: "Srijan Yadav", phone: "9120754845" }
   ]
 }
 ,
@@ -464,7 +468,7 @@ function EventsAll() {
 
       {/* PAGE TITLE */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold">Pre-Events</h1>
+        <h1 className="text-4xl font-bold">Events</h1>
         <p className="opacity-70 mt-2">
           The road to the fest begins here
         </p>
@@ -548,6 +552,7 @@ function EventsAll() {
               >
                 ✕
               </button>
+              
 
               <div className="absolute bottom-4 left-6 text-white">
                 <span className="badge badge-primary mb-2">
@@ -593,6 +598,20 @@ function EventsAll() {
                   </div>
                 </div>
               )}
+              {selectedEvent.abstractLink && (
+  <div className="mt-2 ">
+    <span className="text-m font-large"> Abstract:&nbsp;</span>
+    <a
+      href={selectedEvent.abstractLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="btn btn-link p-0 text-primary"
+    >
+      View
+    </a>
+  </div>
+)}
+
 
               {/* REGISTER BUTTON */}
               <button
