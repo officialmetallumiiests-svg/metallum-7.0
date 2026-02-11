@@ -821,7 +821,16 @@ function EventsAll() {
                     href={selectedEvent.abstractLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-primary btn-outline w-full sm:w-auto"
+                    className="
+                      btn w-full sm:w-auto
+                      bg-gradient-to-r from-blue-600 to-blue-800
+                      hover:from-blue-700 hover:to-blue-900
+                      text-white font-semibold tracking-wide
+                      px-10 py-3
+                      rounded-full
+                      shadow-lg hover:shadow-xl
+                      transition-all duration-300
+                    "
                   >
                     Problem Statement
                   </a>
