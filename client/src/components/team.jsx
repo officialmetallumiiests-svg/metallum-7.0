@@ -57,7 +57,7 @@ export default function Team() {
       {
         name: "Angshu Sengupta",
         role: "Design, Production and Decoration",
-        image: "",
+        image: "/images/angshu.jpeg",
       },
       {
         name: "Pratyusha Sarkar",
@@ -93,11 +93,6 @@ export default function Team() {
 
     ],
     assistant: [
-      {
-        name: "Nikhil Sah",
-        role: "Web Development ",
-        image: "/images/Nikhil.png",
-      },
       {
         name: "Tejaswi Singh",
         role: "Joint Coordinator",
@@ -151,7 +146,11 @@ export default function Team() {
         name: "Kritika Bairwa ",
         role: "Design, Production and Decoration",
         image: "/images/kritika.jpeg",
-      },  {
+      }, {
+        name: "Nikhil Sah",
+        role: "Web Development ",
+        image: "/images/Nikhil.png",
+      }, {
         name: "Deb Kumar",
         role: "Alumni Relation and Collection",
         image: "/images/DEBKUMAR_DE.jpg",
@@ -177,9 +176,25 @@ export default function Team() {
     associate: [
        
       {
+        name: "Pratik Raj",
+        role: " Sponsorship",
+        image:"/images/pratik.jpeg",
+      },{
+        name: "Tarishi Sharma",
+        role: " Sponsorship",
+        image:"",
+      },{
+        name: " Amandeep Singh Rathore",
+        role: " Sponsorship",
+        image:"/images/amandeep.jpeg",
+      },{
+        name: "Kumbha Rithwik Sai Venkat",
+        role: "Sponsorship",
+        image:"",
+      },{
         name: "Harshika Tiwari",
         role: "Event Management",
-        image:"",
+        image:"/images/harshika.jpeg",
       }, {
         name: "Arjodeep Chatterjee",
         role: "Event Management",
@@ -231,7 +246,7 @@ export default function Team() {
       }, {
         name: "Tanmay Sarkar",
         role: "Design, Production and Decoration",
-        image: "/images/TANMAY_SARKAR.jpg",
+        image: "/images/tanmay.jpeg",
       }, {
         name: "Aayush Guria",
         role: "Content",
@@ -239,7 +254,7 @@ export default function Team() {
       }, {
         name: "Nishant Singh",
         role: "Content",
-        image: "",
+        image: "/images/nishant___.jpeg",
       }, {
         name: "Snehasis HAlder",
         role: "Content",
@@ -247,7 +262,7 @@ export default function Team() {
       }, {
         name: "Vinay Chand Bharat",
         role: "Web Development",
-        image: "",
+        image: "/images/VINAY_BHARAT.png",
       }, {
         name: "Prekshna Pal",
         role: "Web Development",
@@ -275,7 +290,7 @@ export default function Team() {
       }, {
         name: "Prithviraj Singh",
         role: "Photography and Videography",
-        image: "",
+        image: "/images/prithvi.jpeg",
       }, {
         name: "Nibedita Dutta",
         role: "Cultural",
@@ -287,11 +302,11 @@ export default function Team() {
       }, {
         name: "Ayan dutta",
         role: "Travel and Logistics",
-        image: "",
+        image: "/images/ayan.jpeg",
       }, {
         name: "Saptangshu Saha",
         role: "Travel and Logistics",
-        image: "",
+        image: "/images/saptangshu.jpeg",
       },
 
     ],
