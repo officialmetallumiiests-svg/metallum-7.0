@@ -321,20 +321,13 @@ function EventsAll() {
 
         "#Venue",
         "Stage 1: 4th Year Classroom",
-        "Stage 2: Physical Metallurgy Lab",
+        "Stage 2: Physical Metallurgy Lab IIEST Shibpur.",
 
         "#Eligibility",
         "Open to students from all disciplines.",
         "Individual participation only (no teams for registration)",
 
-        "#Prizes",
-        "1st Prize: Rs 3000 + Certificate",
-        "2nd Prize: Rs 2000 + Certificate",
-        "3rd Prize: Rs 1000 + Certificate",
 
-        "#General Rules",
-        "The use of mobile phones or any unfair means during any stage of the competition is strictly prohibited.",
-        "Any violation will result in immediate disqualification."
       ],
       stages: [
         "#Stage 1: Metallography Quiz",
