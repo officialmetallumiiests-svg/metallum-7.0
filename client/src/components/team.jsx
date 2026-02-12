@@ -178,7 +178,7 @@ export default function Team() {
       {
         name: "Pratik Raj",
         role: " Sponsorship",
-        image:"",
+        image:"/images/pratik.jpeg",
       },{
         name: "Tarishi Sharma",
         role: " Sponsorship",
@@ -266,7 +266,7 @@ export default function Team() {
       }, {
         name: "Vinay Chand Bharat",
         role: "Web Development",
-        image: "",
+        image: "/images/VINAY_BHARAT.png",
       }, {
         name: "Prekshna Pal",
         role: "Web Development",
