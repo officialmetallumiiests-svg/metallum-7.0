@@ -194,7 +194,7 @@ export default function Team() {
       },{
         name: "Harshika Tiwari",
         role: "Event Management",
-        image:"/images/harshika.jpeg",
+        image:"/images/harshika_tiwari.jpeg",
       }, {
         name: "Arjodeep Chatterjee",
         role: "Event Management",
@@ -206,15 +206,15 @@ export default function Team() {
       }, {
         name: "Anushka Sarkar",
         role: "Publicity",
-        image: "/images/ANUSHKA_SARKAR.jpg",
+        image: "/images/anushka_____.jpeg",
       }, {
         name: "Safra Ashkar",
         role: "Publicity",
-        image: "/images/SAFRA_ARAKKAL_ASHKAR.jpg",
+        image: "/images/SAFRA_ARAKKAL ASHKAR.jpg",
       }, {
         name: "Sirshapan Kunda Roy",
         role: "Publicity",
-        image: "/images/SIRSHAPAN_KUNDA_ROY.jpg",
+        image: "/images/SIRSHAPAN_KUNDA_ROY.jpeg",
       }, {
         name: "Abhradeep Ghorai",
         role: "Publicity",
@@ -250,7 +250,7 @@ export default function Team() {
       }, {
         name: "Aayush Guria",
         role: "Content",
-        image: "/images/AAYUSH_GURIA.jpg",
+        image: "/images/AAYUSH_GURIA.JPG",
       }, {
         name: "Nishant Singh",
         role: "Content",
@@ -294,7 +294,7 @@ export default function Team() {
       }, {
         name: "Nibedita Dutta",
         role: "Cultural",
-        image: "/images/NIBEDITA_DUTTA.jpg",
+        image: "/images/NIBEDITA.jpg",
       }, {
         name: "Arnab Ghosh",
         role: "Travel and Logistics",
