@@ -284,7 +284,7 @@ function EventsAll() {
         "The use of mobile phones or any unfair means during any stage of the competition is strictly prohibited.",
         "Any violation of rules will result in immediate disqualification.",
         "Event Schedule: 21 February 2026",
-        "Venue: Alumni Seminar Hall",
+        "Venue: Alumni Seminar Hall IIEST Shibpur.",
         "Time: 2:00PM – 4:00PM",
 
       ],
