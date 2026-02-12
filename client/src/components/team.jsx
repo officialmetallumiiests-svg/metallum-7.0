@@ -182,7 +182,7 @@ export default function Team() {
       },{
         name: "Tarishi Sharma",
         role: " Sponsorship",
-        image:"",
+        image:"/images/tarishi.jpeg",
       },{
         name: " Amandeep Singh Rathore",
         role: " Sponsorship",
