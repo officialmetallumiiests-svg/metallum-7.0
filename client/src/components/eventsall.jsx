@@ -324,7 +324,7 @@ function EventsAll() {
         "Stage 2: Physical Metallurgy Lab",
 
         "#Eligibility",
-        "Open to students from all disciplines",
+        "Open to students from all disciplines.",
         "Individual participation only (no teams for registration)",
 
         "#Prizes",
