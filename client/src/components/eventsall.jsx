@@ -263,89 +263,97 @@ function EventsAll() {
   ]
   
         },*/
-    
-     {
-    id: 9,
-    title: "Dr. A. K. Seal Memorial Quiz",
-    category: "Main Event",
-    description:
-      "A fast-paced quiz designed to test logical thinking, speed, and clarity, challenging participants from diverse fields with engaging and thought-provoking questions.",
-  
-    details:
-      "Get ready to put your knowledge to the test in an exhilarating quiz competition designed for passionate fans of the field. This event challenges your expertise, quick thinking, and problem-solving skills. The competition kicks off with a Qualifier Round, where teams will face tricky general awareness questions, and only the best will advance to the Final Round. In the final round, participants will tackle both general awareness and material-related questions in a thrilling, point-based showdown. The team with the sharpest intellect and the most points will claim victory. Gear up for a fierce competition and may the best team win.",
-  
-    image: "/photoes/eventsposter/Quiz.png",
-  
-    guidelines: [
-      
-    
-  
-      "#General Rules",
-      "The use of mobile phones or any unfair means during any stage of the competition is strictly prohibited.",
-      "Any violation of rules will result in immediate disqualification.",
-      "Event Schedule: 21 February 2026",
-      "Venue: Alumni Seminar Hall",
-      "Time: 2:00PM – 4:00PM",
-  
-    ],
-    stages:["The competition will consist of two stages.",
-  
-      "#Stage 1: Qualifier Round",
-      "Teams will take a quiz focused on general awareness.",
-      "This will be an elimination round.",
-  
-      "#Stage 2: Final Round",
-      "Top teams from the Qualifier Round will be selected for the Final Round.",
-      "The final round will follow a point-based reward system.",
-      "The quiz will focus on general awareness and material-related knowledge.",
-      "The team with the highest points at the end of the round will be declared the winner.",
-      "In case of a tie, the team with fewer negative points will be ranked higher."],
-      
-    contacts: [
-    { name: "Shubh Ashutosh", phone: "7295946762" },
-    { name: "Aritra Dutta", phone: "7865979275" },
-    { name: "Ayush Kumar", phone: "9102166734" }
-  ]
-  
-  },
+
+    {
+      id: 9,
+      title: "Dr. A. K. Seal Memorial Quiz",
+      category: "Main Event",
+      description:
+        "A fast-paced quiz designed to test logical thinking, speed, and clarity, challenging participants from diverse fields with engaging and thought-provoking questions.",
+
+      details:
+        "Get ready to put your knowledge to the test in an exhilarating quiz competition designed for passionate fans of the field. This event challenges your expertise, quick thinking, and problem-solving skills. The competition kicks off with a Qualifier Round, where teams will face tricky general awareness questions, and only the best will advance to the Final Round. In the final round, participants will tackle both general awareness and material-related questions in a thrilling, point-based showdown. The team with the sharpest intellect and the most points will claim victory. Gear up for a fierce competition and may the best team win.",
+
+      image: "/photoes/eventsposter/Quiz.png",
+
+      guidelines: [
+
+
+
+        "#General Rules",
+        "The use of mobile phones or any unfair means during any stage of the competition is strictly prohibited.",
+        "Any violation of rules will result in immediate disqualification.",
+        "Event Schedule: 21 February 2026",
+        "Venue: Alumni Seminar Hall",
+        "Time: 2:00PM – 4:00PM",
+
+      ],
+      stages: ["The competition will consist of two stages.",
+
+        "#Stage 1: Qualifier Round",
+        "Teams will take a quiz focused on general awareness.",
+        "This will be an elimination round.",
+
+        "#Stage 2: Final Round",
+        "Top teams from the Qualifier Round will be selected for the Final Round.",
+        "The final round will follow a point-based reward system.",
+        "The quiz will focus on general awareness and material-related knowledge.",
+        "The team with the highest points at the end of the round will be declared the winner.",
+        "In case of a tie, the team with fewer negative points will be ranked higher."],
+
+      contacts: [
+        { name: "Shubh Ashutosh", phone: "7295946762" },
+        { name: "Aritra Dutta", phone: "7865979275" },
+        { name: "Ayush Kumar", phone: "9102166734" }
+      ]
+
+    },
     {
       id: 10,
       title: "METAPOLISH",
       category: "Main Event",
-      description:"A hands-on metallography event combining a screening quiz with practical sample preparation and microstructural analysis using grinding, polishing, etching, and microscopy.",
-      image:"/photoes/eventsposter/Metapolish.png",
-      details:"Get ready to showcase your skills in metallography with Metapolish! This exciting two-stage competition begins with a metallography quiz, where your knowledge of metallurgy will be put to the test. The top participants will advance to Stage 2, where they’ll work in teams to prepare and analyse metallographic samples. With fantastic prizes at stake, don’t miss out—register now and be part of this exciting challenge! ",
-  guidelines: [
-   
-  
-    
-    "#General Rules",
-    "The use of mobile phones or any unfair means during any stage of the competition is strictly prohibited.",
-    "Any violation of the rules will result in immediate disqualification.",
-    "Event Schedule: 19 February 2026",
-      "Venue: 4th Year Classroom (Stage 1)",
-      "Metallography Lab (Stage 2)",
-      "Time: 6:00PM – 8:00PM"],
-  stages:["#Stage 1: Metallography Quiz",
-    "Participants will take a quiz focused on general metallurgy and metallography.",
-    "This will be an elimination round.",
-  
-    "#Stage 2: Sample Preparation and Analysis",
-    "Selected participants from Stage 1 will be paired into groups.",
-    "Each group will be provided with a metallography sample.",
-    "Groups must prepare the sample using standard metallographic techniques such as grinding, polishing, and etching within a specified time limit.",
-    "After sample preparation, groups will analyze the microstructure to identify the sample and its key features.",
-    "All necessary materials required for sample preparation will be provided to the participants in advance.",
-    "The group that performs the most accurate microstructural analysis in the shortest time will be declared the winner.",
-  
-  
-  ],
-  contacts: [
-    { name: "Pratyusha Sarkar", phone: "9851709251" },
-    { name: "Sunay Vanerkar", phone: "9049593980" },
-    { name: "Suryadeep Pal", phone: "9748993477" }
-  ]
-  
+      description: "A hands-on metallography event combining a screening quiz with practical sample preparation and microstructural analysis using grinding, polishing, etching, and microscopy.",
+      image: "/photoes/eventsposter/Metapolish.png",
+      details: "Get ready to showcase your skills in metallography with Metapolish! This exciting two-stage competition begins with a metallography quiz, where your knowledge of metallurgy will be put to the test. The top participants will advance to Stage 2, where they’ll work in teams to prepare and analyse metallographic samples. With fantastic prizes at stake, don’t miss out—register now and be part of this exciting challenge!",
+      guidelines: [
+        "#Date: 19/02/2026",
+        "#Time: 6:00 pm – 8:00 pm",
+
+        "#Venue",
+        "Stage 1: 4th Year Classroom",
+        "Stage 2: Physical Metallurgy Lab",
+
+        "#Eligibility",
+        "Open to students from all disciplines",
+        "Individual participation only (no teams for registration)",
+
+        "#Prizes",
+        "1st Prize: Rs 3000 + Certificate",
+        "2nd Prize: Rs 2000 + Certificate",
+        "3rd Prize: Rs 1000 + Certificate",
+
+        "#General Rules",
+        "The use of mobile phones or any unfair means during any stage of the competition is strictly prohibited.",
+        "Any violation will result in immediate disqualification."
+      ],
+      stages: [
+        "#Stage 1: Metallography Quiz",
+        "Participants will take a quiz focused on general metallurgy and metallography.",
+        "It is an elimination round.",
+
+        "#Stage 2: Sample Preparation and Analysis",
+        "Selected participants from Stage 1 will be paired into groups.",
+        "Each group will be provided with a metallography sample.",
+        "Groups will prepare the sample using standard metallographic techniques, such as grinding, polishing, and etching, within a specified time limit.",
+        "After sample preparation, groups will analyze the microstructure to identify the sample and its key features.",
+        "All necessary materials required for sample preparation will be provided to the participants in advance.",
+        "The group that performs the most accurate microstructural analysis in the shortest time will be declared the winner."
+      ],
+      contacts: [
+        { name: "Pratyusha Sarkar", phone: "9851709251" },
+        { name: "Sunay Vanerkar", phone: "9049593980" },
+        { name: "Suryadeep Pal", phone: "9748993477" }
+      ]
     },
 
     {
