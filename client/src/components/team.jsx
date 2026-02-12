@@ -192,6 +192,10 @@ export default function Team() {
         role: "Sponsorship",
         image:"",
       },{
+        name: "Ayush Kumar",
+        role: "Event Management",
+        image:"/images/ayush__________.jpeg",
+      },{
         name: "Harshika Tiwari",
         role: "Event Management",
         image:"/images/harshika_tiwari.jpeg",
@@ -287,11 +291,15 @@ export default function Team() {
         name: "Chhote Lal Kumar",
         role: "Refreshment and Volunteer",
         image: "",
-      }, {
+      },{
+        name: "Vardhan Gorle",
+        role: "Photography and Videography",
+        image: "/images/vardhan.jpeg",
+      },{
         name: "Prithviraj Singh",
         role: "Photography and Videography",
         image: "/images/prithvi.jpeg",
-      }, {
+      },{
         name: "Nibedita Dutta",
         role: "Cultural",
         image: "/images/NIBEDITA.jpg",
