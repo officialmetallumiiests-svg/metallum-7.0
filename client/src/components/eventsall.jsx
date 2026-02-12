@@ -712,12 +712,12 @@ function EventsAll() {
 
                 <button
                   className="btn btn-outline btn-primary btn-sm flex-1"
-                  disabled={loading || event.title === "Chess"}
+                  disabled={loading || event.title === "Chess" || event.title === "M-CODE"}
                   onClick={() => handleRegisterClick(event)}
                 >
                   {loading && registerEvent?.id === event.id
                     ? "Processing..."
-                    : event.title === "Chess" ? "Closed" : "Register"}
+                    : (event.title === "Chess" || event.title === "M-CODE") ? "Closed" : "Register"}
                 </button>
 
               </div>
@@ -850,7 +850,9 @@ function EventsAll() {
 
               {/* REGISTER BUTTON */}
               <button
+                disabled={selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE"}
                 onClick={() => {
+                  if (selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE") return;
                   setSelectedEvent(null);
                   handleRegisterClick(selectedEvent);
                 }}
@@ -863,9 +865,10 @@ function EventsAll() {
     rounded-full
     shadow-lg hover:shadow-xl
     transition-all duration-300
+    disabled:opacity-50 disabled:cursor-not-allowed
   "
               >
-                Register Now
+                {(selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE") ? "Closed" : "Register Now"}
               </button>
 
               {/* ABSTRACT SUBMISSION BUTTON */}
