@@ -178,7 +178,7 @@ export default function Team() {
       {
         name: "Pratik Raj",
         role: " Sponsorship",
-        image:"/images/pratik.jpeg",
+        image:"/images/pratik.png",
       },{
         name: "Tarishi Sharma",
         role: " Sponsorship",
