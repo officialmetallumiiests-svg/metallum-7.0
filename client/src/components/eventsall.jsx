@@ -262,7 +262,7 @@ function EventsAll() {
     { name: "Ankita Kumari", phone: "8252044688" }
   ]
   
-        },
+        },*/
     
      {
     id: 9,
@@ -302,7 +302,6 @@ function EventsAll() {
       "In case of a tie, the team with fewer negative points will be ranked higher."],
       
     contacts: [
-      { name: "For any queries, contact:", phone: "" },
     { name: "Shubh Ashutosh", phone: "7295946762" },
     { name: "Aritra Dutta", phone: "7865979275" },
     { name: "Ayush Kumar", phone: "9102166734" }
@@ -342,13 +341,12 @@ function EventsAll() {
   
   ],
   contacts: [
-      { name: "For any queries, contact:", phone: "" },
-    { name: "Suryadeep Pal", phone: "9748993477" },
+    { name: "Pratyusha Sarkar", phone: "9851709251" },
     { name: "Sunay Vanerkar", phone: "9049593980" },
-    { name: "Pratyusha Sarkar", phone: "9851709251" }
+    { name: "Suryadeep Pal", phone: "9748993477" }
   ]
   
-    },*/
+    },
 
     {
       id: 5,
