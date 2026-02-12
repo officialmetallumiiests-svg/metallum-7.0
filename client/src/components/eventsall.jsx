@@ -313,7 +313,7 @@ function EventsAll() {
       title: "METAPOLISH",
       category: "Main Event",
       description: "A hands-on metallography event combining a screening quiz with practical sample preparation and microstructural analysis using grinding, polishing, etching, and microscopy.",
-      image: "/photoes/eventsposter/metapolish.png",
+      image: "/photoes/eventsposter/Metapolish.png",
       details: "Get ready to showcase your skills in metallography with Metapolish! This exciting two-stage competition begins with a metallography quiz, where your knowledge of metallurgy will be put to the test. The top participants will advance to Stage 2, where they’ll work in teams to prepare and analyse metallographic samples. With fantastic prizes at stake, don’t miss out—register now and be part of this exciting challenge!",
       guidelines: [
         "#Date: 19/02/2026",
