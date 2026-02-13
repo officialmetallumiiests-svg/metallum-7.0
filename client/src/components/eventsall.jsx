@@ -89,8 +89,8 @@ function EventsAll() {
       return;
     }
 
-    // Validate Teammates for BGMI or VALORANT or M-CODE
-    if (registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT" || registerEvent?.title === "M-CODE") {
+    // Validate Teammates for BGMI or VALORANT or M-CODE or METALLOSCAPE
+    if (registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT" || registerEvent?.title === "M-CODE" || registerEvent?.title === "METALLOSCAPE") {
       for (let i = 0; i < teammates.length; i++) {
         if (!teammates[i].name) {
           showToast(`Player ${i + 2} name is required`, "error");
@@ -115,7 +115,7 @@ function EventsAll() {
         event: registerEvent.title
       };
 
-      if (registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT" || registerEvent?.title === "M-CODE") {
+      if (registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT" || registerEvent?.title === "M-CODE" || registerEvent?.title === "METALLOSCAPE") {
         payload.teammates = teammates.map(t => ({
           name: t.name
         }));
@@ -1043,7 +1043,7 @@ function EventsAll() {
                   </div>
                 </div>
 
-                {/* BGMI & VALORANT Teammates Section */}
+                {/* BGMI & VALORANT & M-CODE Teammates Section */}
                 {(registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT" || registerEvent?.title === "M-CODE") && (
                   <div className="space-y-4 mt-2 mb-2">
                     <div className="flex items-center gap-4 my-2">
@@ -1071,6 +1071,60 @@ function EventsAll() {
                         </div>
                       </div>
                     ))}
+                  </div>
+                )}
+
+                {/* METALLOSCAPE Teammates Section (Dynamic) */}
+                {registerEvent?.title === "METALLOSCAPE" && (
+                  <div className="space-y-4 mt-2 mb-2">
+                    <div className="flex items-center gap-4 my-2">
+                      <div className="h-px bg-white/10 flex-1"></div>
+                      <span className="text-xs text-gray-500 font-mono">
+                        TEAM MEMBERS (OPTIONAL)
+                      </span>
+                      <div className="h-px bg-white/10 flex-1"></div>
+                    </div>
+
+                    {teammates.map((member, index) => (
+                      <div key={index} className="p-4 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 transition-colors relative">
+                        <div className="flex justify-between items-center mb-3">
+                          <label className="text-xs text-primary font-bold tracking-wider block">TEAM MEMBER {index + 2}</label>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const updatedTeammates = [...teammates];
+                              updatedTeammates.splice(index, 1);
+                              setTeammates(updatedTeammates);
+                            }}
+                            className="text-red-500 hover:text-red-400 text-xs uppercase font-bold"
+                          >
+                            Remove
+                          </button>
+                        </div>
+                        <div className="grid grid-cols-1 gap-4">
+                          <div className="form-control group">
+                            <input
+                              type="text"
+                              value={member.name}
+                              onChange={(e) => handleTeammateChange(index, "name", e.target.value)}
+                              required
+                              className="input input-sm bg-black/40 border border-white/10 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/50 text-white w-full transition-all duration-300 placeholder:text-gray-600"
+                              placeholder="Member Name"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+
+                    {teammates.length < 2 && (
+                      <button
+                        type="button"
+                        onClick={() => setTeammates([...teammates, { name: "", phone: "" }])}
+                        className="btn btn-outline btn-primary btn-sm w-full border-dashed"
+                      >
+                        + Add Team Member
+                      </button>
+                    )}
                   </div>
                 )}
 
