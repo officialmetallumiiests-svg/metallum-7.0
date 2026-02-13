@@ -84,7 +84,7 @@ export default function Sponsors() {
 </p>
 
 <a
-  href="https://drive.google.com/file/d/1AJ-g09MOEM6q1bWXuw8X8pvXe3lQ2bx1/view?usp=drivesdk"
+  src="/public/pdf/sponsorship.pdf"
   target="_blank"
   rel="noopener noreferrer"
   className="
