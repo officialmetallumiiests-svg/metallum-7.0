@@ -6,7 +6,7 @@ const TShirtBooking = () => {
     const { user } = useContext(UserContext);
     const navigate = useNavigate();
     const [size, setSize] = useState('');
-    const [nameOnShirt, setNameOnShirt] = useState('');
+    const [paymentScreenshot, setPaymentScreenshot] = useState(''); // New state for Base64 image
     const [transactionId, setTransactionId] = useState('');
     // New state for user details
     const [userName, setUserName] = useState(user?.name || '');
@@ -26,12 +26,28 @@ const TShirtBooking = () => {
     const sizes = ['S', 'M', 'L', 'XL', 'XXL'];
     const amount = 339;
 
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            if (file.size > 5 * 1024 * 1024) { // 5MB limit
+                setError('File size should be less than 5MB');
+                return;
+            }
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setPaymentScreenshot(reader.result); // This is the Base64 string
+                setError('');
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
         // Validate all required fields
-        if (!size || !nameOnShirt || !transactionId || !userName || !userPhone) {
-            setError('Please fill in all fields (Name, Mobile Number, Size, Shirt Name, Transaction ID).');
+        if (!size || !paymentScreenshot || !transactionId || !userName || !userPhone) {
+            setError('Please fill in all fields (Name, Mobile Number, Size, Payment Screenshot, Transaction ID).');
             return;
         }
 
@@ -58,7 +74,7 @@ const TShirtBooking = () => {
                     year: "2nd",
                     event: "Merchandise: T-Shirt",
                     tshirtSize: size,
-                    tshirtName: nameOnShirt,
+                    paymentScreenshot: paymentScreenshot, // Send Base64 string
                     transactionId: transactionId,
                     amount: amount
                 })
@@ -194,17 +210,21 @@ const TShirtBooking = () => {
                                 </div>
                             </div>
 
-                            {/* NAME INPUT */}
+                            {/* PAYMENT SCREENSHOT UPLOAD */}
                             <div>
-                                <label className="block text-sm font-mono text-gray-400 mb-2">text ON T-SHIRT</label>
-                                <input
-                                    type="text"
-                                    value={nameOnShirt}
-                                    onChange={(e) => setNameOnShirt(e.target.value)}
-                                    placeholder="Enter Name to print"
-                                    className="w-full bg-black/30 border border-white/10 rounded-xl p-4 text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
-                                    required
-                                />
+                                <label className="block text-sm font-mono text-gray-400 mb-2">PAYMENT SCREENSHOT</label>
+                                <div className="relative">
+                                    <input
+                                        type="file"
+                                        accept="image/*"
+                                        onChange={handleFileChange}
+                                        className="w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-black hover:file:bg-green-400 transition-all bg-black/30 border border-white/10 rounded-xl p-4"
+                                        required
+                                    />
+                                </div>
+                                {paymentScreenshot && (
+                                    <p className="text-green-400 text-xs mt-2 font-mono">Screenshot Uploaded ✓</p>
+                                )}
                             </div>
 
                             {/* TRANSACTION ID */}

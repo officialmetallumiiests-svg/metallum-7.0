@@ -3,7 +3,7 @@ const Registration = require('../models/registration');
 // POST: register for event
 exports.createRegistration = async (req, res) => {
   try {
-    const { name, email, phone, college, branch, year, event, teamName, tshirtSize, tshirtName, transactionId, amount, teammates } = req.body;
+    const { name, email, phone, college, branch, year, event, teamName, tshirtSize, paymentScreenshot, transactionId, amount, teammates } = req.body;
 
     if (event === "Chess") {
       return res.status(400).json({ message: 'Registration for Chess is closed' });
@@ -37,7 +37,10 @@ exports.createRegistration = async (req, res) => {
       event,
       teamName,
       tshirtSize,
-      tshirtName,
+      teamName,
+      tshirtSize,
+      paymentScreenshot,
+      transactionId,
       transactionId,
       amount,
       teammates,
