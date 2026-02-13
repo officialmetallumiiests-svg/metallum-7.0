@@ -106,7 +106,7 @@ const TShirtBooking = () => {
                         <div className="text-center space-y-4">
                             <div className="bg-white p-4 rounded-lg inline-block shadow-lg">
                                 <img
-                                    src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(`upi://pay?pa=7510793132@ybl&pn=Metallum&am=${amount}&cu=INR`)}`}
+                                    src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(`upi://pay?pa=9993928756@jio&pn=Yash%20Chandekar&am=${amount}&cu=INR`)}`}
                                     alt="Payment QR Code"
                                     className="w-32 h-32 mx-auto"
                                 />
@@ -117,12 +117,12 @@ const TShirtBooking = () => {
                                 <p className="text-xs text-gray-400">Scan QR using any UPI App</p>
                                 <p className="text-xs text-gray-500">OR</p>
                                 <div className="bg-black/30 p-3 rounded text-left space-y-2 text-xs border border-yellow-500">
-                                    <div className="flex justify-between"><span className="text-gray-400">UPI ID:</span><span className="text-primary font-mono select-all">7510793132@ybl</span></div>
-                                    <div className="flex justify-between"><span className="text-gray-400">Name:</span><span className="text-white select-all">Metallum</span></div>
+                                    <div className="flex justify-between"><span className="text-gray-400">UPI ID:</span><span className="text-primary font-mono select-all">9993928756@jio</span></div>
+                                    <div className="flex justify-between"><span className="text-gray-400">Name:</span><span className="text-white select-all">Yash Chandekar</span></div>
                                 </div>
                             </div>
                             <a
-                                href={`upi://pay?pa=7510793132@ybl&pn=Metallum&am=${amount}&cu=INR`}
+                                href={`upi://pay?pa=9993928756@jio&pn=Yash%20Chandekar&am=${amount}&cu=INR`}
                                 target="_blank"
                                 rel="noreferrer"
                                 className="btn btn-outline btn-primary btn-sm w-full"
