@@ -14,13 +14,16 @@ exports.createRegistration = async (req, res) => {
     }
 
     // Check if user already registered for this event
-    const existingRegistration = await Registration.findOne({
-      user: req.user.id,
-      event: event
-    });
+    // Allow multiple registrations for 'Merchandise: T-Shirt'
+    if (event !== "Merchandise: T-Shirt") {
+      const existingRegistration = await Registration.findOne({
+        user: req.user.id,
+        event: event
+      });
 
-    if (existingRegistration) {
-      return res.status(400).json({ message: 'You have already registered for this event' });
+      if (existingRegistration) {
+        return res.status(400).json({ message: 'You have already registered for this event' });
+      }
     }
 
     const registration = await Registration.create({

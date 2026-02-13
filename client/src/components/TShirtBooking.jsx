@@ -25,7 +25,7 @@ const TShirtBooking = () => {
     const [success, setSuccess] = useState(false);
 
     const sizes = ['S', 'M', 'L', 'XL', 'XXL'];
-    const amount = 599;
+    const amount = 369;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -63,7 +63,7 @@ const TShirtBooking = () => {
             const data = await response.json();
 
             if (!response.ok) {
-                throw new Error(data.message || 'Booking failed');
+                throw new Error(data.message || data.error || 'Booking failed');
             }
 
             setSuccess(true);
@@ -103,16 +103,25 @@ const TShirtBooking = () => {
                     <div className="bg-white/5 p-8 rounded-3xl border border-white/10 text-center">
                         <h3 className="text-xl font-bold mb-6 font-['Orbitron'] text-primary">SCAN TO PAY</h3>
                         <div className="bg-white p-4 rounded-xl inline-block mb-4">
-                            {/* Placeholder QR - Replace with actual */}
+                            {/* Custom QR Code */}
                             <img
-                                src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=7510793132@ybl&pn=Metallum&am=599&tn=TShirt"
+                                src="/photoes/tshirtpayment.png"
                                 alt="Payment QR Code"
-                                className="w-48 h-48"
+                                className="w-48 h-48 object-contain"
                             />
                         </div>
                         <p className="text-sm text-gray-400 font-mono mb-2">UPI ID: 7510793132@ybl</p>
                         <div className="text-3xl font-bold text-white mb-2">₹{amount}</div>
-                        <p className="text-xs text-gray-500">Scan via GPay, PhonePe, Paytm</p>
+
+                        {/* UPI Deep Link Button */}
+                        <a
+                            href={`upi://pay?pa=7510793132@ybl&pn=Metallum&am=${amount}&cu=INR&tn=TShirt`}
+                            className="btn btn-sm btn-outline btn-primary mt-2 w-full"
+                        >
+                            Pay via UPI App
+                        </a>
+
+                        <p className="text-xs text-gray-500 mt-2">Scan via GPay, PhonePe, Paytm</p>
                     </div>
 
                     {/* RIGHT: FORM */}
