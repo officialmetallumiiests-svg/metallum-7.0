@@ -169,7 +169,9 @@ function EventsAll() {
       image: "/photoes/eventsposter/Metalloscape.png",
       details: "Metalloscape is a technical poster presentation competition where participants get to showcase their research and technical skills with a creative and artistic twist. In the first stage, teams will submit a brief abstract on their chosen topic. If selected, they’ll move on to the final round, where they’ll present their posters. Each team will have 8 minutes to present, followed by a 2-minute Q&A session. With great prizes up for grabs, don’t miss out on this exciting opportunity—register now and show off your expertise and creativity! ",
 
-      abstractLink: "https://drive.google.com/file/d/1SonksaSBIb8B7zIbZuCHqGBiQk71ehgx/view?usp=sharing",
+      guidelineLink: "/pdf/Guidelines for abstract._metalloscape.docx.pdf",
+      topicLink: "/pdf/Topics for Metalloscape.docx.pdf",
+      submissionLink: "https://forms.gle/HULjQ5qj3M9GZwnn6",
       guidelines: [
         "Competition Stages-",
         "Stage 1: Abstract and Poster Submission (Online)",
@@ -850,6 +852,49 @@ function EventsAll() {
                     "
                   >
                     Problem Statement
+                  </a>
+                </div>
+              )}
+              {selectedEvent.guidelineLink && (
+                <div className="mt-4 mb-4">
+                  <a
+                    href={selectedEvent.guidelineLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      btn w-full sm:w-auto
+                      bg-gradient-to-r from-blue-600 to-blue-800
+                      hover:from-blue-700 hover:to-blue-900
+                      text-white font-semibold tracking-wide
+                      px-10 py-3
+                      rounded-full
+                      shadow-lg hover:shadow-xl
+                      transition-all duration-300
+                    "
+                  >
+                    Guideline for Abstract
+                  </a>
+                </div>
+              )}
+
+              {selectedEvent.topicLink && (
+                <div className="mt-4 mb-4">
+                  <a
+                    href={selectedEvent.topicLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      btn w-full sm:w-auto
+                      bg-gradient-to-r from-blue-600 to-blue-800
+                      hover:from-blue-700 hover:to-blue-900
+                      text-white font-semibold tracking-wide
+                      px-10 py-3
+                      rounded-full
+                      shadow-lg hover:shadow-xl
+                      transition-all duration-300
+                    "
+                  >
+                    Topic for Metalloscape
                   </a>
                 </div>
               )}
