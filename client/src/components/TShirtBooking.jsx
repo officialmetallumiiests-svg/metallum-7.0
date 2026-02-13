@@ -7,7 +7,7 @@ const TShirtBooking = () => {
     const navigate = useNavigate();
     const [size, setSize] = useState('');
     const [paymentScreenshot, setPaymentScreenshot] = useState(''); // New state for Base64 image
-    const [transactionId, setTransactionId] = useState('');
+
     // New state for user details
     const [userName, setUserName] = useState(user?.name || '');
     const [userPhone, setUserPhone] = useState('');
@@ -55,8 +55,8 @@ const TShirtBooking = () => {
         e.preventDefault();
         setError('');
         // Validate all required fields
-        if (!size || !paymentScreenshot || !transactionId || !userName || !userPhone) {
-            setError('Please fill in all fields (Name, Mobile Number, Size, Payment Screenshot, Transaction ID).');
+        if (!size || !paymentScreenshot || !userName || !userPhone) {
+            setError('Please fill in all fields (Name, Mobile Number, Size, Payment Screenshot).');
             return;
         }
 
@@ -83,8 +83,8 @@ const TShirtBooking = () => {
                     year: "2nd",
                     event: "Merchandise: T-Shirt",
                     tshirtSize: size,
+                    tshirtSize: size,
                     paymentScreenshot: paymentScreenshot, // Send Base64 string
-                    transactionId: transactionId,
                     amount: amount
                 })
             });
@@ -245,18 +245,6 @@ const TShirtBooking = () => {
                                 )}
                             </div>
 
-                            {/* TRANSACTION ID */}
-                            <div>
-                                <label className="block text-sm font-mono text-gray-400 mb-2">TRANSACTION ID</label>
-                                <input
-                                    type="text"
-                                    value={transactionId}
-                                    onChange={(e) => setTransactionId(e.target.value)}
-                                    placeholder="Enter UPI Transaction ID"
-                                    className="w-full bg-black/30 border border-white/10 rounded-xl p-4 text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
-                                    required
-                                />
-                            </div>
 
                             {error && (
                                 <div className="text-red-500 text-sm font-mono bg-red-500/10 p-3 rounded-lg border border-red-500/20">
