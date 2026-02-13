@@ -25,7 +25,8 @@ app.use(cors({
     methods: 'GET,POST,PUT,DELETE',
     credentials: true // Allow cookies
 }));
-app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 // Trust proxy (Required for Render/Vercel/Heroku to pass secure cookies)
 app.set('trust proxy', 1);
