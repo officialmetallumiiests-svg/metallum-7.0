@@ -315,6 +315,15 @@ export default function Home() {
           <div className="flex justify-center">
             <div className="relative w-full max-w-xl rounded-3xl border border-primary/20 bg-base-100/70 backdrop-blur-xl p-10 text-center shadow-xl">
 
+              {/* T-Shirt Image */}
+              <div className="mb-6 flex justify-center">
+                <img
+                  src="/photoes/tshirt.jpeg"
+                  alt="Metallum T-Shirt"
+                  className="w-64 h-auto object-contain rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+
               <h3 className="font-heading text-2xl uppercase tracking-wide mb-3">
                 METALLUM 2026 Edition
               </h3>
