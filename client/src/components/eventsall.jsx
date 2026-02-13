@@ -160,109 +160,108 @@ function EventsAll() {
 
   const events = [
 
-  {
+    {
       id: 6,
       title: "METALLOSCAPE",
       category: "Main Event",
       description:
         "A poster presentation event focused on metallurgy, where teams showcase research concepts and technical understanding through creative visuals and clear scientific communication.",
       image: "/photoes/eventsposter/Metalloscape.png",
-        details:"Metalloscape is a technical poster presentation competition where participants get to showcase their research and technical skills with a creative and artistic twist. In the first stage, teams will submit a brief abstract on their chosen topic. If selected, they’ll move on to the final round, where they’ll present their posters. Each team will have 8 minutes to present, followed by a 2-minute Q&A session. With great prizes up for grabs, don’t miss out on this exciting opportunity—register now and show off your expertise and creativity! ",
-     
-     abstractLink:"https://drive.google.com/file/d/1SonksaSBIb8B7zIbZuCHqGBiQk71ehgx/view?usp=sharing",
-        guidelines: [
-    "#Guidelines for Abstract Submission",
-    "The abstract must be on a topic relevant to Metallurgy and Materials Engineering.",
-    "Participants may refer to the list of suggested topics provided by the organizers.",
-    "The abstract must not exceed 300 words.",
-    "The abstract must be submitted in PDF format only.",
-    "All submissions will be reviewed for authenticity and plagiarism.",
-    "Submissions with excessive plagiarism will be disqualified.",
-    "Participants are advised to refer to the sample abstract provided by the organizers.",
-  
-    "#Guidelines for Poster Presentation",
-    "The dimensions of the poster must be 120 cm × 90 cm. Participants are advised to strictly adhere to these dimensions to avoid printing issues.",
-    "The poster should include the following sections:",
-    "Title and author(s) (placed at the upper portion, spanning the full width of the poster).",
-    "Abstract.",
-    "Methodology.",
-    "Results.",
-    "Conclusions.",
-    "References.",
-    "Each team will be allotted a total of 10 minutes: 8 minutes for presentation followed by 2 minutes for Q&A.",
-    "All poster content must be original. Any instance of plagiarism may lead to disqualification.",
-    "Participants must submit their posters before the specified deadline to ensure timely and proper printing.",
-    "Failure to meet the submission deadline may result in disqualification."],
-  
-  Judging_Criteria:[
-  
-    "Technical content and depth of understanding.",
-    "Poster design and visual presentation.",
-    "Originality and creativity of the work.",
-    "Clarity of explanation and communication skills.",
-    "Effectiveness in handling the Q&A session.",
-    "Event Schedule: 20 February 2026",
-      "Venue: Parade Ground"
-  
-  ],
-  contacts: [ { name: "For any queries, contact:", phone: "" },
-    { name: "Arjodeep Chatterjee", phone: "9031945823" },
-    { name: "Gyanshi", phone: "7678624280" },
-    { name: "Srijan Yadav", phone: "9120754845" }
-  ]
-  
-  
-  
+      details: "Metalloscape is a technical poster presentation competition where participants get to showcase their research and technical skills with a creative and artistic twist. In the first stage, teams will submit a brief abstract on their chosen topic. If selected, they’ll move on to the final round, where they’ll present their posters. Each team will have 8 minutes to present, followed by a 2-minute Q&A session. With great prizes up for grabs, don’t miss out on this exciting opportunity—register now and show off your expertise and creativity! ",
+
+      abstractLink: "https://drive.google.com/file/d/1SonksaSBIb8B7zIbZuCHqGBiQk71ehgx/view?usp=sharing",
+      guidelines: [
+        "#Guidelines for Abstract Submission",
+        "The abstract must be on a topic relevant to Metallurgy and Materials Engineering.",
+        "Participants may refer to the list of suggested topics provided by the organizers.",
+        "The abstract must not exceed 300 words.",
+        "The abstract must be submitted in PDF format only.",
+        "All submissions will be reviewed for authenticity and plagiarism.",
+        "Submissions with excessive plagiarism will be disqualified.",
+        "Participants are advised to refer to the sample abstract provided by the organizers.",
+
+        "#Guidelines for Poster Presentation",
+        "The dimensions of the poster must be 120 cm × 90 cm. Participants are advised to strictly adhere to these dimensions to avoid printing issues.",
+        "The poster should include the following sections:",
+        "Title and author(s) (placed at the upper portion, spanning the full width of the poster).",
+        "Abstract.",
+        "Methodology.",
+        "Results.",
+        "Conclusions.",
+        "References.",
+        "Each team will be allotted a total of 10 minutes: 8 minutes for presentation followed by 2 minutes for Q&A.",
+        "All poster content must be original. Any instance of plagiarism may lead to disqualification.",
+        "Participants must submit their posters before the specified deadline to ensure timely and proper printing.",
+        "Failure to meet the submission deadline may result in disqualification."],
+
+      Judging_Criteria: [
+
+        "Technical content and depth of understanding.",
+        "Poster design and visual presentation.",
+        "Originality and creativity of the work.",
+        "Clarity of explanation and communication skills.",
+        "Effectiveness in handling the Q&A session.",
+        "Event Schedule: 20 February 2026",
+        "Venue: Parade Ground"
+
+      ],
+      contacts: [{ name: "For any queries, contact:", phone: "" },
+      { name: "Arjodeep Chatterjee", phone: "9031945823" },
+      { name: "Gyanshi", phone: "7678624280" },
+      { name: "Srijan Yadav", phone: "9120754845" }
+      ]
+
+
+
     },
     {
-        id: 8,
+      id: 8,
       title: "निर्माण ",
       category: "Main Event",
       description:
         "An innovation and pitching platform where aspiring entrepreneurs solve real-world problems and present impactful ideas through dynamic pitches and interactive judge sessions.",
-      
-  
-      image:"/photoes/eventsposter/Nirman.png",
-          details:"Startup-oriented problem-solving and idea pitching event designed to encourage innovative thinking and entrepreneurial skills among participants. Participants will be provided with a problem statement on 15th Feb at 6 PM. Based on the given problem, teams are required to develop a startup idea and propose a practical solution in the form of PowerPoint Presentation",
-    guidelines: [
-    "#Guidelines for Online Submission (Round 1)",
-    "Participants will be provided with a total of 6 problem statements from the domains of Core Metallurgy and Non-Core (General Problems) on 15 February 2026 at 6:00 PM.",
-    "Teams must submit a PPT presenting their original ideas and solutions by 18 February 2026 before 6:00 PM.",
-    "All submitted PPTs will be checked for plagiarism and AI-generated content.",
-    "Based on the submitted ideas, teams will be ranked and the top 8 teams will qualify for Round 2.",
-  
-    "#Rules (Round 1)",
-    "The ideas must be original, practical, and feasible.",
-    "Copy-paste content or use of AI tools is strictly prohibited.",
-    "Ideas should be cost-effective, innovative, and sustainable.",
-    "Late submissions will not be accepted.",
-  
-    "#Guidelines for Presentation (Round 2)",
-    "Qualified teams will present their PPT to the judges.",
-    "The presentation must contain a maximum of 10 slides, including the cover and thank-you slides.",
-    "Total presentation time is 10 minutes: 7–8 minutes for pitching followed by 2 minutes for Q&A.",
-  
-    "#Rules (Round 2)",
-    "Teams must deliver a convincing and well-structured pitch for the assigned problem.",
-    "The first slide must include the problem title along with the names of all team members.",
-    "Judges will evaluate the presentation based on originality, practicality, and overall aesthetics of the PPT."],
-  
-   Judging_Criteria:[
-  
-    "Cost-effectiveness – Affordability and practical implementation of the solution.",
-    "Innovation – Uniqueness and creativity of the proposed idea.",
-    "Efficiency – Effectiveness of the solution in addressing the problem.",
-    "Sustainability – Long-term applicability and environmental or economic impact of the idea.",
-     "Event Schedule: 20 February 2026",
-      "Venue: Alumni Seminar Hall"
-  ],
-  contacts: [
-    { name: "For any queries, contact:", phone: "" },
-    { name: "Tejaswi Singh", phone: "9151613350" },
-    { name: "Ankita Kumari", phone: "8252044688" }
-  ]
-  
 
+
+      image: "/photoes/eventsposter/Nirman.png",
+      details: "Startup-oriented problem-solving and idea pitching event designed to encourage innovative thinking and entrepreneurial skills among participants. Participants will be provided with a problem statement on 15th Feb at 6 PM. Based on the given problem, teams are required to develop a startup idea and propose a practical solution in the form of PowerPoint Presentation",
+      guidelines: [
+        "#Guidelines for Online Submission (Round 1)",
+        "Participants will be provided with a total of 6 problem statements from the domains of Core Metallurgy and Non-Core (General Problems) on 15 February 2026 at 6:00 PM.",
+        "Teams must submit a PPT presenting their original ideas and solutions by 18 February 2026 before 6:00 PM.",
+        "All submitted PPTs will be checked for plagiarism and AI-generated content.",
+        "Based on the submitted ideas, teams will be ranked and the top 8 teams will qualify for Round 2.",
+
+        "#Rules (Round 1)",
+        "The ideas must be original, practical, and feasible.",
+        "Copy-paste content or use of AI tools is strictly prohibited.",
+        "Ideas should be cost-effective, innovative, and sustainable.",
+        "Late submissions will not be accepted.",
+
+        "#Guidelines for Presentation (Round 2)",
+        "Qualified teams will present their PPT to the judges.",
+        "The presentation must contain a maximum of 10 slides, including the cover and thank-you slides.",
+        "Total presentation time is 10 minutes: 7–8 minutes for pitching followed by 2 minutes for Q&A.",
+
+        "#Rules (Round 2)",
+        "Teams must deliver a convincing and well-structured pitch for the assigned problem.",
+        "The first slide must include the problem title along with the names of all team members.",
+        "Judges will evaluate the presentation based on originality, practicality, and overall aesthetics of the PPT."],
+
+      Judging_Criteria: [
+
+        "Cost-effectiveness – Affordability and practical implementation of the solution.",
+        "Innovation – Uniqueness and creativity of the proposed idea.",
+        "Efficiency – Effectiveness of the solution in addressing the problem.",
+        "Sustainability – Long-term applicability and environmental or economic impact of the idea.",
+        "Event Schedule: 20 February 2026",
+        "Venue: Alumni Seminar Hall"
+      ],
+      contacts: [
+        { name: "For any queries, contact:", phone: "" },
+        { name: "Tejaswi Singh", phone: "9151613350" },
+        { name: "Ankita Kumari", phone: "8252044688" }
+      ]
+    },
     {
       id: 9,
       title: "Dr. A. K. Seal Memorial Quiz",
