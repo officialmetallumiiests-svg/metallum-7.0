@@ -218,9 +218,9 @@ function EventsAll() {
         "Q&A Handling"
       ],
       contacts: [
-      { name: "Srijan Yadav", phone: "9120754845" },
-      { name: "Gyanshi", phone: "7678624280" },
-      { name: "Arjodeep Chatterjee", phone: "9031945823" }
+        { name: "Srijan Yadav", phone: "9120754845" },
+        { name: "Gyanshi", phone: "7678624280" },
+        { name: "Arjodeep Chatterjee", phone: "9031945823" }
       ]
 
 
@@ -237,41 +237,49 @@ function EventsAll() {
       image: "/photoes/eventsposter/Nirman.png",
       details: "Startup-oriented problem-solving and idea pitching event designed to encourage innovative thinking and entrepreneurial skills among participants. Participants will be provided with a problem statement on 15th Feb at 6 PM. Based on the given problem, teams are required to develop a startup idea and propose a practical solution in the form of PowerPoint Presentation",
       guidelines: [
-        "#Guidelines for Online Submission (Round 1)",
-        "Participants will be provided with a total of 6 problem statements from the domains of Core Metallurgy and Non-Core (General Problems) on 15 February 2026 at 6:00 PM.",
-        "Teams must submit a PPT presenting their original ideas and solutions by 18 February 2026 before 6:00 PM.",
-        "All submitted PPTs will be checked for plagiarism and AI-generated content.",
-        "Based on the submitted ideas, teams will be ranked and the top 8 teams will qualify for Round 2.",
+        "#Date: 20th Feb 2026",
+        "#Time: 6:00 pm – 8:00 pm (Round 2 – offline pitching)",
+        "#Venue: Alumni Seminar Hall (IIEST SHIBPUR)",
 
-        "#Rules (Round 1)",
-        "The ideas must be original, practical, and feasible.",
-        "Copy-paste content or use of AI tools is strictly prohibited.",
-        "Ideas should be cost-effective, innovative, and sustainable.",
-        "Late submissions will not be accepted.",
+        "#Eligibility",
+        "Students from all disciplines are eligible to participate.",
+        "Each team can consist of 1-3 members.",
 
-        "#Guidelines for Presentation (Round 2)",
-        "Qualified teams will present their PPT to the judges.",
-        "The presentation must contain a maximum of 10 slides, including the cover and thank-you slides.",
-        "Total presentation time is 10 minutes: 7–8 minutes for pitching followed by 2 minutes for Q&A.",
+        "#Competition Journey:",
+        "The participants will be given a total of 6 problem statements in the fields of Core Metallurgy and Non-Core (General Problem) on 15th Feb at 6 PM.",
+        "Stage 1: Online Submission of PPT (Teams must submit their idea in the form of a PowerPoint Presentation by 18th Feb, before 6 PM).",
+        "Stage 2: Presentation (offline) The shortlisted teams should pitch their ideas (PPT) in front of the judges on 20th Feb, from 6 PM.",
 
-        "#Rules (Round 2)",
-        "Teams must deliver a convincing and well-structured pitch for the assigned problem.",
-        "The first slide must include the problem title along with the names of all team members.",
-        "Judges will evaluate the presentation based on originality, practicality, and overall aesthetics of the PPT."],
+        "#Rules for PPT Preparation:",
+        "1. PPT must contain Maximum of 10 slides, including cover and thank you page.",
+        "2. The idea should be original and practical.",
+        "3. Copy-paste or use of AI is strictly prohibited.",
+        "4. Ideas should be cost effective, innovative and sustainable.",
+
+        "NOTE: Based on the submitted PPT ideas, the teams will be ranked, and the top 8 teams will move on to Round 2.",
+        "The selected 8 teams will be directly added to the WhatsApp group.",
+
+        "#Guidelines for Presentation (Round 2):",
+        "The Qualified teams will present their submitted PPT in 10 mins to the judges (7-8 mins pitching and 2 mins QAs).",
+
+        "#Rules:",
+        "1. Teams have to deliver a convincing pitch for the given problems.",
+        "2. The first page should contain the ‘Problem Title’ along with the Names of team members.",
+        "3. The judges will mark the pitches based on originality, practicality and aesthetic of the ppt."
+      ],
 
       Judging_Criteria: [
-
-        "Cost-effectiveness – Affordability and practical implementation of the solution.",
-        "Innovation – Uniqueness and creativity of the proposed idea.",
-        "Efficiency – Effectiveness of the solution in addressing the problem.",
-        "Sustainability – Long-term applicability and environmental or economic impact of the idea.",
-        "Event Schedule: 20 February 2026",
-        "Venue: Alumni Seminar Hall"
+        "Cost-effectiveness - Is the solution affordable and practical?",
+        "Innovation - How unique or creative is the idea?",
+        "Efficiency - How effectively does a solution address?",
+        "Sustainability - Can the idea work in the long run?"
       ],
       contacts: [
         { name: "Tejaswi Singh", phone: "9151613350" },
         { name: "Ankita Kumari", phone: "8252044688" }
-      ]
+      ],
+      Event_Schedule: "20 February 2026",
+      Venue: "Alumni Seminar Hall"
     },
     {
       id: 9,
