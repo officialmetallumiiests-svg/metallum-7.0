@@ -275,51 +275,51 @@ const TShirtBooking = () => {
                     </div>
                 </div>
             </div>
-        </div>
-            {/* Size Chart Modal */ }
-    {
-        showSizeChart && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-                <div
-                    className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-                    onClick={() => setShowSizeChart(false)}
-                />
-                <div className="relative bg-[#1a1a1a] border border-white/10 rounded-2xl p-6 w-full max-w-md shadow-2xl animate-[scale-in_0.2s_ease-out]">
-                    <button
-                        onClick={() => setShowSizeChart(false)}
-                        className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
-                    >
-                        ✕
-                    </button>
-                    <h3 className="text-xl font-bold font-['Orbitron'] text-center mb-6 text-primary">SIZE CHART</h3>
 
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-center border-collapse">
-                            <thead>
-                                <tr className="border-b border-white/10 text-gray-400 font-mono text-sm">
-                                    <th className="py-3 px-2">Size</th>
-                                    <th className="py-3 px-2">Chest (in)</th>
-                                    <th className="py-3 px-2">Length (in)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {sizeChartData.map((row) => (
-                                    <tr key={row.size} className="border-b border-white/5 text-white hover:bg-white/5 transition-colors">
-                                        <td className="py-3 px-2 font-bold text-primary">{row.size}</td>
-                                        <td className="py-3 px-2">{row.chest}</td>
-                                        <td className="py-3 px-2">{row.length}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+            {/* Size Chart Modal */}
+            {
+                showSizeChart && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                        <div
+                            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+                            onClick={() => setShowSizeChart(false)}
+                        />
+                        <div className="relative bg-[#1a1a1a] border border-white/10 rounded-2xl p-6 w-full max-w-md shadow-2xl animate-[scale-in_0.2s_ease-out]">
+                            <button
+                                onClick={() => setShowSizeChart(false)}
+                                className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+                            >
+                                ✕
+                            </button>
+                            <h3 className="text-xl font-bold font-['Orbitron'] text-center mb-6 text-primary">SIZE CHART</h3>
+
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-center border-collapse">
+                                    <thead>
+                                        <tr className="border-b border-white/10 text-gray-400 font-mono text-sm">
+                                            <th className="py-3 px-2">Size</th>
+                                            <th className="py-3 px-2">Chest (in)</th>
+                                            <th className="py-3 px-2">Length (in)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {sizeChartData.map((row) => (
+                                            <tr key={row.size} className="border-b border-white/5 text-white hover:bg-white/5 transition-colors">
+                                                <td className="py-3 px-2 font-bold text-primary">{row.size}</td>
+                                                <td className="py-3 px-2">{row.chest}</td>
+                                                <td className="py-3 px-2">{row.length}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p className="text-center text-xs text-gray-500 mt-4 font-mono">
+                                * Measurements are in inches
+                            </p>
+                        </div>
                     </div>
-                    <p className="text-center text-xs text-gray-500 mt-4 font-mono">
-                        * Measurements are in inches
-                    </p>
-                </div>
-            </div>
-        )
-    }
+                )
+            }
         </div >
     );
 };
