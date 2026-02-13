@@ -10,12 +10,14 @@ const TShirtBooking = () => {
     const [transactionId, setTransactionId] = useState('');
     // New state for user details
     const [userName, setUserName] = useState(user?.name || '');
+    const [userEmail, setUserEmail] = useState(user?.email || '');
     const [userPhone, setUserPhone] = useState('');
 
     // Update state when user context loads
     React.useEffect(() => {
         if (user) {
             setUserName(user.name || '');
+            setUserEmail(user.email || '');
         }
     }, [user]);
 
@@ -30,8 +32,8 @@ const TShirtBooking = () => {
         e.preventDefault();
         setError('');
         // Validate all required fields
-        if (!size || !nameOnShirt || !transactionId || !userName || !userPhone) {
-            setError('Please fill in all fields (Name, Mobile Number, Size, Shirt Name, Transaction ID).');
+        if (!size || !nameOnShirt || !transactionId || !userName || !userEmail || !userPhone) {
+            setError('Please fill in all fields (Name, Email, Mobile Number, Size, Shirt Name, Transaction ID).');
             return;
         }
 
@@ -42,18 +44,18 @@ const TShirtBooking = () => {
 
         setLoading(true);
         try {
-            const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/register`, {
+            // Use Public Route (No Login Required)
+            const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/register/tshirt`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${user?.token || ''}`
+                    'Content-Type': 'application/json'
                 },
                 credentials: 'include',
                 body: JSON.stringify({
                     name: userName, // Use the form field value
-                    email: user?.email, // Use context email as backend requires it
+                    email: userEmail, // Use the form field value
                     phone: userPhone, // Use the form field value
-                    college: "IIEST",
+                    college: "IIEST", // Default or could be added to form
                     branch: "Meta",
                     year: "2nd",
                     event: "Merchandise: T-Shirt",
@@ -148,6 +150,19 @@ const TShirtBooking = () => {
                                     value={userName}
                                     onChange={(e) => setUserName(e.target.value)}
                                     placeholder="Enter Your Name"
+                                    className="w-full bg-black/30 border border-white/10 rounded-xl p-4 text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
+                                    required
+                                />
+                            </div>
+
+                            {/* USER EMAIL */}
+                            <div>
+                                <label className="block text-sm font-mono text-gray-400 mb-2">YOUR EMAIL</label>
+                                <input
+                                    type="email"
+                                    value={userEmail}
+                                    onChange={(e) => setUserEmail(e.target.value)}
+                                    placeholder="Enter Your Email"
                                     className="w-full bg-black/30 border border-white/10 rounded-xl p-4 text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
                                     required
                                 />

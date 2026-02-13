@@ -54,6 +54,53 @@ exports.createRegistration = async (req, res) => {
   }
 };
 
+// POST: Public T-Shirt Registration (No Login Required)
+exports.createPublicTShirtRegistration = async (req, res) => {
+  try {
+    const { name, email, phone, college, branch, year, event, teamName, tshirtSize, tshirtName, transactionId, amount, teammates } = req.body;
+
+    if (event !== "Merchandise: T-Shirt") {
+      return res.status(400).json({ message: 'Invalid event for public registration' });
+    }
+
+    // Basic Validation
+    if (!name || !email || !phone || !tshirtSize || !tshirtName || !transactionId) {
+      return res.status(400).json({ message: 'All fields are required' });
+    }
+
+    if (amount != 369) {
+      return res.status(400).json({ message: 'Invalid amount' });
+    }
+
+    // Create registration without user link
+    const registration = await Registration.create({
+      user: null, // Guest user
+      name,
+      email,
+      phone,
+      college: college || "N/A",
+      branch: branch || "N/A",
+      year: year || "N/A",
+      event,
+      teamName,
+      tshirtSize,
+      tshirtName,
+      transactionId,
+      amount,
+      teammates,
+      paymentDate: transactionId ? new Date() : undefined
+    });
+
+    res.status(201).json({
+      message: 'Registration successful',
+      data: registration
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
 // GET: all registrations
 exports.getAllRegistrations = async (req, res) => {
   try {
