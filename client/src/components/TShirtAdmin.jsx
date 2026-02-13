@@ -5,6 +5,7 @@ const TShirtAdmin = () => {
     const [registrations, setRegistrations] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [selectedImage, setSelectedImage] = useState(null); // New state for image viewer
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -111,7 +112,7 @@ const TShirtAdmin = () => {
                                 <th>Status</th>
                                 <th>Student Info</th>
                                 <th>T-Shirt Details</th>
-                                <th>Transaction ID</th>
+                                <th>Payment Info</th>
                                 <th>Date</th>
                             </tr>
                         </thead>
@@ -137,7 +138,20 @@ const TShirtAdmin = () => {
                                             </span>
                                         </div>
                                     </td>
-                                    <td className="font-mono text-gray-400 text-xs">{reg.transactionId}</td>
+                                    <td>
+                                        <div className="font-mono text-gray-400 text-xs mb-1">ID: {reg.transactionId}</div>
+                                        {reg.paymentScreenshot && (
+                                            <button
+                                                onClick={() => setSelectedImage(reg.paymentScreenshot)}
+                                                className="btn btn-xs btn-outline btn-info"
+                                            >
+                                                View Screenshot
+                                            </button>
+                                        )}
+                                        {!reg.paymentScreenshot && (
+                                            <span className="text-xs text-error">No Screenshot</span>
+                                        )}
+                                    </td>
                                     <td className="text-gray-500 text-xs">{new Date(reg.createdAt).toLocaleDateString()}</td>
                                 </tr>
                             ))}
@@ -145,7 +159,31 @@ const TShirtAdmin = () => {
                     </table>
                 </div>
             </div>
-        </div>
+
+            {/* Image Viewer Modal */}
+            {
+                selectedImage && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm" onClick={() => setSelectedImage(null)}>
+                        <div className="relative max-w-4xl max-h-[90vh] w-full flex items-center justify-center">
+                            <button
+                                onClick={() => setSelectedImage(null)}
+                                className="absolute -top-12 right-0 text-white hover:text-primary transition-colors"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                            <img
+                                src={selectedImage}
+                                alt="Payment Screenshot"
+                                className="max-w-full max-h-[85vh] rounded-lg border border-white/20 shadow-2xl"
+                                onClick={(e) => e.stopPropagation()}
+                            />
+                        </div>
+                    </div>
+                )
+            }
+        </div >
     );
 };
 
