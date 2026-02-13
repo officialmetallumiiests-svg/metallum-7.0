@@ -46,10 +46,11 @@ const AdminDashboard = () => {
     const downloadCSV = () => {
         if (!filteredRegistrations.length) return;
 
-        const headers = ["Name,Email,Phone,College,Branch,Year,Event,Team,Status,Transaction ID,Date"];
-        const rows = filteredRegistrations.map(reg =>
-            `"${reg.name}","${reg.email}","${reg.phone}","${reg.college}","${reg.branch}","${reg.year}","${reg.event}","${reg.teamName || ''}","${reg.status || 'Pending'}","${reg.transactionId || 'N/A'}","${new Date(reg.createdAt).toLocaleDateString()}"`
-        );
+        const headers = ["Name,Email,Phone,College,Branch,Year,Event,Team,Team Members,Status,Transaction ID,Date"];
+        const rows = filteredRegistrations.map(reg => {
+            const teamMembers = reg.teammates ? reg.teammates.map(t => t.name).join(' | ') : '';
+            return `"${reg.name}","${reg.email}","${reg.phone}","${reg.college}","${reg.branch}","${reg.year}","${reg.event}","${reg.teamName || ''}","${teamMembers}","${reg.status || 'Pending'}","${reg.transactionId || 'N/A'}","${new Date(reg.createdAt).toLocaleDateString()}"`;
+        });
 
         const csvContent = "data:text/csv;charset=utf-8," + headers.concat(rows).join("\n");
         const encodedUri = encodeURI(csvContent);
@@ -258,6 +259,13 @@ const AdminDashboard = () => {
                                     <td className="text-xs text-gray-400 max-w-xs truncate">
                                         {reg.college}, {reg.branch}
                                         {reg.teamName && <div className="text-gray-500 italic">Team: {reg.teamName}</div>}
+                                        {(reg.event === "METALLOSCAPE" || reg.event === "निर्माण " || reg.teammates?.length > 0) && reg.teammates && (
+                                            <div className="mt-1 text-gray-500 text-xs">
+                                                {reg.teammates.map((t, i) => (
+                                                    <div key={i}>• {t.name}</div>
+                                                ))}
+                                            </div>
+                                        )}
                                     </td>
 
                                     <td className="text-gray-500 text-xs text-nowrap">

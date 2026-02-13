@@ -79,15 +79,15 @@ export default function Sponsors() {
               Interested in Sponsoring METALLUM?
             </h4>
             <p className="text-sm sm:text-base text-base-content/70 mb-6">
-  Partner with METALLUM to connect with top engineering talent and
-  showcase your brand to future innovators.
-</p>
+              Partner with METALLUM to connect with top engineering talent and
+              showcase your brand to future innovators.
+            </p>
 
-<a
-  src="/public/pdf/sponsorship.pdf"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="
+            <a
+              href="/pdf/sponsorship.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
     inline-flex items-center justify-center
     btn btn-primary
     px-8 sm:px-10
@@ -95,9 +95,9 @@ export default function Sponsors() {
     hover:scale-105
     hover:shadow-lg
   "
->
-  Sponsorship Brochure
-</a>
+            >
+              Sponsorship Brochure
+            </a>
 
           </div>
         </FadeUp>
