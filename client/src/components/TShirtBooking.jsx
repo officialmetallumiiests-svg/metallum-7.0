@@ -10,13 +10,12 @@ const TShirtBooking = () => {
     const [transactionId, setTransactionId] = useState('');
     // New state for user details
     const [userName, setUserName] = useState(user?.name || '');
-    const [userEmail, setUserEmail] = useState(user?.email || '');
+    const [userPhone, setUserPhone] = useState('');
 
     // Update state when user context loads
     React.useEffect(() => {
         if (user) {
             setUserName(user.name || '');
-            setUserEmail(user.email || '');
         }
     }, [user]);
 
@@ -31,8 +30,13 @@ const TShirtBooking = () => {
         e.preventDefault();
         setError('');
         // Validate all required fields
-        if (!size || !nameOnShirt || !transactionId || !userName || !userEmail) {
-            setError('Please fill in all fields (Name, Email, Size, Shirt Name, Transaction ID).');
+        if (!size || !nameOnShirt || !transactionId || !userName || !userPhone) {
+            setError('Please fill in all fields (Name, Mobile Number, Size, Shirt Name, Transaction ID).');
+            return;
+        }
+
+        if (userPhone.length !== 10) {
+            setError('Please enter a valid 10-digit mobile number.');
             return;
         }
 
@@ -47,8 +51,8 @@ const TShirtBooking = () => {
                 credentials: 'include',
                 body: JSON.stringify({
                     name: userName, // Use the form field value
-                    email: userEmail, // Use the form field value
-                    phone: "0000000000",
+                    email: user?.email, // Use context email as backend requires it
+                    phone: userPhone, // Use the form field value
                     college: "IIEST",
                     branch: "Meta",
                     year: "2nd",
@@ -149,17 +153,25 @@ const TShirtBooking = () => {
                                 />
                             </div>
 
-                            {/* USER EMAIL */}
+                            {/* MOBILE NUMBER */}
                             <div>
-                                <label className="block text-sm font-mono text-gray-400 mb-2">YOUR EMAIL</label>
-                                <input
-                                    type="email"
-                                    value={userEmail}
-                                    onChange={(e) => setUserEmail(e.target.value)}
-                                    placeholder="Enter Your Email"
-                                    className="w-full bg-black/30 border border-white/10 rounded-xl p-4 text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
-                                    required
-                                />
+                                <label className="block text-sm font-mono text-gray-400 mb-2">MOBILE NUMBER</label>
+                                <div className="flex relative">
+                                    <span className="inline-flex items-center px-4 rounded-l-xl border border-r-0 border-white/10 bg-white/5 text-gray-400 font-mono text-sm select-none">
+                                        +91
+                                    </span>
+                                    <input
+                                        type="tel"
+                                        value={userPhone}
+                                        onChange={(e) => {
+                                            const val = e.target.value.replace(/[^0-9]/g, '');
+                                            if (val.length <= 10) setUserPhone(val);
+                                        }}
+                                        placeholder="Enter Phone Number"
+                                        className="w-full bg-black/30 border border-white/10 rounded-r-xl p-4 text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
+                                        required
+                                    />
+                                </div>
                             </div>
 
                             {/* SIZE SELECTION */}
