@@ -173,20 +173,20 @@ function EventsAll() {
       topicLink: "/pdf/Topics for Metalloscape.docx.pdf",
       submissionLink: "https://forms.gle/HULjQ5qj3M9GZwnn6",
       guidelines: [
-        "Competition Stages-",
+        "#Competition Stages-",
         "Stage 1: Abstract and Poster Submission (Online)",
         "Stage 2: Poster Presentation (Offline)",
 
-        "Timelines:",
+        "#Timelines:",
         "Deadline for Abstract Submission: 16th Feb 2026 (Before 09:00 PM)",
         "Result of Abstract: 17th Feb at 09:00 AM",
         "Deadline for poster submission: 17th Feb 2026 (Before 11:59 PM)",
-        "Poster Presentation Round:",
+        "#Poster Presentation Round:",
         "Date: 20th Feb 2026",
         "Time: 9:00 AM – 10:30 PM",
         "Venue: Parade Ground (IIEST SHIBPUR)",
 
-        "Eligibility-",
+        "#Eligibility-",
         "Students from all disciplines are eligible to participate.",
         "Each team can consist of 1-3 members.",
 
@@ -217,7 +217,7 @@ function EventsAll() {
         "Clarity and Communication Skills",
         "Q&A Handling"
       ],
-      contacts: [{ name: "For any queries, contact:", phone: "" },
+      contacts: [
       { name: "Srijan Yadav", phone: "9120754845" },
       { name: "Gyanshi", phone: "7678624280" },
       { name: "Arjodeep Chatterjee", phone: "9031945823" }
@@ -269,7 +269,6 @@ function EventsAll() {
         "Venue: Alumni Seminar Hall"
       ],
       contacts: [
-        { name: "For any queries, contact:", phone: "" },
         { name: "Tejaswi Singh", phone: "9151613350" },
         { name: "Ankita Kumari", phone: "8252044688" }
       ]
