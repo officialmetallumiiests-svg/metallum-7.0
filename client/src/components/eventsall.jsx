@@ -89,8 +89,8 @@ function EventsAll() {
       return;
     }
 
-    // Validate Teammates for BGMI or VALORANT or M-CODE or METALLOSCAPE
-    if (registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT" || registerEvent?.title === "M-CODE" || registerEvent?.title === "METALLOSCAPE") {
+    // Validate Teammates for BGMI or VALORANT or M-CODE or METALLOSCAPE or Nirman
+    if (registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT" || registerEvent?.title === "M-CODE" || registerEvent?.title === "METALLOSCAPE" || registerEvent?.title === "निर्माण ") {
       for (let i = 0; i < teammates.length; i++) {
         if (!teammates[i].name) {
           showToast(`Player ${i + 2} name is required`, "error");
@@ -115,7 +115,7 @@ function EventsAll() {
         event: registerEvent.title
       };
 
-      if (registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT" || registerEvent?.title === "M-CODE" || registerEvent?.title === "METALLOSCAPE") {
+      if (registerEvent?.title === "BGMI" || registerEvent?.title === "VALORANT" || registerEvent?.title === "M-CODE" || registerEvent?.title === "METALLOSCAPE" || registerEvent?.title === "निर्माण ") {
         payload.teammates = teammates.map(t => ({
           name: t.name
         }));
@@ -1074,8 +1074,8 @@ function EventsAll() {
                   </div>
                 )}
 
-                {/* METALLOSCAPE Teammates Section (Dynamic) */}
-                {registerEvent?.title === "METALLOSCAPE" && (
+                {/* METALLOSCAPE & Nirman Teammates Section (Dynamic) */}
+                {(registerEvent?.title === "METALLOSCAPE" || registerEvent?.title === "निर्माण ") && (
                   <div className="space-y-4 mt-2 mb-2">
                     <div className="flex items-center gap-4 my-2">
                       <div className="h-px bg-white/10 flex-1"></div>
