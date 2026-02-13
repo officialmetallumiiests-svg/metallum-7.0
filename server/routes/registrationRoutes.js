@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const {
   createRegistration,
-  createPublicTShirtRegistration,
   getAllRegistrations,
   deleteRegistration,
   updateRegistration
@@ -11,7 +10,6 @@ const {
 const requireLogin = require('../middlewares/requireLogin');
 const requireAdmin = require('../middlewares/requireAdmin');
 
-router.post('/tshirt', createPublicTShirtRegistration);
 router.post('/', requireLogin, createRegistration);
 router.get('/', requireLogin, requireAdmin, getAllRegistrations);
 router.delete('/:id', requireLogin, requireAdmin, deleteRegistration);

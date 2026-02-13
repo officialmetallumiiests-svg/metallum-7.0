@@ -318,7 +318,7 @@ export default function Home() {
               {/* T-Shirt Image */}
               <div className="mb-6 flex justify-center">
                 <img
-                  src="/photoes/tshirt.jpeg"
+                  src="photoes/tshirtposter.jpeg"
                   alt="Metallum T-Shirt"
                   className="w-64 h-auto object-contain rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
                 />
