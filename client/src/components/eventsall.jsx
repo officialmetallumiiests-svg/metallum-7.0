@@ -171,44 +171,54 @@ function EventsAll() {
 
       abstractLink: "https://drive.google.com/file/d/1SonksaSBIb8B7zIbZuCHqGBiQk71ehgx/view?usp=sharing",
       guidelines: [
-        "#Guidelines for Abstract Submission",
-        "The abstract must be on a topic relevant to Metallurgy and Materials Engineering.",
-        "Participants may refer to the list of suggested topics provided by the organizers.",
-        "The abstract must not exceed 300 words.",
-        "The abstract must be submitted in PDF format only.",
-        "All submissions will be reviewed for authenticity and plagiarism.",
-        "Submissions with excessive plagiarism will be disqualified.",
-        "Participants are advised to refer to the sample abstract provided by the organizers.",
+        "Competition Stages-",
+        "Stage 1: Abstract and Poster Submission (Online)",
+        "Stage 2: Poster Presentation (Offline)",
 
-        "#Guidelines for Poster Presentation",
-        "The dimensions of the poster must be 120 cm × 90 cm. Participants are advised to strictly adhere to these dimensions to avoid printing issues.",
-        "The poster should include the following sections:",
-        "Title and author(s) (placed at the upper portion, spanning the full width of the poster).",
-        "Abstract.",
-        "Methodology.",
-        "Results.",
-        "Conclusions.",
-        "References.",
-        "Each team will be allotted a total of 10 minutes: 8 minutes for presentation followed by 2 minutes for Q&A.",
-        "All poster content must be original. Any instance of plagiarism may lead to disqualification.",
-        "Participants must submit their posters before the specified deadline to ensure timely and proper printing.",
-        "Failure to meet the submission deadline may result in disqualification."],
+        "Timelines:",
+        "Deadline for Abstract Submission: 16th Feb 2026 (Before 09:00 PM)",
+        "Result of Abstract: 17th Feb at 09:00 AM",
+        "Deadline for poster submission: 17th Feb 2026 (Before 11:59 PM)",
+        "Poster Presentation Round:",
+        "Date: 20th Feb 2026",
+        "Time: 9:00 AM – 10:30 PM",
+        "Venue: Parade Ground (IIEST SHIBPUR)",
+
+        "Eligibility-",
+        "Students from all disciplines are eligible to participate.",
+        "Each team can consist of 1-3 members.",
+
+        "#Guidelines for Abstract:",
+        "The abstract should be on a topic relevant to Metallurgy and Materials Engineering.",
+        "Participants can also refer to the list of suggested topics.",
+        "The abstract must be fewer than 300 words.",
+        "The abstract should be submitted in PDF format.",
+        "All submissions will undergo a review for authenticity and plagiarism. Submissions with excessive plagiarism will be disqualified.",
+
+        "#Guidelines for Poster Preparation & Presentation:",
+        "The dimensions of the poster must be 150 cm x 100 cm. Participants are advised to adhere to these dimensions to avoid issues with printing.",
+        "It is recommended that the following sections be included in the poster:",
+        "Title and Author (at upper portion, across the width of the whole poster)",
+        "Abstract",
+        "Methodology",
+        "Results",
+        "Conclusions",
+        "References",
+        "Total 10 minutes allotted to each team: 8 minutes (presenting) + 2 minute (Q&A)",
+        "The content must be original (any instance of plagiarism may lead to disqualification)",
+        "Participants must submit their posters before the deadline to ensure timely and proper printing. Failure to do so may result in disqualification."],
 
       Judging_Criteria: [
-
-        "Technical content and depth of understanding.",
-        "Poster design and visual presentation.",
-        "Originality and creativity of the work.",
-        "Clarity of explanation and communication skills.",
-        "Effectiveness in handling the Q&A session.",
-        "Event Schedule: 20 February 2026",
-        "Venue: Parade Ground"
-
+        "Technical Content",
+        "Poster Design",
+        "Originality and Creativity",
+        "Clarity and Communication Skills",
+        "Q&A Handling"
       ],
       contacts: [{ name: "For any queries, contact:", phone: "" },
-      { name: "Arjodeep Chatterjee", phone: "9031945823" },
+      { name: "Srijan Yadav", phone: "9120754845" },
       { name: "Gyanshi", phone: "7678624280" },
-      { name: "Srijan Yadav", phone: "9120754845" }
+      { name: "Arjodeep Chatterjee", phone: "9031945823" }
       ]
 
 
