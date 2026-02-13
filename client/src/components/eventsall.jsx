@@ -160,7 +160,7 @@ function EventsAll() {
 
   const events = [
 
-    /* ...   {
+  {
       id: 6,
       title: "METALLOSCAPE",
       category: "Main Event",
@@ -262,7 +262,6 @@ function EventsAll() {
     { name: "Ankita Kumari", phone: "8252044688" }
   ]
   
-        },*/
 
     {
       id: 9,
