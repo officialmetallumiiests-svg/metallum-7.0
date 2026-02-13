@@ -102,26 +102,34 @@ const TShirtBooking = () => {
                     {/* LEFT: PAYMENT QR */}
                     <div className="bg-white/5 p-8 rounded-3xl border border-white/10 text-center">
                         <h3 className="text-xl font-bold mb-6 font-['Orbitron'] text-primary">SCAN TO PAY</h3>
-                        <div className="bg-white p-4 rounded-xl inline-block mb-4">
-                            {/* Custom QR Code */}
-                            <img
-                                src="/photoes/tshirtpayment.png"
-                                alt="Payment QR Code"
-                                className="w-48 h-48 object-contain"
-                            />
+
+                        <div className="text-center space-y-4">
+                            <div className="bg-white p-4 rounded-lg inline-block shadow-lg">
+                                <img
+                                    src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(`upi://pay?pa=7510793132@ybl&pn=Metallum&am=${amount}&cu=INR`)}`}
+                                    alt="Payment QR Code"
+                                    className="w-32 h-32 mx-auto"
+                                />
+                                <p className="text-black font-bold text-lg mt-2">₹{amount}</p>
+                            </div>
+
+                            <div className="space-y-2">
+                                <p className="text-xs text-gray-400">Scan QR using any UPI App</p>
+                                <p className="text-xs text-gray-500">OR</p>
+                                <div className="bg-black/30 p-3 rounded text-left space-y-2 text-xs border border-yellow-500">
+                                    <div className="flex justify-between"><span className="text-gray-400">UPI ID:</span><span className="text-primary font-mono select-all">7510793132@ybl</span></div>
+                                    <div className="flex justify-between"><span className="text-gray-400">Name:</span><span className="text-white select-all">Metallum</span></div>
+                                </div>
+                            </div>
+                            <a
+                                href={`upi://pay?pa=7510793132@ybl&pn=Metallum&am=${amount}&cu=INR`}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="btn btn-outline btn-primary btn-sm w-full"
+                            >
+                                Try 'Pay Now' Button
+                            </a>
                         </div>
-                        <p className="text-sm text-gray-400 font-mono mb-2">UPI ID: 7510793132@ybl</p>
-                        <div className="text-3xl font-bold text-white mb-2">₹{amount}</div>
-
-                        {/* UPI Deep Link Button */}
-                        <a
-                            href={`upi://pay?pa=7510793132@ybl&pn=Metallum&am=${amount}&cu=INR&tn=TShirt`}
-                            className="btn btn-sm btn-outline btn-primary mt-2 w-full"
-                        >
-                            Pay via UPI App
-                        </a>
-
-                        <p className="text-xs text-gray-500 mt-2">Scan via GPay, PhonePe, Paytm</p>
                     </div>
 
                     {/* RIGHT: FORM */}
