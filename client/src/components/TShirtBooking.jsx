@@ -135,9 +135,9 @@ const TShirtBooking = () => {
                         <div className="text-center space-y-4">
                             <div className="bg-white p-4 rounded-lg inline-block shadow-lg">
                                 <img
-                                    src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(`upi://pay?pa=9993928756@jio&pn=Yash%20Chandekar&am=${amount}&cu=INR`)}`}
+                                    src="/photoes/tshirtpayment (2).png"
                                     alt="Payment QR Code"
-                                    className="w-32 h-32 mx-auto"
+                                    className="w-64 h-64 mx-auto object-contain"
                                 />
                                 <p className="text-black font-bold text-lg mt-2">₹{amount}</p>
                             </div>
@@ -150,14 +150,7 @@ const TShirtBooking = () => {
                                     <div className="flex justify-between"><span className="text-gray-400">Name:</span><span className="text-white select-all">Yash Chandekar</span></div>
                                 </div>
                             </div>
-                            <a
-                                href={`upi://pay?pa=9993928756@jio&pn=Yash%20Chandekar&am=${amount}&cu=INR`}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="btn btn-outline btn-primary btn-sm w-full"
-                            >
-                                Try 'Pay Now' Button
-                            </a>
+
                         </div>
                     </div>
 
