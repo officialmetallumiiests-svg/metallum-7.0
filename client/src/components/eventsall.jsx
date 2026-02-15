@@ -235,6 +235,7 @@ function EventsAll() {
 
 
       image: "/photoes/eventsposter/Nirman.png",
+      problemStatementLink: "/pdf/Main Problem Statement.c-1.pdf",
       details: "Startup-oriented problem-solving and idea pitching event designed to encourage innovative thinking and entrepreneurial skills among participants. Participants will be provided with a problem statement on 15th Feb at 6 PM. Based on the given problem, teams are required to develop a startup idea and propose a practical solution in the form of PowerPoint Presentation",
       guidelines: [
         "#Date: 20th Feb 2026",
@@ -929,6 +930,29 @@ function EventsAll() {
               >
                 {(selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE") ? "Closed" : "Register Now"}
               </button>
+
+              {/* PROBLEM STATEMENT BUTTON */}
+              {selectedEvent.problemStatementLink && (
+                <div className="mt-4">
+                  <a
+                    href={selectedEvent.problemStatementLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      btn w-full sm:w-auto
+                      bg-gradient-to-r from-blue-600 to-blue-800
+                      hover:from-blue-700 hover:to-blue-900
+                      text-white font-semibold tracking-wide
+                      px-10 py-3
+                      rounded-full
+                      shadow-lg hover:shadow-xl
+                      transition-all duration-300
+                    "
+                  >
+                    Problem Statement
+                  </a>
+                </div>
+              )}
 
               {/* ABSTRACT SUBMISSION BUTTON */}
               {selectedEvent.submissionLink && (
