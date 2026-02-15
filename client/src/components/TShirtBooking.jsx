@@ -135,9 +135,9 @@ const TShirtBooking = () => {
                         <div className="text-center space-y-4">
                             <div className="bg-white p-4 rounded-lg inline-block shadow-lg">
                                 <img
-                                    src="/images/tshirt_payment_qr.png"
+                                    src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(`upi://pay?pa=y.chandekar99@oksbi&pn=Yash&am=${amount}&cu=INR`)}`}
                                     alt="Payment QR Code"
-                                    className="w-48 h-auto mx-auto"
+                                    className="w-32 h-32 mx-auto"
                                 />
                                 <p className="text-black font-bold text-lg mt-2">₹{amount}</p>
                             </div>
@@ -156,7 +156,7 @@ const TShirtBooking = () => {
                                 rel="noreferrer"
                                 className="btn btn-outline btn-primary btn-sm w-full"
                             >
-                                Pay Now
+                                Try 'Pay Now' Button
                             </a>
                         </div>
                     </div>
