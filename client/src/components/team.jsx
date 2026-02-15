@@ -190,7 +190,7 @@ export default function Team() {
       },{
         name: "Kumbha Rithwik Sai Venkat",
         role: "Sponsorship",
-        image:"",
+        image:"/images/ricky.jpeg",
       },{
         name: "Ayush Kumar",
         role: "Event Management",
@@ -218,7 +218,7 @@ export default function Team() {
       }, {
         name: "Sirshapan Kunda Roy",
         role: "Publicity",
-        image: "/images/SIRSHAPAN_KUNDA_ROY.jpeg",
+        image: "/images/kunda.jpeg",
       }, {
         name: "Abhradeep Ghorai",
         role: "Publicity",
@@ -272,9 +272,9 @@ export default function Team() {
         role: "Web Development",
         image: "/images/PREKSHANA_PAL.jpg",
       }, {
-        name: "Abhisheak Kumar",
+        name: "Abhishek Kumar",
         role: "Alumni Relation and Collection",
-        image: "",
+        image: "/images/abhi.jpeg",
       }, {
         name: "Ayaswarya Dutta",
         role: "Alumni Relation and Collection",
@@ -290,7 +290,7 @@ export default function Team() {
       }, {
         name: "Chhote Lal Kumar",
         role: "Refreshment and Volunteer",
-        image: "",
+        image: "/images/chhote.jpeg",
       },{
         name: "Vardhan Gorle",
         role: "Photography and Videography",
