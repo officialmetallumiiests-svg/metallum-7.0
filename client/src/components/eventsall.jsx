@@ -911,9 +911,9 @@ function EventsAll() {
 
               {/* REGISTER BUTTON */}
               <button
-                disabled={selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI"}
+                disabled={selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI" || selectedEvent.title === "VALORANT"}
                 onClick={() => {
-                  if (selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI") return;
+                  if (selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI" || selectedEvent.title === "VALORANT") return;
                   setSelectedEvent(null);
                   handleRegisterClick(selectedEvent);
                 }}
@@ -929,7 +929,7 @@ function EventsAll() {
     disabled:opacity-50 disabled:cursor-not-allowed
   "
               >
-                {(selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI") ? "Closed" : "Register Now"}
+                {(selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI" || selectedEvent.title === "VALORANT") ? "Closed" : "Register Now"}
               </button>
 
               {/* PROBLEM STATEMENT BUTTON */}
