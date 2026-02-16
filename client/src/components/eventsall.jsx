@@ -236,6 +236,7 @@ function EventsAll() {
 
       image: "/photoes/eventsposter/Nirman.png",
       problemStatementLink: "/pdf/Main Problem Statement.c-1.pdf",
+      submissionLink: "https://forms.gle/5b782WnL4VsZxWZX7",
       details: "Startup-oriented problem-solving and idea pitching event designed to encourage innovative thinking and entrepreneurial skills among participants. Participants will be provided with a problem statement on 15th Feb at 6 PM. Based on the given problem, teams are required to develop a startup idea and propose a practical solution in the form of PowerPoint Presentation",
       guidelines: [
         "#Date: 20th Feb 2026",
@@ -972,7 +973,7 @@ function EventsAll() {
                       transition-all duration-300
                     "
                   >
-                    Abstract Submission
+                    {selectedEvent.title === "निर्माण " ? "PPT Submission" : "Abstract Submission"}
                   </a>
                 </div>
               )}
