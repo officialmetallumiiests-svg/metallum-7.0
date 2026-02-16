@@ -730,12 +730,12 @@ function EventsAll() {
 
                 <button
                   className="btn btn-outline btn-primary btn-sm flex-1"
-                  disabled={loading || event.title === "Chess" || event.title === "M-CODE"}
+                  disabled={loading || event.title === "Chess" || event.title === "M-CODE" || event.title === "BGMI"}
                   onClick={() => handleRegisterClick(event)}
                 >
                   {loading && registerEvent?.id === event.id
                     ? "Processing..."
-                    : (event.title === "Chess" || event.title === "M-CODE") ? "Closed" : "Register"}
+                    : (event.title === "Chess" || event.title === "M-CODE" || event.title === "BGMI") ? "Closed" : "Register"}
                 </button>
 
               </div>
@@ -911,9 +911,9 @@ function EventsAll() {
 
               {/* REGISTER BUTTON */}
               <button
-                disabled={selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE"}
+                disabled={selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI"}
                 onClick={() => {
-                  if (selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE") return;
+                  if (selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI") return;
                   setSelectedEvent(null);
                   handleRegisterClick(selectedEvent);
                 }}
@@ -929,7 +929,7 @@ function EventsAll() {
     disabled:opacity-50 disabled:cursor-not-allowed
   "
               >
-                {(selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE") ? "Closed" : "Register Now"}
+                {(selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI") ? "Closed" : "Register Now"}
               </button>
 
               {/* PROBLEM STATEMENT BUTTON */}
