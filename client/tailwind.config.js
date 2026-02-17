@@ -4,21 +4,31 @@ module.exports = {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}", // scan all React files
   ],
-theme: {
-  extend: {
-    fontFamily: {
-      heading: ['"Bebas Neue"', 'sans-serif'],
-      body: ['Inter', 'sans-serif'],
-    },
-    letterSpacing: {
-      widestPlus: '0.35em',
+  theme: {
+    extend: {
+      fontFamily: {
+        heading: ['"Bebas Neue"', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+      },
+      letterSpacing: {
+        widestPlus: '0.35em',
+      },
     },
   },
-},
 
-  plugins: [require("daisyui")],
   daisyui: {
-    themes: ["light", "dark"], // make sure "dark" exists for your theme toggle
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/theming/themes")["light"],
+          primary: "#AD74C3",
+        },
+        dark: {
+          ...require("daisyui/src/theming/themes")["dark"],
+          primary: "#AD74C3",
+        },
+      },
+    ], // make sure "dark" exists for your theme toggle
   },
 };
 

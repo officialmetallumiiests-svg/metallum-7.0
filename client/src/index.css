@@ -3,16 +3,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-:root {
-  --bg-main: #f8fafc;
-  --bg-accent: #e2e8f0;
-  --text-main: #020617;
+--bg-main: #f8fafc;
+--bg-accent: #e2e8f0;
+--text-main: #020617;
 
-  --glow-primary: rgba(37, 99, 235, 0.25);
-  --glow-secondary: rgba(59, 130, 246, 0.2);
+--glow-primary: rgba(173, 116, 195, 0.45);
+--glow-secondary: rgba(173, 116, 195, 0.35);
 
-  --card-bg: rgba(255, 255, 255, 0.75);
-  --card-border: rgba(37, 99, 235, 0.25);
+--card-bg: rgba(255, 255, 255, 0.75);
+--card-border: rgba(173, 116, 195, 0.45);
 }
 
 .dark {
@@ -20,24 +19,27 @@
   --bg-accent: #061a3a;
   --text-main: #ffffff;
 
-  --glow-primary: rgba(37, 99, 235, 0.45);
-  --glow-secondary: rgba(59, 130, 246, 0.35);
+  --glow-primary: rgba(173, 116, 195, 0.55);
+  --glow-secondary: rgba(173, 116, 195, 0.45);
 
   --card-bg: rgba(10, 20, 40, 0.65);
-  --card-border: rgba(59, 130, 246, 0.35);
+  --card-border: rgba(173, 116, 195, 0.45);
 }
 
- body {
+body {
   font-family: 'Poppins', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.h1, .h2, .h3 {
+.h1,
+.h2,
+.h3 {
   font-family: 'Orbitron', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .dotted-text {
   font-family: 'Press Start 2P', monospace;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -47,6 +49,7 @@ html {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -54,9 +57,12 @@ html {
 
 /* ======== GRID GLOW PULSE ======== */
 @keyframes gridGlowPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.3;
   }
+
   50% {
     opacity: 0.6;
   }
@@ -64,11 +70,14 @@ html {
 
 /* ======== CENTER RADIAL GLOW ======== */
 @keyframes radialGlow {
-  0%, 100% {
-    box-shadow: 0 0 80px rgba(17, 30, 108, 0.4), 0 0 120px rgba(17, 30, 108, 0.2);
+
+  0%,
+  100% {
+    box-shadow: 0 0 80px rgba(173, 116, 195, 0.4), 0 0 120px rgba(173, 116, 195, 0.2);
   }
+
   50% {
-    box-shadow: 0 0 100px rgba(17, 30, 108, 0.6), 0 0 150px rgba(17, 30, 108, 0.3);
+    box-shadow: 0 0 100px rgba(173, 116, 195, 0.6), 0 0 150px rgba(173, 116, 195, 0.3);
   }
 }
 
