@@ -3,15 +3,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
---bg-main: #f8fafc;
---bg-accent: #e2e8f0;
---text-main: #020617;
 
---glow-primary: rgba(173, 116, 195, 0.45);
---glow-secondary: rgba(173, 116, 195, 0.35);
+:root {
+  --bg-main: #f8fafc;
+  --bg-accent: #e2e8f0;
+  --text-main: #020617;
 
---card-bg: rgba(255, 255, 255, 0.75);
---card-border: rgba(173, 116, 195, 0.45);
+  --glow-primary: rgba(173, 116, 195, 0.45);
+  --glow-secondary: rgba(173, 116, 195, 0.35);
+
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --card-border: rgba(173, 116, 195, 0.45);
 }
 
 .dark {
