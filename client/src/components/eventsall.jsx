@@ -172,6 +172,7 @@ function EventsAll() {
       guidelineLink: "/pdf/Guidelines for abstract._metalloscape.docx.pdf",
       topicLink: "/pdf/Topics for Metalloscape.docx.pdf",
       submissionLink: "https://forms.gle/HULjQ5qj3M9GZwnn6",
+      posterSubmissionLink: "https://forms.gle/36Vf9P1PPoGXXTCx5 ",
       guidelines: [
         "#Competition Stages-",
         "Stage 1: Abstract and Poster Submission (Online)",
@@ -381,6 +382,7 @@ function EventsAll() {
 
       abstractLink: "/pdf/Problem Statement MET-Tricks.pdf",
       submissionLink: "https://forms.gle/ZTPvZX7KvBYCNeK6A",
+      pptSubmissionLink: "https://forms.gle/mBzvPSmsAE3npzaD7 ",
 
       guidelines: [
         "# Abstract Submission :-",
@@ -974,6 +976,52 @@ function EventsAll() {
                     "
                   >
                     {selectedEvent.title === "निर्माण " ? "PPT Submission" : "Abstract Submission"}
+                  </a>
+                </div>
+              )}
+
+              {/* POSTER SUBMISSION BUTTON */}
+              {selectedEvent.posterSubmissionLink && (
+                <div className="mt-4">
+                  <a
+                    href={selectedEvent.posterSubmissionLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      btn w-full sm:w-auto
+                      bg-gradient-to-r from-blue-600 to-blue-800
+                      hover:from-blue-700 hover:to-blue-900
+                      text-white font-semibold tracking-wide
+                      px-10 py-3
+                      rounded-full
+                      shadow-lg hover:shadow-xl
+                      transition-all duration-300
+                    "
+                  >
+                    Poster Submission
+                  </a>
+                </div>
+              )}
+
+              {/* PPT SUBMISSION BUTTON */}
+              {selectedEvent.pptSubmissionLink && (
+                <div className="mt-4">
+                  <a
+                    href={selectedEvent.pptSubmissionLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      btn w-full sm:w-auto
+                      bg-gradient-to-r from-blue-600 to-blue-800
+                      hover:from-blue-700 hover:to-blue-900
+                      text-white font-semibold tracking-wide
+                      px-10 py-3
+                      rounded-full
+                      shadow-lg hover:shadow-xl
+                      transition-all duration-300
+                    "
+                  >
+                    PPT Submission
                   </a>
                 </div>
               )}
