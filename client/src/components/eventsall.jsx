@@ -913,9 +913,9 @@ function EventsAll() {
 
               {/* REGISTER BUTTON */}
               <button
-                disabled={selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI" || selectedEvent.title === "VALORANT" || selectedEvent.title === "METALLOSCAPE" || selectedEvent.title === "MET-TRICKS"}
+                disabled={selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI" || selectedEvent.title === "VALORANT" || selectedEvent.title === "METALLOSCAPE" || selectedEvent.title === "MET-TRICKS" || selectedEvent.title === "METAPOLISH"}
                 onClick={() => {
-                  if (selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI" || selectedEvent.title === "VALORANT" || selectedEvent.title === "METALLOSCAPE" || selectedEvent.title === "MET-TRICKS") return;
+                  if (selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI" || selectedEvent.title === "VALORANT" || selectedEvent.title === "METALLOSCAPE" || selectedEvent.title === "MET-TRICKS" || selectedEvent.title === "METAPOLISH") return;
                   setSelectedEvent(null);
                   handleRegisterClick(selectedEvent);
                 }}
@@ -931,7 +931,7 @@ function EventsAll() {
     disabled:opacity-50 disabled:cursor-not-allowed
   "
               >
-                {(selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI" || selectedEvent.title === "VALORANT" || selectedEvent.title === "METALLOSCAPE" || selectedEvent.title === "MET-TRICKS") ? "Closed" : "Register Now"}
+                {(selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI" || selectedEvent.title === "VALORANT" || selectedEvent.title === "METALLOSCAPE" || selectedEvent.title === "MET-TRICKS" || selectedEvent.title === "METAPOLISH") ? "Closed" : "Register Now"}
               </button>
 
               {/* PROBLEM STATEMENT BUTTON */}
