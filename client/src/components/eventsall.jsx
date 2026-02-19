@@ -732,12 +732,12 @@ function EventsAll() {
 
                 <button
                   className="btn btn-outline btn-primary btn-sm flex-1"
-                  disabled={loading || event.title === "Chess" || event.title === "M-CODE" || event.title === "BGMI" || event.title === "VALORANT" || event.title === "METALLOSCAPE" || event.title === "MET-TRICKS"}
+                  disabled={loading || event.title === "Chess" || event.title === "M-CODE" || event.title === "BGMI" || event.title === "VALORANT" || event.title === "METALLOSCAPE" || event.title === "MET-TRICKS" || event.title === "METAPOLISH"}
                   onClick={() => handleRegisterClick(event)}
                 >
                   {loading && registerEvent?.id === event.id
                     ? "Processing..."
-                    : (event.title === "Chess" || event.title === "M-CODE" || event.title === "BGMI" || event.title === "VALORANT" || event.title === "METALLOSCAPE" || event.title === "MET-TRICKS") ? "Closed" : "Register"}
+                    : (event.title === "Chess" || event.title === "M-CODE" || event.title === "BGMI" || event.title === "VALORANT" || event.title === "METALLOSCAPE" || event.title === "MET-TRICKS" || event.title === "METAPOLISH") ? "Closed" : "Register"}
                 </button>
 
               </div>
