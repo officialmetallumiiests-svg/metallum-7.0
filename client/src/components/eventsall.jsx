@@ -732,12 +732,12 @@ function EventsAll() {
 
                 <button
                   className="btn btn-outline btn-primary btn-sm flex-1"
-                  disabled={loading || event.title === "Chess" || event.title === "M-CODE" || event.title === "BGMI" || event.title === "VALORANT" || event.title === "METALLOSCAPE" || event.title === "MET-TRICKS" || event.title === "METAPOLISH"}
+                  disabled={loading || event.title === "Chess" || event.title === "M-CODE" || event.title === "BGMI" || event.title === "VALORANT" || event.title === "METALLOSCAPE" || event.title === "MET-TRICKS" || event.title === "METAPOLISH" || event.title === "Dr. A. K. Seal Memorial Quiz"}
                   onClick={() => handleRegisterClick(event)}
                 >
                   {loading && registerEvent?.id === event.id
                     ? "Processing..."
-                    : (event.title === "Chess" || event.title === "M-CODE" || event.title === "BGMI" || event.title === "VALORANT" || event.title === "METALLOSCAPE" || event.title === "MET-TRICKS" || event.title === "METAPOLISH") ? "Closed" : "Register"}
+                    : (event.title === "Chess" || event.title === "M-CODE" || event.title === "BGMI" || event.title === "VALORANT" || event.title === "METALLOSCAPE" || event.title === "MET-TRICKS" || event.title === "METAPOLISH" || event.title === "Dr. A. K. Seal Memorial Quiz") ? "Closed" : "Register"}
                 </button>
 
               </div>
