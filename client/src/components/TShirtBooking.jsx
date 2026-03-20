@@ -53,7 +53,8 @@ const TShirtBooking = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError('');
+        setError('T-Shirt Registration is now closed.');
+        return;
         // Validate all required fields
         if (!size || !paymentScreenshot || !userName || !userPhone) {
             setError('Please fill in all fields (Name, Mobile Number, Size, Payment Screenshot).');
@@ -254,10 +255,10 @@ const TShirtBooking = () => {
 
                             <button
                                 type="submit"
-                                disabled={loading}
-                                className="w-full btn btn-primary btn-lg mt-4 font-bold tracking-widest"
+                                disabled={true}
+                                className="w-full btn btn-primary btn-lg mt-4 font-bold tracking-widest cursor-not-allowed opacity-50"
                             >
-                                {loading ? 'PROCESSING...' : 'CONFIRM ORDER'}
+                                REGISTRATION CLOSED
                             </button>
                         </form>
                     </div>
