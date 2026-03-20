@@ -732,12 +732,12 @@ function EventsAll() {
 
                 <button
                   className="btn btn-outline btn-primary btn-sm flex-1"
-                  disabled={loading || event.title === "Chess" || event.title === "M-CODE" || event.title === "BGMI" || event.title === "VALORANT" || event.title === "METALLOSCAPE" || event.title === "MET-TRICKS" || event.title === "METAPOLISH" || event.title === "Dr. A. K. Seal Memorial Quiz" || event.title === "PRORECRUIT"}
+                  disabled={loading || event.title === "Chess" || event.title === "M-CODE" || event.title === "BGMI" || event.title === "VALORANT" || event.title === "METALLOSCAPE" || event.title === "MET-TRICKS" || event.title === "METAPOLISH" || event.title === "Dr. A. K. Seal Memorial Quiz" || event.title === "PRORECRUIT" || event.title === "निर्माण "}
                   onClick={() => handleRegisterClick(event)}
                 >
                   {loading && registerEvent?.id === event.id
                     ? "Processing..."
-                    : (event.title === "Chess" || event.title === "M-CODE" || event.title === "BGMI" || event.title === "VALORANT" || event.title === "METALLOSCAPE" || event.title === "MET-TRICKS" || event.title === "METAPOLISH" || event.title === "Dr. A. K. Seal Memorial Quiz" || event.title === "PRORECRUIT") ? "Closed" : "Register"}
+                    : (event.title === "Chess" || event.title === "M-CODE" || event.title === "BGMI" || event.title === "VALORANT" || event.title === "METALLOSCAPE" || event.title === "MET-TRICKS" || event.title === "METAPOLISH" || event.title === "Dr. A. K. Seal Memorial Quiz" || event.title === "PRORECRUIT" || event.title === "निर्माण ") ? "Closed" : "Register"}
                 </button>
 
               </div>
@@ -913,9 +913,9 @@ function EventsAll() {
 
               {/* REGISTER BUTTON */}
               <button
-                disabled={selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI" || selectedEvent.title === "VALORANT" || selectedEvent.title === "METALLOSCAPE" || selectedEvent.title === "MET-TRICKS" || selectedEvent.title === "METAPOLISH" || selectedEvent.title === "PRORECRUIT" || selectedEvent.title === "Dr. A. K. Seal Memorial Quiz"}
+                disabled={selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI" || selectedEvent.title === "VALORANT" || selectedEvent.title === "METALLOSCAPE" || selectedEvent.title === "MET-TRICKS" || selectedEvent.title === "METAPOLISH" || selectedEvent.title === "PRORECRUIT" || selectedEvent.title === "Dr. A. K. Seal Memorial Quiz" || selectedEvent.title === "निर्माण "}
                 onClick={() => {
-                  if (selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI" || selectedEvent.title === "VALORANT" || selectedEvent.title === "METALLOSCAPE" || selectedEvent.title === "MET-TRICKS" || selectedEvent.title === "METAPOLISH" || selectedEvent.title === "PRORECRUIT" || selectedEvent.title === "Dr. A. K. Seal Memorial Quiz") return;
+                  if (selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI" || selectedEvent.title === "VALORANT" || selectedEvent.title === "METALLOSCAPE" || selectedEvent.title === "MET-TRICKS" || selectedEvent.title === "METAPOLISH" || selectedEvent.title === "PRORECRUIT" || selectedEvent.title === "Dr. A. K. Seal Memorial Quiz" || selectedEvent.title === "निर्माण ") return;
                   setSelectedEvent(null);
                   handleRegisterClick(selectedEvent);
                 }}
@@ -931,7 +931,7 @@ function EventsAll() {
     disabled:opacity-50 disabled:cursor-not-allowed
   "
               >
-                {(selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI" || selectedEvent.title === "VALORANT" || selectedEvent.title === "METALLOSCAPE" || selectedEvent.title === "MET-TRICKS" || selectedEvent.title === "METAPOLISH" || selectedEvent.title === "PRORECRUIT" || selectedEvent.title === "Dr. A. K. Seal Memorial Quiz") ? "Closed" : "Register Now"}
+                {(selectedEvent.title === "Chess" || selectedEvent.title === "M-CODE" || selectedEvent.title === "BGMI" || selectedEvent.title === "VALORANT" || selectedEvent.title === "METALLOSCAPE" || selectedEvent.title === "MET-TRICKS" || selectedEvent.title === "METAPOLISH" || selectedEvent.title === "PRORECRUIT" || selectedEvent.title === "Dr. A. K. Seal Memorial Quiz" || selectedEvent.title === "निर्माण ") ? "Closed" : "Register Now"}
               </button>
 
               {/* PROBLEM STATEMENT BUTTON */}
